@@ -1,0 +1,99 @@
+package com.xxm.review;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.xxm.review.domain.Item;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+
+
+    private ListView listView;
+
+    private Context mContext;
+    private List<Item> itemList = new ArrayList<>();
+
+    {
+        itemList.add(new Item("ConstraintLayout","ConstraintLayout 布局",ConstraintLayoutActivity.class));
+    }
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mContext = this;
+
+        listView = findViewById(R.id.listView);
+        listView.setAdapter(new ListAdapter());
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Item item = itemList.get(position);
+                Intent intent = new Intent(mContext,item.getClazz());
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+            }
+        });
+
+    }
+
+
+    private class ListAdapter extends BaseAdapter{
+
+        @Override
+        public int getCount() {
+            return itemList.size();
+        }
+
+        @Override
+        public Item getItem(int position) {
+            return itemList.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ViewHolder holder = null;
+            if (convertView == null){
+                convertView = View.inflate(mContext,R.layout.list_item_main,null);
+                holder = new ViewHolder();
+                holder.tvTitle = convertView.findViewById(R.id.tv_title);
+                holder.tvDesc = convertView.findViewById(R.id.tv_desc);
+                convertView.setTag(holder);
+            }else {
+                holder = (ViewHolder) convertView.getTag();
+            }
+
+            Item item = getItem(position);
+            holder.tvTitle.setText(item.getTitle());
+            holder.tvDesc.setText(item.getDesc());
+
+            return convertView;
+        }
+
+
+        class ViewHolder {
+            TextView tvTitle;
+            TextView tvDesc;
+        }
+
+    }
+
+}
