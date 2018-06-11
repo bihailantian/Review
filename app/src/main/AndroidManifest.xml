@@ -17,7 +17,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.ConstraintLayoutActivity" />
-        <activity android:name=".activity.LifeActivity"></activity>
+        <activity android:name=".activity.LifeActivity" />
+        <activity android:name=".activity.ServiceActivity" />
+
+        <service android:name=".CountService" />
     </application>
 
 </manifest>

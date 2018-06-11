@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.xxm.review.activity.ConstraintLayoutActivity;
 import com.xxm.review.activity.LifeActivity;
+import com.xxm.review.activity.ServiceActivity;
 import com.xxm.review.domain.Item;
 
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Item> itemList = new ArrayList<>();
 
     {
+        itemList.add(new Item("Service","startService()和bindService()两种方式启动service",ServiceActivity.class));
         itemList.add(new Item("Activity的生命周期","",LifeActivity.class));
         itemList.add(new Item("ConstraintLayout","ConstraintLayout 布局",ConstraintLayoutActivity.class));
     }
