@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ConstraintLayoutActivity"></activity>
+        <activity android:name=".activity.ConstraintLayoutActivity" />
+        <activity android:name=".activity.LifeActivity"></activity>
     </application>
 
 </manifest>

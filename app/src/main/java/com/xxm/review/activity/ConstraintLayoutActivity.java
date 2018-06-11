@@ -1,7 +1,9 @@
-package com.xxm.review;
+package com.xxm.review.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.xxm.review.R;
 
 /**
  * ConstraintLayout 布局
