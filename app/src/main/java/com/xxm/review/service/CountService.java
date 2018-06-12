@@ -10,8 +10,8 @@ public class CountService extends Service {
 
     private static final String TAG = CountService.class.getSimpleName();
 
-   private MyBinder mBinder = new MyBinder();
-
+    private MyBinder mBinder = new MyBinder();
+    private int count = 1;
 
     public CountService() {
     }
@@ -20,13 +20,13 @@ public class CountService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d(TAG,"onCreate");
+        Log.d(TAG, "onCreate");
     }
 
 
     @Override
     public IBinder onBind(Intent intent) {
-        Log.d(TAG,"onBind");
+        Log.d(TAG, "onBind");
 //        throw new UnsupportedOperationException("Not yet implemented");
         return mBinder;
     }
@@ -34,27 +34,32 @@ public class CountService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d(TAG,"onStartCommand");
+        Log.d(TAG, "onStartCommand");
         return super.onStartCommand(intent, flags, startId);
     }
 
 
     @Override
     public boolean onUnbind(Intent intent) {
-        Log.d(TAG,"onUnbind");
+        Log.d(TAG, "onUnbind");
         return super.onUnbind(intent);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d(TAG,"onDestroy");
+        Log.d(TAG, "onDestroy");
     }
 
 
-    class MyBinder extends Binder{
+    public int getCount() {
+        return count;
+    }
 
-       private CountService getService(){
+
+    public class MyBinder extends Binder {
+
+        public CountService getService() {
             return CountService.this;
         }
 

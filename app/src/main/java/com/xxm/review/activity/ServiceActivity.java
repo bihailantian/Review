@@ -13,6 +13,7 @@ import android.view.View;
 
 import com.xxm.review.R;
 import com.xxm.review.service.CountService;
+import com.xxm.review.service.CountService.MyBinder;
 
 /**
  * service 测试
@@ -23,6 +24,7 @@ public class ServiceActivity extends AppCompatActivity {
     private Context mContext;
     private Intent serviceIntent;
     private CountServiceConn serviceConnect;
+    private CountService mService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +32,14 @@ public class ServiceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_service);
         mContext = ServiceActivity.this;
         serviceIntent = new Intent(mContext,CountService.class);
-        serviceConnect = new CountServiceConn();
+
     }
 
     /**
      * 开启service
      */
     public void startService(View view){
+
         startService(serviceIntent);
 
     }
@@ -53,6 +56,7 @@ public class ServiceActivity extends AppCompatActivity {
      */
     public void bindService(View view){
         Log.d(TAG,"Service.BIND_AUTO_CREATE= "+Service.BIND_AUTO_CREATE);
+        serviceConnect = new CountServiceConn();
         bindService(serviceIntent,serviceConnect, Service.BIND_AUTO_CREATE);
     }
 
@@ -60,7 +64,12 @@ public class ServiceActivity extends AppCompatActivity {
      * service解除绑定
      */
     public void unBindService(View view){
-        unbindService(serviceConnect);
+        Log.d(TAG,"unBindService");
+        if (serviceConnect != null) {
+            mContext.unbindService(serviceConnect);
+            serviceConnect = null;
+        }
+
     }
 
 
@@ -70,6 +79,9 @@ public class ServiceActivity extends AppCompatActivity {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             Log.d(TAG,"onServiceConnected --> name"+ name);
+            MyBinder mBinder = (MyBinder) service;
+            mService = mBinder.getService();
+            Log.d(TAG,"Count="+mService.getCount());
         }
 
         @Override
