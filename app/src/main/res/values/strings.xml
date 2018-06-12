@@ -4,6 +4,7 @@
     <string name="start_service">startService</string>
     <string name="stop_service">stopService</string>
     <string name="bind_service">bindService</string>
+    <string name="unbind_service">unBindService</string>
 
     <string name="tv2">ConstraintLayout 完全解析 快来优化你的布局吧</string>
     <string name="activity_life">Activity 的生命周期</string>

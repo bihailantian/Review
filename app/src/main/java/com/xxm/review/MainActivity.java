@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         itemList.add(new Item("Service","startService()和bindService()两种方式启动service",ServiceActivity.class));
-        itemList.add(new Item("Activity的生命周期","",LifeActivity.class));
+        itemList.add(new Item("Activity的生命周期","Activity的生命周期",LifeActivity.class));
         itemList.add(new Item("ConstraintLayout","ConstraintLayout 布局",ConstraintLayoutActivity.class));
     }
 

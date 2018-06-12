@@ -9,6 +9,8 @@
 
 
     <Button
+        android:layout_marginTop="10dp"
+        android:onClick="startService"
         android:textAllCaps="false"
         android:text="@string/start_service"
         android:id="@+id/startService"
@@ -16,21 +18,36 @@
         android:layout_height="wrap_content" />
 
 
+
+
     <Button
+        android:layout_marginTop="10dp"
+        android:onClick="stopService"
+        android:textAllCaps="false"
+        android:text="@string/stop_service"
+        android:id="@+id/stopService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:onClick="bindService"
         android:textAllCaps="false"
         android:text="@string/bind_service"
         android:id="@+id/bindService"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-
-
     <Button
+        android:layout_marginTop="10dp"
+        android:onClick="unBindService"
         android:textAllCaps="false"
-        android:text="@string/stop_service"
-        android:id="@+id/stopService"
+        android:text="@string/unbind_service"
+        android:id="@+id/unBindService"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
 
 
 </LinearLayout>
