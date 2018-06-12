@@ -62,11 +62,14 @@ public class ServiceActivity extends AppCompatActivity {
 
     /**
      * service解除绑定
+     * 调用unbindService()的前提条件
+     *  1、service 是用bindService()启动的
+     *  2、ServiceConnection 对象不为null
      */
     public void unBindService(View view){
         Log.d(TAG,"unBindService");
         if (serviceConnect != null) {
-            mContext.unbindService(serviceConnect);
+            unbindService(serviceConnect);
             serviceConnect = null;
         }
 
