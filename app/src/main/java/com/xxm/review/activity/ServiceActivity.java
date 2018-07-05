@@ -31,14 +31,14 @@ public class ServiceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service);
         mContext = ServiceActivity.this;
-        serviceIntent = new Intent(mContext,CountService.class);
+        serviceIntent = new Intent(mContext, CountService.class);
 
     }
 
     /**
      * 开启service
      */
-    public void startService(View view){
+    public void startService(View view) {
 
         startService(serviceIntent);
 
@@ -47,27 +47,27 @@ public class ServiceActivity extends AppCompatActivity {
     /**
      * 停止service
      */
-    public void stopService(View view){
+    public void stopService(View view) {
         stopService(serviceIntent);
     }
 
     /**
      * 绑定service
      */
-    public void bindService(View view){
-        Log.d(TAG,"Service.BIND_AUTO_CREATE= "+Service.BIND_AUTO_CREATE);
+    public void bindService(View view) {
+        Log.d(TAG, "Service.BIND_AUTO_CREATE= " + Service.BIND_AUTO_CREATE);
         serviceConnect = new CountServiceConn();
-        bindService(serviceIntent,serviceConnect, Service.BIND_AUTO_CREATE);
+        bindService(serviceIntent, serviceConnect, Service.BIND_AUTO_CREATE);
     }
 
     /**
      * service解除绑定
      * 调用unbindService()的前提条件
-     *  1、service 是用bindService()启动的
-     *  2、ServiceConnection 对象不为null
+     * 1、service 是用bindService()启动的
+     * 2、ServiceConnection 对象不为null
      */
-    public void unBindService(View view){
-        Log.d(TAG,"unBindService");
+    public void unBindService(View view) {
+        Log.d(TAG, "unBindService");
         if (serviceConnect != null) {
             unbindService(serviceConnect);
             serviceConnect = null;
@@ -76,20 +76,19 @@ public class ServiceActivity extends AppCompatActivity {
     }
 
 
-
     class CountServiceConn implements ServiceConnection {
 
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            Log.d(TAG,"onServiceConnected --> name"+ name);
+            Log.d(TAG, "onServiceConnected --> name" + name);
             MyBinder mBinder = (MyBinder) service;
             mService = mBinder.getService();
-            Log.d(TAG,"Count="+mService.getCount());
+            Log.d(TAG, "Count=" + mService.getCount());
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
-            Log.d(TAG,"onServiceConnected --> name"+ name);
+            Log.d(TAG, "onServiceConnected --> name" + name);
         }
     }
 

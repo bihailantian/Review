@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xxm.review">
 
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,7 +25,8 @@
 
         <service android:name=".service.CountService" />
 
-        <activity android:name=".activity.ConfigActivity"/>
+        <activity android:name=".activity.ConfigActivity" />
+        <activity android:name=".activity.RetrofitActivity" />
     </application>
 
 </manifest>

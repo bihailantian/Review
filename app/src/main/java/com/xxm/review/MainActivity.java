@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.xxm.review.activity.ConfigActivity;
 import com.xxm.review.activity.ConstraintLayoutActivity;
 import com.xxm.review.activity.LifeActivity;
+import com.xxm.review.activity.RetrofitActivity;
 import com.xxm.review.activity.ServiceActivity;
 import com.xxm.review.domain.Item;
 
@@ -29,10 +30,11 @@ public class MainActivity extends AppCompatActivity {
     private List<Item> itemList = new ArrayList<>();
 
     {
-        itemList.add(new Item("ConfigActivity","连续设置属性",ConfigActivity.class));
-        itemList.add(new Item("Service","startService()和bindService()两种方式启动service",ServiceActivity.class));
-        itemList.add(new Item("Activity的生命周期","Activity的生命周期",LifeActivity.class));
-        itemList.add(new Item("ConstraintLayout","ConstraintLayout 布局",ConstraintLayoutActivity.class));
+        itemList.add(new Item("Retrofit", "Retrofit 框架测试", RetrofitActivity.class));
+        itemList.add(new Item("ConfigActivity", "连续设置属性", ConfigActivity.class));
+        itemList.add(new Item("Service", "startService()和bindService()两种方式启动service", ServiceActivity.class));
+        itemList.add(new Item("Activity的生命周期", "Activity的生命周期", LifeActivity.class));
+        itemList.add(new Item("ConstraintLayout", "ConstraintLayout 布局", ConstraintLayoutActivity.class));
     }
 
 
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Item item = itemList.get(position);
-                Intent intent = new Intent(mContext,item.getClazz());
+                Intent intent = new Intent(mContext, item.getClazz());
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
@@ -58,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private class ListAdapter extends BaseAdapter{
+    private class ListAdapter extends BaseAdapter {
 
         @Override
         public int getCount() {
@@ -78,13 +80,13 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             ViewHolder holder = null;
-            if (convertView == null){
-                convertView = View.inflate(mContext,R.layout.list_item_main,null);
+            if (convertView == null) {
+                convertView = View.inflate(mContext, R.layout.list_item_main, null);
                 holder = new ViewHolder();
                 holder.tvTitle = convertView.findViewById(R.id.tv_title);
                 holder.tvDesc = convertView.findViewById(R.id.tv_desc);
                 convertView.setTag(holder);
-            }else {
+            } else {
                 holder = (ViewHolder) convertView.getTag();
             }
 

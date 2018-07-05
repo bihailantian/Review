@@ -8,8 +8,7 @@ public class Item {
     private Class clazz; //Class
 
 
-
-    public Item(String title, String desc,Class clazz) {
+    public Item(String title, String desc, Class clazz) {
         this.title = title;
         this.desc = desc;
         this.clazz = clazz;
