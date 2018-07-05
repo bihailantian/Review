@@ -13,5 +13,5 @@ Review
         <item name="android:windowIsTranslucent">true</item>
     </style>
 ```
-是Theme.AppCompat.Light.NoActionBar 主题可以直接去掉ActionBar
+使用Theme.AppCompat.Light.NoActionBar 主题可以直接去掉ActionBar
 
