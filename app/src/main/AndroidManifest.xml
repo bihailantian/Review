@@ -21,6 +21,8 @@
         <activity android:name=".activity.ServiceActivity" />
 
         <service android:name=".service.CountService" />
+
+        <activity android:name=".activity.ConfigActivity"></activity>
     </application>
 
 </manifest>

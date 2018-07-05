@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.xxm.review.activity.ConfigActivity;
 import com.xxm.review.activity.ConstraintLayoutActivity;
 import com.xxm.review.activity.LifeActivity;
 import com.xxm.review.activity.ServiceActivity;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Item> itemList = new ArrayList<>();
 
     {
+        itemList.add(new Item("ConfigActivity","连续设置属性",ConfigActivity.class));
         itemList.add(new Item("Service","startService()和bindService()两种方式启动service",ServiceActivity.class));
         itemList.add(new Item("Activity的生命周期","Activity的生命周期",LifeActivity.class));
         itemList.add(new Item("ConstraintLayout","ConstraintLayout 布局",ConstraintLayoutActivity.class));
