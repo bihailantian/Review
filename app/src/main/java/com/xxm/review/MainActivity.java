@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.xxm.review.activity.CalendarActivity;
 import com.xxm.review.activity.ConfigActivity;
 import com.xxm.review.activity.ConstraintLayoutActivity;
 import com.xxm.review.activity.LifeActivity;
@@ -31,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private List<Item> itemList = new ArrayList<>();
 
     {
-        itemList.add(new Item("Okhttp3", "Okhttp3 源码学习", OkHttp3Activity.class));
+        itemList.add(new Item("Calendar", "Calendar 日期选择", CalendarActivity.class));
+        itemList.add(new Item("OkHttp3", "OkHttp3 源码学习", OkHttp3Activity.class));
         itemList.add(new Item("Retrofit", "Retrofit 框架测试", RetrofitActivity.class));
         itemList.add(new Item("ConfigActivity", "连续设置属性", ConfigActivity.class));
         itemList.add(new Item("Service", "startService()和bindService()两种方式启动service", ServiceActivity.class));
