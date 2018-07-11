@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Item> itemList = new ArrayList<>();
 
     {
+        itemList.add(new Item("Shape", "Shape 资源的使用", ShapeActivity.class));
         itemList.add(new Item("Calendar", "Calendar 日期选择", CalendarActivity.class));
         itemList.add(new Item("OkHttp3", "OkHttp3 源码学习", OkHttp3Activity.class));
         itemList.add(new Item("Retrofit", "Retrofit 框架测试", RetrofitActivity.class));

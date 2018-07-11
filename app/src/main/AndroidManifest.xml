@@ -27,7 +27,8 @@
         <activity android:name=".activity.ConfigActivity" />
         <activity android:name=".activity.RetrofitActivity" />
         <activity android:name=".activity.OkHttp3Activity" />
-        <activity android:name=".activity.CalendarActivity"/>
+        <activity android:name=".activity.CalendarActivity" />
+        <activity android:name=".ShapeActivity"></activity>
     </application>
 
 </manifest>
