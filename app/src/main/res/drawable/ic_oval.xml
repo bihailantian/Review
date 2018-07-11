@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+
+
+
+    <!--填充颜色-->
+    <solid android:color="@color/colorAccent" />
+
+    <!--渐变-->
+    <gradient
+        android:centerX="0.5"
+        android:centerY="0.5"
+        android:angle="90"
+        android:startColor="@color/colorPrimary"
+        android:centerColor="@color/colorAccent"
+        android:endColor="@color/colorPrimaryDark"
+        />
+
+    <stroke
+        android:width="10dp"
+        android:color="@color/colorAccent"
+        android:dashGap="5dp"
+        android:dashWidth="20dp"
+        />
+    
+
+
+</shape>

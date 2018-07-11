@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="ring"
+    android:thickness="50dp"
+    android:useLevel="false">
+    <!--useLevel需要设置为false-->
+    <!--android:thickness：圆环宽度-->
+
+
+    <!--渐变-->
+    <gradient
+        android:angle="90"
+        android:centerColor="@color/colorAccent"
+        android:centerX="0.5"
+        android:centerY="0.5"
+        android:endColor="@color/colorPrimaryDark"
+        android:startColor="@color/colorPrimary" />
+
+
+</shape>
