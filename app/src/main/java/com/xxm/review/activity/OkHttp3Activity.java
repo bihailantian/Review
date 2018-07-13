@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.xxm.review.R;
-import com.xxm.review.Test;
 
 import java.io.IOException;
 
@@ -12,7 +11,10 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class OkHttp3Activity extends AppCompatActivity implements Test {
+/**
+ * OkHttp3 源码学习
+ */
+public class OkHttp3Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

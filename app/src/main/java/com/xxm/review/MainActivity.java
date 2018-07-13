@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -18,6 +19,7 @@ import com.xxm.review.activity.LifeActivity;
 import com.xxm.review.activity.OkHttp3Activity;
 import com.xxm.review.activity.RetrofitActivity;
 import com.xxm.review.activity.ServiceActivity;
+import com.xxm.review.activity.ShapeActivity;
 import com.xxm.review.domain.Item;
 
 import java.util.ArrayList;
@@ -26,13 +28,14 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
 
+    private static final String TAG = MainActivity.class.getSimpleName();
     private ListView listView;
 
     private Context mContext;
     private List<Item> itemList = new ArrayList<>();
 
     {
-        itemList.add(new Item("Shape", "Shape 资源的使用", ShapeActivity.class));
+        itemList.add(new Item("Shape", "Shape 资源的定义和使用", ShapeActivity.class));
         itemList.add(new Item("Calendar", "Calendar 日期选择", CalendarActivity.class));
         itemList.add(new Item("OkHttp3", "OkHttp3 源码学习", OkHttp3Activity.class));
         itemList.add(new Item("Retrofit", "Retrofit 框架测试", RetrofitActivity.class));
@@ -61,6 +64,12 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+        Log.d(TAG, "getPackageName()= " + getPackageName());
+        Log.d(TAG, "getApplicationInfo().packageName= " + getApplicationInfo().packageName);
+        Log.d(TAG, "getApplicationInfo().processName= " + getApplicationInfo().processName);
+        Log.d(TAG, "getApplication().getPackageName()= " + getApplication().getPackageName());
 
     }
 

@@ -8,6 +8,9 @@ import android.util.Log;
 import com.xxm.review.R;
 import com.xxm.review.domain.InfoConfig;
 
+/**
+ * 连续设置属性
+ */
 public class ConfigActivity extends AppCompatActivity {
 
     private static final String TGA = ConfigActivity.class.getSimpleName();
