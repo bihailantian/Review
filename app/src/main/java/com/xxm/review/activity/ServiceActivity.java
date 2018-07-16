@@ -7,18 +7,18 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
 import com.xxm.review.R;
+import com.xxm.review.base.BaseActivity;
 import com.xxm.review.service.CountService;
 import com.xxm.review.service.CountService.MyBinder;
 
 /**
  * service 测试
  */
-public class ServiceActivity extends AppCompatActivity {
+public class ServiceActivity extends BaseActivity {
 
     private static final String TAG = ServiceActivity.class.getSimpleName();
     private Context mContext;

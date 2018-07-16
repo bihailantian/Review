@@ -1,9 +1,9 @@
 package com.xxm.review.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.xxm.review.R;
+import com.xxm.review.base.BaseActivity;
 
 import java.io.IOException;
 
@@ -14,7 +14,7 @@ import okhttp3.Response;
 /**
  * OkHttp3 源码学习
  */
-public class OkHttp3Activity extends AppCompatActivity {
+public class OkHttp3Activity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,15 +1,15 @@
 package com.xxm.review.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.xxm.review.R;
+import com.xxm.review.base.BaseActivity;
 
 /**
  * Activity 的生命周期
  */
-public class LifeActivity extends AppCompatActivity {
+public class LifeActivity extends BaseActivity {
 
     /**
      * onCreate() onStart() onResume() onPause() onStop()  onRestart() onDestroy()

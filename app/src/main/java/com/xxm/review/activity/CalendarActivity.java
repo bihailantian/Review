@@ -1,7 +1,6 @@
 package com.xxm.review.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +8,7 @@ import android.widget.CalendarView;
 import android.widget.TextView;
 
 import com.xxm.review.R;
+import com.xxm.review.base.BaseActivity;
 import com.xxm.review.utils.DateUtils;
 
 import java.text.ParseException;
@@ -18,7 +18,7 @@ import java.util.Date;
 /**
  * Calendar 日期选择
  */
-public class CalendarActivity extends AppCompatActivity implements View.OnClickListener {
+public class CalendarActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = CalendarActivity.class.getSimpleName();
     private TextView tvDate;

@@ -1,11 +1,11 @@
 package com.xxm.review.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
 import com.xxm.review.R;
+import com.xxm.review.base.BaseActivity;
 import com.xxm.review.service.GitHubService;
 
 import java.io.IOException;
@@ -20,7 +20,7 @@ import retrofit2.Retrofit;
 /**
  * Retrofit 框架测试
  */
-public class RetrofitActivity extends AppCompatActivity implements View.OnClickListener {
+public class RetrofitActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = RetrofitActivity.class.getSimpleName();
     //天气

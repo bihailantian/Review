@@ -6,18 +6,18 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.xxm.review.R;
+import com.xxm.review.base.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PollViewActivity extends AppCompatActivity {
+public class PollViewActivity extends BaseActivity {
 
     private ViewPager mViewPager;
     private Context mContext;

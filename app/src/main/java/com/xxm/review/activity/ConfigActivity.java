@@ -2,16 +2,16 @@ package com.xxm.review.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.xxm.review.R;
+import com.xxm.review.base.BaseActivity;
 import com.xxm.review.domain.InfoConfig;
 
 /**
  * 连续设置属性
  */
-public class ConfigActivity extends AppCompatActivity {
+public class ConfigActivity extends BaseActivity {
 
     private static final String TGA = ConfigActivity.class.getSimpleName();
 
