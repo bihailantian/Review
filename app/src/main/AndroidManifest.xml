@@ -29,6 +29,7 @@
         <activity android:name=".activity.OkHttp3Activity" />
         <activity android:name=".activity.CalendarActivity" />
         <activity android:name=".activity.ShapeActivity" />
+        <activity android:name=".activity.PollViewActivity" />
     </application>
 
 </manifest>

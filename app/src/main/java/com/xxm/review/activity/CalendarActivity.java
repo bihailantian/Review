@@ -22,7 +22,7 @@ public class CalendarActivity extends AppCompatActivity implements View.OnClickL
 
     private static final String TAG = CalendarActivity.class.getSimpleName();
     private TextView tvDate;
-    private CalendarView calendar;
+    private CalendarView mCalendar;
 
 
     @Override
@@ -34,9 +34,9 @@ public class CalendarActivity extends AppCompatActivity implements View.OnClickL
         tvDate.setOnClickListener(this);
 
 
-        calendar = findViewById(R.id.calender);
-        calendar.setMaxDate(new Date().getTime());
-//        calendar.setMaxDate(System.currentTimeMillis());
+        mCalendar = findViewById(R.id.calender);
+        mCalendar.setMaxDate(new Date().getTime());
+//        mCalendar.setMaxDate(System.currentTimeMillis());
 
 
 

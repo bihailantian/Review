@@ -17,6 +17,7 @@ import com.xxm.review.activity.ConfigActivity;
 import com.xxm.review.activity.ConstraintLayoutActivity;
 import com.xxm.review.activity.LifeActivity;
 import com.xxm.review.activity.OkHttp3Activity;
+import com.xxm.review.activity.PollViewActivity;
 import com.xxm.review.activity.RetrofitActivity;
 import com.xxm.review.activity.ServiceActivity;
 import com.xxm.review.activity.ShapeActivity;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Item> itemList = new ArrayList<>();
 
     {
+        itemList.add(new Item("ViewPager", "ViewPager的使用", PollViewActivity.class));
         itemList.add(new Item("Shape", "Shape 资源的定义和使用", ShapeActivity.class));
         itemList.add(new Item("Calendar", "Calendar 日期选择", CalendarActivity.class));
         itemList.add(new Item("OkHttp3", "OkHttp3 源码学习", OkHttp3Activity.class));
