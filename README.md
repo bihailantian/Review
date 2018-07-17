@@ -92,7 +92,7 @@ protected void attachBaseContext(Context base) {
 
 ```
 
-一定要注意要在宿主的清单文件中声明自己重写的Application。我就是忘了这件事发现死活成功不了
+一定要注意要在宿主的清单文件中声明自己重写的Application。
 
 6、加载插件
 
