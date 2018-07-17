@@ -21,6 +21,7 @@ import com.xxm.review.activity.PollViewActivity;
 import com.xxm.review.activity.RetrofitActivity;
 import com.xxm.review.activity.ServiceActivity;
 import com.xxm.review.activity.ShapeActivity;
+import com.xxm.review.activity.VirtualApkActivity;
 import com.xxm.review.domain.Item;
 
 import java.util.ArrayList;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Item> itemList = new ArrayList<>();
 
     {
+        itemList.add(new Item("VirtualApk", "滴滴的VirtualApk插件化框架使用", VirtualApkActivity.class));
         itemList.add(new Item("ViewPager", "ViewPager的使用", PollViewActivity.class));
         itemList.add(new Item("Shape", "Shape 资源的定义和使用", ShapeActivity.class));
         itemList.add(new Item("Calendar", "Calendar 日期选择", CalendarActivity.class));

@@ -3,8 +3,11 @@
     package="com.xxm.review">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".ReviewApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -30,6 +33,7 @@
         <activity android:name=".activity.CalendarActivity" />
         <activity android:name=".activity.ShapeActivity" />
         <activity android:name=".activity.PollViewActivity" />
+        <activity android:name=".activity.VirtualApkActivity" />
     </application>
 
 </manifest>
