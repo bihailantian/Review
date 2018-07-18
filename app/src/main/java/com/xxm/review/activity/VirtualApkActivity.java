@@ -2,17 +2,17 @@ package com.xxm.review.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
 import com.didi.virtualapk.PluginManager;
 import com.xxm.review.R;
+import com.xxm.review.base.BaseActivity;
 
 /**
  * 滴滴的VirtualApk插件化框架使用
  */
-public class VirtualApkActivity extends AppCompatActivity {
+public class VirtualApkActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

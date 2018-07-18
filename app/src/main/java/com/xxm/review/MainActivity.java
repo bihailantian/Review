@@ -29,9 +29,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private static final String TAG = MainActivity.class.getSimpleName();
-    private ListView listView;
 
     private Context mContext;
     private List<Item> itemList = new ArrayList<>();
@@ -56,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mContext = this;
 
-        listView = findViewById(R.id.listView);
+        ListView listView = findViewById(R.id.listView);
         listView.setAdapter(new ListAdapter());
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
