@@ -34,6 +34,7 @@
         <activity android:name=".activity.ShapeActivity" />
         <activity android:name=".activity.PollViewActivity" />
         <activity android:name=".activity.VirtualApkActivity" />
+        <activity android:name=".activity.ImageActivity" />
     </application>
 
 </manifest>
