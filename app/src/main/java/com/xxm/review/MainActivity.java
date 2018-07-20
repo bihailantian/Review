@@ -3,6 +3,7 @@ package com.xxm.review;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +26,7 @@ import com.xxm.review.activity.ShapeActivity;
 import com.xxm.review.activity.VirtualApkActivity;
 import com.xxm.review.domain.Item;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Item> itemList = new ArrayList<>();
 
     {
-        itemList.add(new Item("图片处理", "", ImageActivity.class));
+        itemList.add(new Item("图片处理", "缩放法压缩、RGB_565", ImageActivity.class));
         itemList.add(new Item("VirtualApk", "滴滴的VirtualApk插件化框架使用", VirtualApkActivity.class));
         itemList.add(new Item("ViewPager", "ViewPager的使用", PollViewActivity.class));
         itemList.add(new Item("Shape", "Shape 资源的定义和使用", ShapeActivity.class));
@@ -74,6 +76,12 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "getApplicationInfo().packageName= " + getApplicationInfo().packageName);
         Log.d(TAG, "getApplicationInfo().processName= " + getApplicationInfo().processName);
         Log.d(TAG, "getApplication().getPackageName()= " + getApplication().getPackageName());
+        Log.d(TAG, "目录= " + Environment.getExternalStorageDirectory().getAbsolutePath());
+        Log.d(TAG, "sd卡: " + Environment.getExternalStorageState());
+        Log.d(TAG, "sd卡: " + Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED));
+        Log.d(TAG, "文件路径: " + Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "Review");
+        Log.d(TAG, "文件路径: " + Environment.getExternalStorageDirectory());
+
 
     }
 
