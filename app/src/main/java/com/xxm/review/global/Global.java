@@ -1,4 +1,4 @@
-package com.xxm.review;
+package com.xxm.review.global;
 
 /**
  * 常量
