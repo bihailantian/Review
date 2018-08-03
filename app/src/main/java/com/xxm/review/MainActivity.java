@@ -13,6 +13,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.xxm.review.activity.BadgeActivity;
 import com.xxm.review.activity.CalendarActivity;
 import com.xxm.review.activity.ConfigActivity;
 import com.xxm.review.activity.ConstraintLayoutActivity;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Item> itemList = new ArrayList<>();
 
     {
+        itemList.add(new Item("图标badge", "给图标设置徽章", BadgeActivity.class));
         itemList.add(new Item("图片处理", "缩放法压缩、RGB_565", ImageActivity.class));
         itemList.add(new Item("VirtualApk", "滴滴的VirtualApk插件化框架使用", VirtualApkActivity.class));
         itemList.add(new Item("ViewPager", "ViewPager的使用", PollViewActivity.class));
