@@ -6,9 +6,9 @@
     tools:context="com.xxm.review.activity.BadgeActivity">
 
 
-    <ImageView
+    <pl.droidsonroids.gif.GifImageView
         android:id="@+id/iv_badge"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/ic_gif"
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
