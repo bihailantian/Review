@@ -21,9 +21,11 @@ import com.xxm.review.activity.ImageActivity;
 import com.xxm.review.activity.LifeActivity;
 import com.xxm.review.activity.OkHttp3Activity;
 import com.xxm.review.activity.PollViewActivity;
+import com.xxm.review.activity.ProgressBarActivity;
 import com.xxm.review.activity.RetrofitActivity;
 import com.xxm.review.activity.ServiceActivity;
 import com.xxm.review.activity.ShapeActivity;
+import com.xxm.review.activity.SharePreActivity;
 import com.xxm.review.activity.VirtualApkActivity;
 import com.xxm.review.domain.Item;
 
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     private List<Item> itemList = new ArrayList<>();
 
     {
+        itemList.add(new Item("ProgressBar", "ProgressBar", ProgressBarActivity.class));
+        itemList.add(new Item("SharePreUtils", "SharePreUtils", SharePreActivity.class));
         itemList.add(new Item("图标badge", "给图标设置徽章", BadgeActivity.class));
         itemList.add(new Item("图片处理", "缩放法压缩、RGB_565", ImageActivity.class));
         itemList.add(new Item("VirtualApk", "滴滴的VirtualApk插件化框架使用", VirtualApkActivity.class));

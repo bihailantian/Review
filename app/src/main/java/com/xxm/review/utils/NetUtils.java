@@ -1,4 +1,4 @@
-package com.xxm.review.utils.utils;
+package com.xxm.review.utils;
 
 import android.app.Activity;
 import android.content.ComponentName;

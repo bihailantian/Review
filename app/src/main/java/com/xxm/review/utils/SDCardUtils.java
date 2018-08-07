@@ -1,4 +1,4 @@
-package com.xxm.review.utils.utils;
+package com.xxm.review.utils;
 
 import android.os.Environment;
 import android.os.StatFs;
