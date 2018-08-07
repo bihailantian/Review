@@ -26,6 +26,7 @@ public class OkHttp3Activity extends BaseActivity {
     }
 
     OkHttpClient client = new OkHttpClient();
+
     String run(String url) throws IOException {
         Request request = new Request.Builder()
                 .url(url)
@@ -37,7 +38,7 @@ public class OkHttp3Activity extends BaseActivity {
     }
 
 
-     public void test() {
+    public void test() {
         OkHttpClient client = new OkHttpClient();
         Request.Builder builder = new Request.Builder();
     }

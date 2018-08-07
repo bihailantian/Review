@@ -39,8 +39,6 @@ public class CalendarActivity extends BaseActivity implements View.OnClickListen
 //        mCalendar.setMaxDate(System.currentTimeMillis());
 
 
-
-
     }
 
     @Override

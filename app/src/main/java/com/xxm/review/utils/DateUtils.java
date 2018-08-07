@@ -51,7 +51,6 @@ public class DateUtils {
     }
 
 
-
     /**
      * 将源字符串sformate时间格式转化成目标rformate时间格式
      *
@@ -125,7 +124,7 @@ public class DateUtils {
         mDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "取消", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Log.d(TGA,"取消");
+                Log.d(TGA, "取消");
             }
         });
 
@@ -160,7 +159,7 @@ public class DateUtils {
         mDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "取消", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Log.d(TGA,"取消");
+                Log.d(TGA, "取消");
             }
         });
 
