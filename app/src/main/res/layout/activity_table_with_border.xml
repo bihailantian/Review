@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="10dip"
+    tools:context="com.xxm.review.activity.TableWithBorderActivity">
+
+
+    <TableRow
+        android:background="@color/colorLine"
+        android:orientation="horizontal"
+        android:paddingLeft="0.5dip"
+        android:paddingRight="0.5dip"
+        android:paddingTop="1dip">
+
+        <ImageButton
+            android:contentDescription="@null"
+            android:id="@+id/imageViewMSG"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="0.5dip"
+            android:layout_marginLeft="0.5dip"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:src="@mipmap/ic_launcher" />
+
+        <ImageButton
+            android:contentDescription="@null"
+            android:id="@+id/imageView1"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="0.5dip"
+            android:layout_marginLeft="0.5dip"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:src="@mipmap/ic_launcher" />
+
+        <ImageButton
+            android:contentDescription="@null"
+            android:id="@+id/imageView2"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="0.5dip"
+            android:layout_marginLeft="0.5dip"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:src="@mipmap/ic_launcher" />
+    </TableRow>
+
+    <TableRow
+        android:background="@color/colorLine"
+        android:orientation="horizontal"
+        android:paddingLeft="0.5dip"
+        android:paddingRight="0.5dip"
+        android:paddingTop="0dip">
+
+        <ImageButton
+            android:contentDescription="@null"
+            android:id="@+id/imageView4"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="0.5dip"
+            android:layout_marginLeft="0.5dip"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:src="@mipmap/ic_launcher" />
+
+        <ImageButton
+            android:contentDescription="@null"
+            android:id="@+id/imageView5"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="0.5dip"
+            android:layout_marginLeft="0.5dip"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:src="@mipmap/ic_launcher" />
+
+        <ImageButton
+            android:contentDescription="@null"
+            android:id="@+id/imageView6"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="0.5dip"
+            android:layout_marginLeft="0.5dip"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:src="@mipmap/ic_launcher" />
+    </TableRow>
+
+
+</TableLayout>

@@ -37,7 +37,8 @@
         <activity android:name=".activity.ImageActivity" />
         <activity android:name=".activity.BadgeActivity" />
         <activity android:name=".activity.SharePreActivity" />
-        <activity android:name=".activity.ProgressBarActivity"></activity>
+        <activity android:name=".activity.ProgressBarActivity" />
+        <activity android:name=".activity.TableWithBorderActivity" />
     </application>
 
 </manifest>
