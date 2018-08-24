@@ -1,8 +1,6 @@
 # Review
 Review
-&
-&&
-\&
+
 ## 1、Theme.AppCompat.Light.NoActionBar
 ```xml
     <!-- Base application theme. -->
