@@ -19,6 +19,7 @@ import com.xxm.review.activity.ConfigActivity;
 import com.xxm.review.activity.ConstraintLayoutActivity;
 import com.xxm.review.activity.ImageActivity;
 import com.xxm.review.activity.LifeActivity;
+import com.xxm.review.activity.ListActivity;
 import com.xxm.review.activity.OkHttp3Activity;
 import com.xxm.review.activity.PollViewActivity;
 import com.xxm.review.activity.ProgressBarActivity;
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Item> itemList = new ArrayList<>();
 
     {
+        itemList.add(new Item("ListActivity", "ListActivity", ListActivity.class));
         itemList.add(new Item("表格添加边框", "TableLayout添加边框", TableWithBorderActivity.class));
         itemList.add(new Item("ProgressBar", "ProgressBar", ProgressBarActivity.class));
         itemList.add(new Item("SharePreUtils", "SharePreUtils", SharePreActivity.class));

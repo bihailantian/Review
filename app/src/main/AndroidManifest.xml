@@ -39,6 +39,7 @@
         <activity android:name=".activity.SharePreActivity" />
         <activity android:name=".activity.ProgressBarActivity" />
         <activity android:name=".activity.TableWithBorderActivity" />
+        <activity android:name=".activity.ListActivity"></activity>
     </application>
 
 </manifest>

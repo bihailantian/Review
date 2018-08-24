@@ -1,15 +1,15 @@
 package com.xxm.review.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.xxm.review.R;
+import com.xxm.review.base.BaseActivity;
 import com.xxm.review.view.BadgeView;
 
 
-public class BadgeActivity extends AppCompatActivity implements View.OnClickListener {
+public class BadgeActivity extends BaseActivity implements View.OnClickListener {
 
     private BadgeView mBadge;
 

@@ -1,11 +1,11 @@
 package com.xxm.review.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.xxm.review.R;
+import com.xxm.review.base.BaseActivity;
 
-public class TableWithBorderActivity extends AppCompatActivity {
+public class TableWithBorderActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
