@@ -28,6 +28,7 @@ import com.xxm.review.activity.ServiceActivity;
 import com.xxm.review.activity.ShapeActivity;
 import com.xxm.review.activity.SharePreActivity;
 import com.xxm.review.activity.TableWithBorderActivity;
+import com.xxm.review.activity.VideoActivity;
 import com.xxm.review.activity.VirtualApkActivity;
 import com.xxm.review.domain.Item;
 
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Item> itemList = new ArrayList<>();
 
     {
+        itemList.add(new Item("视频播放", "视频播放", VideoActivity.class));
         itemList.add(new Item("ListActivity", "ListActivity", ListActivity.class));
         itemList.add(new Item("表格添加边框", "TableLayout添加边框", TableWithBorderActivity.class));
         itemList.add(new Item("ProgressBar", "ProgressBar", ProgressBarActivity.class));
