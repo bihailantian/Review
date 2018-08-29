@@ -23,6 +23,7 @@ import com.xxm.review.activity.ListActivity;
 import com.xxm.review.activity.OkHttp3Activity;
 import com.xxm.review.activity.PollViewActivity;
 import com.xxm.review.activity.ProgressBarActivity;
+import com.xxm.review.activity.RecyclerViewActivity;
 import com.xxm.review.activity.RetrofitActivity;
 import com.xxm.review.activity.ServiceActivity;
 import com.xxm.review.activity.ShapeActivity;
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Item> itemList = new ArrayList<>();
 
     {
+        itemList.add(new Item("RecyclerView", "RecyclerView", RecyclerViewActivity.class));
         itemList.add(new Item("视频播放", "视频播放", VideoActivity.class));
         itemList.add(new Item("ListActivity", "ListActivity", ListActivity.class));
         itemList.add(new Item("表格添加边框", "TableLayout添加边框", TableWithBorderActivity.class));
@@ -117,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder holder = null;
+            ViewHolder holder;
             if (convertView == null) {
                 convertView = View.inflate(mContext, R.layout.list_item_main, null);
                 holder = new ViewHolder();

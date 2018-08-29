@@ -40,7 +40,9 @@
         <activity android:name=".activity.ProgressBarActivity" />
         <activity android:name=".activity.TableWithBorderActivity" />
         <activity android:name=".activity.ListActivity" />
-        <activity android:name=".activity.VideoActivity"></activity>
+        <activity android:name=".activity.VideoActivity" />
+        <activity android:name=".activity.RecyclerViewActivity" />
+        <activity android:name=".activity.TabHostActivity"></activity>
     </application>
 
 </manifest>

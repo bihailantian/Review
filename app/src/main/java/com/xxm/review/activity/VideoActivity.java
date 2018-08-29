@@ -1,15 +1,15 @@
 package com.xxm.review.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.VideoView;
 
 import com.xxm.review.R;
+import com.xxm.review.base.BaseActivity;
 
 /**
  * 视频播放
  */
-public class VideoActivity extends AppCompatActivity {
+public class VideoActivity extends BaseActivity {
 
     private VideoView videoView;
 

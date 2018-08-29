@@ -10,5 +10,8 @@
     <string name="activity_life">Activity 的生命周期</string>
     <string name="start">开始</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

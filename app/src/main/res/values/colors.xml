@@ -6,4 +6,5 @@
     <!--线-->
     <color name="colorLine">#e1e1e1</color>
     <color name="white">#FFFFFF</color>
+    <color name="black_fro">#000</color>
 </resources>
