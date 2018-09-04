@@ -24,7 +24,7 @@
 
 
     <ImageView
-        android:id="@+id/iv_stop"
+        android:id="@+id/iv_pause"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_alignBottom="@+id/videoView"
@@ -47,7 +47,7 @@
 
 
     <ImageView
-        android:id="@+id/iv_stop_min"
+        android:id="@+id/iv_pause_min"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignBottom="@+id/videoView"
@@ -61,7 +61,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignBottom="@+id/videoView"
-        android:layout_toEndOf="@+id/iv_stop_min"
+        android:layout_toEndOf="@+id/iv_pause_min"
         android:contentDescription="@null"
         android:src="@android:drawable/ic_media_next" />
 
@@ -71,7 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/videoView"
-        android:layout_alignTop="@+id/iv_stop_min"
+        android:layout_alignTop="@+id/iv_pause_min"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="3dp"
         android:layout_marginRight="3dp"
