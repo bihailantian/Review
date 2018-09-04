@@ -97,7 +97,7 @@ public class VideoActivity extends BaseActivity implements View.OnClickListener,
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        // TODO: 2018/9/3 进度条监听
+        // TODO: 进度条监听
     }
 
     @Override
