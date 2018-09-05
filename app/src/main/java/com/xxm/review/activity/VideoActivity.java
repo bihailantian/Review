@@ -1,9 +1,12 @@
 package com.xxm.review.activity;
 
+import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.SeekBar;
 import android.widget.VideoView;
 
@@ -11,9 +14,10 @@ import com.xxm.review.R;
 import com.xxm.review.base.BaseActivity;
 
 /**
- * 视频播放
+ * VideoView视频播放
+ * 1.只支持mp4、avi、3gp格式的视频
  */
-public class VideoActivity extends BaseActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
+public class VideoActivity extends BaseActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, MediaPlayer.OnErrorListener {
 
     private static final String TAG = VideoActivity.class.getSimpleName();
     private static final String VIDEO_URL = "http://qiubai-video.qiushibaike.com/VGU6K0T3CDU6N7JJ_3g.mp4";
@@ -55,8 +59,19 @@ public class VideoActivity extends BaseActivity implements View.OnClickListener,
 
         seekBar.setOnSeekBarChangeListener(this);
 
-
-        //videoView.setVideoPath(VIDEO_URL);
+        MediaController mediaController = new MediaController(this);
+        videoView.setMediaController(mediaController);
+        videoView.setVideoPath(VIDEO_URL);
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                // 静音设置
+                mp.setVolume(0f, 0f);
+                //mp.start();
+            }
+        });
+        //监听播放发生错误时候的事件。
+        videoView.setOnErrorListener(this);
     }
 
     @Override
@@ -66,6 +81,8 @@ public class VideoActivity extends BaseActivity implements View.OnClickListener,
                 Log.d(TAG, "播放视频");
                 ivPlay.setVisibility(View.GONE);
                 if (!videoView.isPlaying()) {
+                    //设置了黑色背景无法看到视频，需要把背景颜色设置为透明
+                    videoView.setBackgroundColor(Color.TRANSPARENT);
                     videoView.start();
                 }
                 break;
@@ -108,5 +125,33 @@ public class VideoActivity extends BaseActivity implements View.OnClickListener,
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
 
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (videoView.isPlaying()) {
+            videoView.pause();//暂停播放
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (videoView != null) {
+            videoView.stopPlayback();//停止播放。并释放资源
+        }
+    }
+
+    @Override
+    public boolean onError(MediaPlayer mp, int what, int extra) {
+        return false;
     }
 }
