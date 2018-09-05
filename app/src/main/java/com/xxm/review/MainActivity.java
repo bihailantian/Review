@@ -137,7 +137,6 @@ public class MainActivity extends AppCompatActivity {
             return convertView;
         }
 
-
         class ViewHolder {
             TextView tvTitle;
             TextView tvDesc;
