@@ -9,8 +9,7 @@
         android:dashGap="15dp"
         android:dashWidth="20dp" />
 
-    <size
-        android:height="5dp" />
+    <size android:height="5dp" />
 
 
 </shape>
