@@ -95,6 +95,7 @@ public class VideoActivity extends BaseActivity implements View.OnClickListener,
                 break;
 
             case R.id.iv_full_screen: //全屏
+                Log.d(TAG, "全屏");
                 break;
 
             case R.id.iv_pause_min: //暂停小按钮
