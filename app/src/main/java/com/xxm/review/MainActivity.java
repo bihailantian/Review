@@ -2,6 +2,7 @@ package com.xxm.review;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -97,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "sd卡: " + Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED));
         Log.d(TAG, "文件路径: " + Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "Review");
         Log.d(TAG, "文件路径: " + Environment.getExternalStorageDirectory());
+        Log.d(TAG, "Build.VERSION.SDK_INT= " + Build.VERSION.SDK_INT);
 
 
     }
