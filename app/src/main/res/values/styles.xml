@@ -10,4 +10,11 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
+
+    <style name="item_tab_text_style">
+        <item name="android:textSize">10.0dip</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:singleLine">true</item>
+    </style>
 </resources>

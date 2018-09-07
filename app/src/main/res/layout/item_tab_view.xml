@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:src="@mipmap/ic_launcher"
+        android:id="@+id/image_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dp" />
+
+    <TextView
+        android:text="首页"
+        android:id="@+id/text_name"
+        style="@style/item_tab_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

@@ -43,6 +43,8 @@
         <activity android:name=".activity.VideoActivity" />
         <activity android:name=".activity.RecyclerViewActivity" />
         <activity android:name=".activity.TabHostActivity" />
+        <activity android:name=".activity.test.OneActivity" />
+        <activity android:name=".activity.test.TwoActivity" />
     </application>
 
 </manifest>

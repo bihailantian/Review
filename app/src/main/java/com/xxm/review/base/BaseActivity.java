@@ -12,4 +12,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.finish();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
+
+
 }
