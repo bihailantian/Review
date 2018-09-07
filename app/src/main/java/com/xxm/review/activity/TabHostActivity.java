@@ -14,7 +14,7 @@ public class TabHostActivity extends FragmentActivity {
     /**
      * Tab选项卡的图标
      */
-    public static int mImageViewArray[] = {
+    private static int mImageViewArray[] = {
             R.mipmap.ic_launcher,
             R.mipmap.ic_launcher
     };
@@ -22,7 +22,7 @@ public class TabHostActivity extends FragmentActivity {
     /**
      * Tab选项卡的文字
      */
-    public static String mTextViewArray[] = {"主页", "关于", "设置", "搜索", "更多"};
+    private static String mTextViewArray[] = {"主页", "关于", "设置", "搜索", "更多"};
 
 
     private TabHost mTabHost;
