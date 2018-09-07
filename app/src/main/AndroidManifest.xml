@@ -42,7 +42,7 @@
         <activity android:name=".activity.ListActivity" />
         <activity android:name=".activity.VideoActivity" />
         <activity android:name=".activity.RecyclerViewActivity" />
-        <activity android:name=".activity.TabHostActivity"></activity>
+        <activity android:name=".activity.TabHostActivity" />
     </application>
 
 </manifest>
