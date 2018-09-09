@@ -14,6 +14,7 @@ import com.xxm.review.base.BaseActivity;
  * 视频播放
  */
 public class VideoActivity extends BaseActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
+
     private static final String TAG = VideoActivity.class.getSimpleName();
     private static final String VIDEO_URL = "http://qiubai-video.qiushibaike.com/VGU6K0T3CDU6N7JJ_3g.mp4";
     private static final String VIDEO_URL2 = "http://qiubai-video.qiushibaike.com/YXSKWQA6N838MJC4_3g.mp4";
