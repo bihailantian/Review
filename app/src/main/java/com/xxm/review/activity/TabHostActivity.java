@@ -1,56 +1,49 @@
 package com.xxm.review.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TabHost;
 
 import com.xxm.review.R;
+import com.xxm.review.activity.tab.SimpleTab1Activity;
+import com.xxm.review.activity.tab.SimpleTab2Activity;
+import com.xxm.review.activity.tab.SimpleTab3Activity;
+import com.xxm.review.base.BaseActivity;
 
-public class TabHostActivity extends FragmentActivity {
+public class TabHostActivity extends BaseActivity implements View.OnClickListener {
 
-
-    /**
-     * Tab选项卡的图标
-     */
-    private static int mImageViewArray[] = {
-            R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher
-    };
-
-    /**
-     * Tab选项卡的文字
-     */
-    private static String mTextViewArray[] = {"主页", "关于", "设置", "搜索", "更多"};
-
-
-    private TabHost mTabHost;
-    private LayoutInflater mInflater;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab_host);
-//        mTabHost = findViewById(R.id.tabHost);
 
-        initView();
-    }
 
-    private void initView() {
-        // 实例化布局对象
-        mInflater = LayoutInflater.from(this);
+        findViewById(R.id.btn_tab1).setOnClickListener(this);
+        findViewById(R.id.btn_tab2).setOnClickListener(this);
+        findViewById(R.id.btn_tab3).setOnClickListener(this);
 
-        View tab_widget_item1 = LayoutInflater.from(this).inflate(R.layout.item_tab_view, null);
-        View tab_widget_item2 = LayoutInflater.from(this).inflate(R.layout.item_tab_view, null);
     }
 
 
     @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    public void onClick(View v) {
+        Intent intent = null;
+        switch (v.getId()) {
+            case R.id.btn_tab1:
+                intent = new Intent(TabHostActivity.this, SimpleTab1Activity.class);
+                break;
+
+            case R.id.btn_tab2:
+                intent = new Intent(TabHostActivity.this, SimpleTab2Activity.class);
+                break;
+
+            case R.id.btn_tab3:
+                intent = new Intent(TabHostActivity.this, SimpleTab3Activity.class);
+                break;
+        }
+
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
-
-
 }

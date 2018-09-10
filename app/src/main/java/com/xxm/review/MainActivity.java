@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Item> itemList = new ArrayList<>();
 
     {
-        itemList.add(new Item("TabHost", "TabHost", TabHostActivity.class));
+        itemList.add(new Item("TabHost", "使用TabHost的3中方式", TabHostActivity.class));
         itemList.add(new Item("RecyclerView", "RecyclerView", RecyclerViewActivity.class));
         itemList.add(new Item("视频播放", "视频播放", VideoActivity.class));
         itemList.add(new Item("ListActivity", "ListActivity", ListActivity.class));
