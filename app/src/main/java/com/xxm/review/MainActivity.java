@@ -2,6 +2,7 @@ package com.xxm.review;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -99,6 +100,11 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "文件路径: " + Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "Review");
         Log.d(TAG, "文件路径: " + Environment.getExternalStorageDirectory());
         Log.d(TAG, "Build.VERSION.SDK_INT= " + Build.VERSION.SDK_INT);
+        try {
+            Log.d(TAG, "getApplicationInfo().packageName= " + getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
 
 
     }

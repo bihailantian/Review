@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.didi.virtualapk.host'
 
+
 android {
     compileSdkVersion 28
     buildToolsVersion '28.0.2'
@@ -9,7 +10,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
+        versionName "1.0"+getGitHeadRefsSuffix()
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -19,8 +20,40 @@ android {
         }
     }
 
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "app-" + buildType.name + "-v" + defaultConfig.versionName + "-" + defaultConfig.versionCode + ".apk"
+        }
+    }
+
 
 }
+
+//获取git的提交id
+def getGitHeadRefsSuffix() {
+    try {
+        // .git/HEAD描述当前目录所指向的分支信息，内容示例："ref: refs/heads/master\n"
+        def headFile = new File('.git/HEAD')
+        if (headFile.exists()) {
+            String[] strings = headFile.getText('UTF-8').split(" ")
+            if (strings.size() > 1) {
+                String refFilePath = '.git/' + strings[1]
+
+                // 根据HEAD读取当前指向的hash值，路径示例为：".git/refs/heads/master"
+                def refFile = new File(refFilePath.replace("\n", ""))
+
+                // 索引文件内容为hash值+"\n"，
+                // 示例："90312cd9157587d11779ed7be776e3220050b308\n"
+                return "_" + refFile.getText('UTF-8').substring(0, 7)
+            }
+
+        }
+    } catch (Exception e) {
+        e.printStackTrace()
+    }
+    return ""
+}
+
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')

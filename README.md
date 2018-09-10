@@ -157,3 +157,31 @@ virtualApk {
 5、插件APK的位置
 
 ![Review](images/plugin_apk_position.png)
+
+
+## 4.common.gradle的使用
+
+**1.project中导入**
+
+project的build.gradle中导入
+
+```groovy
+  apply from: 'common.gradle'
+```
+
+**2.module引用**
+
+在module中根据需要引用定义的方法
+```text
+android {
+    ....
+    defaultConfig {
+        ....
+        versionName "2.0_" + getGitHeadRefsSuffix()
+        ....
+    }
+    ....
+}
+```
+
+
