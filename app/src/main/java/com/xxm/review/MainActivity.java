@@ -1,6 +1,6 @@
 package com.xxm.review;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    private Context mContext;
+    private Activity mActivity;
     private List<Item> itemList = new ArrayList<>();
 
     {
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mContext = this;
+        mActivity = this;
 
         ListView listView = findViewById(R.id.listView);
         listView.setAdapter(new ListAdapter());
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Item item = itemList.get(position);
-                Intent intent = new Intent(mContext, item.getClazz());
+                Intent intent = new Intent(mActivity, item.getClazz());
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             ViewHolder holder;
             if (convertView == null) {
-                convertView = View.inflate(mContext, R.layout.list_item_main, null);
+                convertView = View.inflate(mActivity, R.layout.list_item_main, null);
                 holder = new ViewHolder();
                 holder.tvTitle = convertView.findViewById(R.id.tv_title);
                 holder.tvDesc = convertView.findViewById(R.id.tv_desc);
