@@ -50,6 +50,6 @@ dependencies {
 
 virtualApk {
     packageId = 0x6f             // The package id of Resources.
-    targetHost='../Review/app' // The path of application module in host project.
+    targetHost = '../Review/app' // The path of application module in host project.
     applyHostMapping = true      // [Optional] Default value is true.
 }
