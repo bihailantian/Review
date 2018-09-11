@@ -23,6 +23,7 @@ import com.xxm.review.activity.ImageActivity;
 import com.xxm.review.activity.LifeActivity;
 import com.xxm.review.activity.ListActivity;
 import com.xxm.review.activity.OkHttp3Activity;
+import com.xxm.review.activity.OpenGLActivity;
 import com.xxm.review.activity.PollViewActivity;
 import com.xxm.review.activity.ProgressBarActivity;
 import com.xxm.review.activity.RecyclerViewActivity;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Item> itemList = new ArrayList<>();
 
     {
+        itemList.add(new Item("OpenGL", "android 3D", OpenGLActivity.class));
         itemList.add(new Item("TabHost", "使用TabHost的3中方式", TabHostActivity.class));
         itemList.add(new Item("RecyclerView", "RecyclerView", RecyclerViewActivity.class));
         itemList.add(new Item("视频播放", "视频播放", VideoActivity.class));

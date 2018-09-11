@@ -46,6 +46,7 @@
         <activity android:name=".activity.tab.SimpleTab1Activity" />
         <activity android:name=".activity.tab.SimpleTab2Activity" />
         <activity android:name=".activity.tab.SimpleTab3Activity" />
+        <activity android:name=".activity.OpenGLActivity" />
     </application>
 
 </manifest>
