@@ -1,4 +1,4 @@
-package com.xxm.review.gl;
+package com.xxm.review.opengl;
 
 
 import android.opengl.GLSurfaceView;
