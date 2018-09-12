@@ -20,7 +20,7 @@ public class OpenGL2Activity extends AppCompatActivity {
     private static final String TAG = OpenGL2Activity.class.getSimpleName();
 
     private GLSurfaceView glView;
-    private float rotateDegreen = 0;
+    private float rotateDegree = 0;
     private STLRenderer glRenderer;
 
     @Override
@@ -51,7 +51,7 @@ public class OpenGL2Activity extends AppCompatActivity {
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            rotate(rotateDegreen);
+            rotate(rotateDegree);
         }
     };
 
@@ -68,7 +68,7 @@ public class OpenGL2Activity extends AppCompatActivity {
                     while (true) {
                         try {
                             sleep(100);
-                            rotateDegreen += 5;
+                            rotateDegree += 5;
                             handler.sendEmptyMessage(0x001);
                         } catch (Exception e) {
                             e.printStackTrace();
