@@ -22,7 +22,7 @@ public class STLRenderer implements GLSurfaceView.Renderer {
     private Point eye = new Point(0, 0, -3);
     private Point up = new Point(0, 1, 0);
     private Point center = new Point(0, 0, 0);
-    private float mScalef = 1;
+    private float mScale = 1;
     private float mDegree = 0;
 
 
@@ -55,14 +55,14 @@ public class STLRenderer implements GLSurfaceView.Renderer {
 
         float r = model.getR();
         //r是半径，不是直径，因此用0.5/r可以算出放缩比例
-        mScalef = 0.5f / r;
+        mScale = 0.5f / r;
         mCenterPoint = model.getCentrePoint();
     }
 
 
-    float[] materialAmb = {0.4f, 0.4f, 1.0f, 1.0f,};
-    float[] materialDiff = {0.0f, 0.0f, 1.0f, 1.0f,};
-    float[] materialSpec = {1.0f, 0.5f, 0.0f, 1.0f,};
+    private float[] materialAmb = {0.4f, 0.4f, 1.0f, 1.0f,};
+    private float[] materialDiff = {0.0f, 0.0f, 1.0f, 1.0f,};
+    private float[] materialSpec = {1.0f, 0.5f, 0.0f, 1.0f,};
 
     /**
      * 设置材料属性
@@ -89,10 +89,10 @@ public class STLRenderer implements GLSurfaceView.Renderer {
     }
 
 
-    float[] ambient = {0.9f, 0.9f, 0.9f, 1.0f};
-    float[] diffuse = {0.5f, 0.5f, 0.5f, 1.0f};
-    float[] specular = {1.0f, 1.0f, 1.0f, 1.0f};
-    float[] lightPosition = {0.5f, 0.5f, 0.5f, 0.0f};
+    private float[] ambient = {0.9f, 0.9f, 0.9f, 1.0f};
+    private float[] diffuse = {0.5f, 0.5f, 0.5f, 1.0f};
+    private float[] specular = {1.0f, 1.0f, 1.0f, 1.0f};
+    private float[] lightPosition = {0.5f, 0.5f, 0.5f, 0.0f};
 
     /**
      * 打开灯光
@@ -155,7 +155,7 @@ public class STLRenderer implements GLSurfaceView.Renderer {
         gl.glRotatef(mDegree, 0, 1, 0);
 
         //将模型放缩到View刚好装下
-        gl.glScalef(mScalef, mScalef, mScalef);
+        gl.glScalef(mScale, mScale, mScale);
         //把模型移动到原点
         gl.glTranslatef(-mCenterPoint.x, -mCenterPoint.y, -mCenterPoint.z);
 
