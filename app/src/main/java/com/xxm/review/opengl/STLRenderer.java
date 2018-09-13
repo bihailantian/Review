@@ -8,6 +8,7 @@ import android.opengl.GLU;
 import com.xxm.review.domain.Model;
 import com.xxm.review.domain.Point;
 import com.xxm.review.opengl.reader.STLReader;
+import com.xxm.review.utils.GlUtils;
 
 import java.io.IOException;
 
@@ -46,10 +47,79 @@ public class STLRenderer implements GLSurfaceView.Renderer {
         gl.glClearDepthf(1.0f); // 设置深度缓存值
         gl.glDepthFunc(GL10.GL_LEQUAL); // 设置深度缓存比较函数
         gl.glShadeModel(GL10.GL_SMOOTH);// 设置阴影模式GL_SMOOTH
+
+        //打开灯光
+        openLight(gl);
+
+        enableMaterial(gl);
+
         float r = model.getR();
         //r是半径，不是直径，因此用0.5/r可以算出放缩比例
         mScalef = 0.5f / r;
         mCenterPoint = model.getCentrePoint();
+    }
+
+
+    float[] materialAmb = {0.4f, 0.4f, 1.0f, 1.0f,};
+    float[] materialDiff = {0.0f, 0.0f, 1.0f, 1.0f,};
+    float[] materialSpec = {1.0f, 0.5f, 0.0f, 1.0f,};
+
+    /**
+     * 设置材料属性
+     */
+    private void enableMaterial(GL10 gl) {
+
+        /*
+        face : 在OpenGL ES中只能使用GL_FRONT_AND_BACK，表示修改物体的前面和后面的材质光线属性。
+        pname: 参数类型，这些参数用在光照方程。可以取如下值：
+            GL_AMBIENT
+            GL_DIFFUSE
+            GL_SPECULAR
+            GL_EMISSION
+            GL_SHININESS。
+        param：指定反射的颜色。
+         */
+
+        //材料对环境光的反射情况
+        gl.glMaterialfv(GL10.GL_FRONT_AND_BACK, GL10.GL_AMBIENT, GlUtils.floatToBuffer(materialAmb));
+        //散射光的反射情况
+        gl.glMaterialfv(GL10.GL_FRONT_AND_BACK, GL10.GL_DIFFUSE, GlUtils.floatToBuffer(materialDiff));
+        //镜面光的反射情况
+        gl.glMaterialfv(GL10.GL_FRONT_AND_BACK, GL10.GL_SPECULAR, GlUtils.floatToBuffer(materialSpec));
+    }
+
+
+    float[] ambient = {0.9f, 0.9f, 0.9f, 1.0f};
+    float[] diffuse = {0.5f, 0.5f, 0.5f, 1.0f};
+    float[] specular = {1.0f, 1.0f, 1.0f, 1.0f};
+    float[] lightPosition = {0.5f, 0.5f, 0.5f, 0.0f};
+
+    /**
+     * 打开灯光
+     */
+    private void openLight(GL10 gl) {
+        /*
+        light: 指光源的序号，OpenGL ES可以设置从0到7共八个光源。
+        pname: 光源参数名称，可以有如下：
+            GL_SPOT_EXPONENT
+            GL_SPOT_CUTOFF
+            GL_CONSTANT_ATTENUATION
+            GL_LINEAR_ATTENUATION
+            GL_QUADRATIC_ATTENUATION
+            GL_AMBIENT(用于设置环境光颜色)
+            GL_DIFFUSE(用于设置漫反射光颜色)
+            GL_SPECULAR(用于设置镜面反射光颜色)
+            GL_SPOT_DIRECTION
+            GL_POSITION（用于设置光源位置）
+        params: 参数的值（数组或是Buffer类型），数组里面含有4个值分别表示R,G,B,A。
+         */
+
+        gl.glEnable(GL10.GL_LIGHTING);
+        gl.glEnable(GL10.GL_LIGHT0);
+        gl.glLightfv(GL10.GL_LIGHT0, GL10.GL_AMBIENT, GlUtils.floatToBuffer(ambient));
+        gl.glLightfv(GL10.GL_LIGHT0, GL10.GL_DIFFUSE, GlUtils.floatToBuffer(diffuse));
+        gl.glLightfv(GL10.GL_LIGHT0, GL10.GL_SPECULAR, GlUtils.floatToBuffer(specular));
+        gl.glLightfv(GL10.GL_LIGHT0, GL10.GL_POSITION, GlUtils.floatToBuffer(lightPosition));
     }
 
     @Override
