@@ -28,7 +28,7 @@ public class STLRenderer implements GLSurfaceView.Renderer {
     public STLRenderer(Context context) {
 
         try {
-            model = new STLReader().parserBinInAsserts(context, "Power_Strip_Tray_-_Brims.stl");
+            model = new STLReader().parserBinInAsserts(context, "bear.stl");
         } catch (IOException e) {
             e.printStackTrace();
         }

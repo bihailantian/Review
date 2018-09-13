@@ -49,8 +49,8 @@ public class STLReader {
         }
 
         //每个三角面片占用固定的50字节
-        // TODO: 数组越界，或 OOM
-        byte[] facetBytes = new byte[10 * facetCount];
+        // TODO: 当stl模型三角切面占用超过50字节，会报OOM错误
+        byte[] facetBytes = new byte[50 * facetCount];
         //将所有的三角面片读取到字节数组
         in.read(facetBytes);
         //数据读取完毕后，关闭输入流
