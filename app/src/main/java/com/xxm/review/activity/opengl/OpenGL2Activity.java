@@ -1,4 +1,4 @@
-package com.xxm.review.activity;
+package com.xxm.review.activity.opengl;
 
 import android.app.Activity;
 import android.app.ActivityManager;
