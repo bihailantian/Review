@@ -48,10 +48,13 @@ public class OpenGL2Activity extends AppCompatActivity {
         glView.invalidate();
     }
 
+    private static final int WHAT_MSG = 0x001;
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
+            rotateDegree += 5;
             rotate(rotateDegree);
+            handler.sendEmptyMessageDelayed(WHAT_MSG, 100);
         }
     };
 
@@ -60,26 +63,8 @@ public class OpenGL2Activity extends AppCompatActivity {
         super.onResume();
         if (glView != null) {
             glView.onResume();
-
-            //不断改变rotateDegreen值，实现旋转
-            new Thread() {
-                @Override
-                public void run() {
-                    while (true) {
-                        try {
-                            sleep(100);
-                            rotateDegree += 5;
-                            handler.sendEmptyMessage(0x001);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                }
-            }.start();
+            handler.sendEmptyMessage(WHAT_MSG);
         }
-
-
     }
 
 
@@ -119,6 +104,9 @@ public class OpenGL2Activity extends AppCompatActivity {
         super.onDestroy();
         if (glView != null) {
             glView.onResume();
+        }
+        if (handler != null) {
+            handler.removeMessages(WHAT_MSG);
         }
     }
 }
