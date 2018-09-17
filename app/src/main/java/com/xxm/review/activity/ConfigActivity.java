@@ -27,6 +27,7 @@ public class ConfigActivity extends BaseActivity {
 
 
         test("1234456789");
+        test("123");
 
     }
 

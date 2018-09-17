@@ -22,8 +22,6 @@ public class CalendarActivity extends BaseActivity implements View.OnClickListen
 
     private static final String TAG = CalendarActivity.class.getSimpleName();
     private TextView tvDate;
-    private CalendarView mCalendar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +32,7 @@ public class CalendarActivity extends BaseActivity implements View.OnClickListen
         tvDate.setOnClickListener(this);
 
 
-        mCalendar = findViewById(R.id.calender);
+        CalendarView mCalendar = findViewById(R.id.calender);
         mCalendar.setMaxDate(new Date().getTime());
 //        mCalendar.setMaxDate(System.currentTimeMillis());
 
