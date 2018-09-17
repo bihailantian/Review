@@ -8,14 +8,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.xxm.review.R;
+import com.xxm.review.base.BaseActivity;
 import com.xxm.review.opengl.STLRenderer;
 
-public class OpenGL2Activity extends AppCompatActivity {
+public class OpenGL2Activity extends BaseActivity {
 
     private static final String TAG = OpenGL2Activity.class.getSimpleName();
 
