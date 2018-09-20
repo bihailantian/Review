@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Item> itemList = new ArrayList<>();
 
     {
+        //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
         itemList.add(new Item("OpenGL", "android 3D", OpenGLActivity.class));
         itemList.add(new Item("TabHost", "使用TabHost的3中方式", TabHostActivity.class));
         itemList.add(new Item("RecyclerView", "RecyclerView", RecyclerViewActivity.class));
