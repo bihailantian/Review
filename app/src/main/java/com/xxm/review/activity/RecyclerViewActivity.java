@@ -3,9 +3,9 @@ package com.xxm.review.activity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +20,7 @@ import java.util.List;
 public class RecyclerViewActivity extends BaseActivity {
 
 
+    private static final String TAG = "RecyclerViewActivity";
     RecyclerView recyclerView;
     private List<String> list;
     private Activity mActivity;
@@ -33,28 +34,32 @@ public class RecyclerViewActivity extends BaseActivity {
 
 
         list = new ArrayList<>();
-        list.add("1");
-        list.add("2");
-        list.add("3");
-        list.add("4");
-        list.add("5");
+        for (int i = 0; i < 30; i++) {
+            list.add("item " + i);
+        }
 
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+//        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+//        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
 
-/*
-        TextView textView = new TextView(this);
-        textView.setText("textView");
-        textView.setGravity(Gravity.CENTER);
-        textView.setTextSize(15);
-        textView.setTextColor(Color.RED);
-        layoutManager.addView(textView, 0);
-*/
+        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                if (position % 10 == 0) {
+                    Log.d(TAG, "position= " + position);
+                    return 2;
+                }
+                return 1;
 
-        recyclerView.setLayoutManager(layoutManager);
+
+            }
+        });
+
+        recyclerView.setLayoutManager(gridLayoutManager);
+
         //添加分割线
-        recyclerView.addItemDecoration(new DividerItemDecoration(mActivity, DividerItemDecoration.VERTICAL));
+        // recyclerView.addItemDecoration(new DividerItemDecoration(mActivity, DividerItemDecoration.VERTICAL));
         recyclerView.setAdapter(new MyAdapter());
 
 
@@ -63,11 +68,13 @@ public class RecyclerViewActivity extends BaseActivity {
 
     class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
+
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View itemView = LayoutInflater.from(mActivity).inflate(android.R.layout.simple_list_item_1, null);
-            return new ViewHolder(itemView);
+            View itemView = LayoutInflater.from(mActivity).inflate(R.layout.tag_layout, parent, false);
+            ViewHolder holder = new ViewHolder(itemView);
+            return holder;
         }
 
         @Override
@@ -81,13 +88,11 @@ public class RecyclerViewActivity extends BaseActivity {
         }
 
         class ViewHolder extends RecyclerView.ViewHolder {
-
             TextView textView;
-
 
             ViewHolder(View itemView) {
                 super(itemView);
-                textView = itemView.findViewById(android.R.id.text1);
+                textView = itemView.findViewById(R.id.tag_tv);
             }
         }
     }
