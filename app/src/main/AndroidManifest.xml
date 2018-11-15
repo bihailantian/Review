@@ -49,7 +49,9 @@
         <activity android:name=".activity.opengl.OpenGL1Activity" />
         <activity android:name=".activity.opengl.OpenGL2Activity" />
         <activity android:name=".activity.OpenGLActivity" />
-        <activity android:name=".activity.AsyncTaskActivity"></activity>
+        <activity android:name=".activity.AsyncTaskActivity" />
+        <activity android:name=".activity.SharedElementActivity" />
+        <activity android:name=".activity.PlaceholderActivity"></activity>
     </application>
 
 </manifest>

@@ -24,6 +24,7 @@ import com.xxm.review.activity.LifeActivity;
 import com.xxm.review.activity.ListActivity;
 import com.xxm.review.activity.OkHttp3Activity;
 import com.xxm.review.activity.OpenGLActivity;
+import com.xxm.review.activity.PlaceholderActivity;
 import com.xxm.review.activity.PollViewActivity;
 import com.xxm.review.activity.ProgressBarActivity;
 import com.xxm.review.activity.RecyclerViewActivity;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
+        itemList.add(new Item("占位符", "占位符的使用", PlaceholderActivity.class));
         itemList.add(new Item("OpenGL", "android 3D", OpenGLActivity.class));
         itemList.add(new Item("TabHost", "使用TabHost的3中方式", TabHostActivity.class));
         itemList.add(new Item("RecyclerView", "RecyclerView", RecyclerViewActivity.class));

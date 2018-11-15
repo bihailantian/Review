@@ -18,6 +18,8 @@
     <string name="open_gl_stl">读取stl文件，显示3D模型</string>
     <string name="open_gl_triangle">android 3D 三角形</string>
 
+    <string name="placeholder_count">总计%d</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
