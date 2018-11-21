@@ -7,9 +7,12 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.xxm.review.R;
 import com.xxm.review.base.BaseActivity;
@@ -65,6 +68,33 @@ public class RecyclerViewActivity extends BaseActivity {
 
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //重写onCreateOptionMenu(Menu menu)方法，当菜单第一次被加载时调用
+        getMenuInflater().inflate(R.menu.menu_recyclerview, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.grid:
+                Toast.makeText(mActivity, R.string.grid, Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.linear:
+                Toast.makeText(mActivity, R.string.linear, Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.staggeredGrid:
+                Toast.makeText(mActivity, R.string.staggeredGrid, Toast.LENGTH_SHORT).show();
+                break;
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
 
     class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 

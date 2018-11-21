@@ -14,12 +14,26 @@
     <string name="tab_host_text1">继承TabActivity</string>
     <string name="tab_host_text2">在布局文件中使用TabHost</string>
     <string name="tab_host_text3">Tab的内容分开到单独的xml文件</string>
+    <string name="placeholder_count">总计%d</string>
     <!--OPenGl-->
     <string name="open_gl_stl">读取stl文件，显示3D模型</string>
     <string name="open_gl_triangle">android 3D 三角形</string>
 
-    <string name="placeholder_count">总计%d</string>
-    <string name="label">标签</string>
+
+    <!--RecyclerView的LayoutManager-->
+    <string name="grid">GridLayoutManager</string>
+    <string name="linear">LinearLayoutManager</string>
+    <string name="staggeredGrid">StaggeredGridLayoutManager</string>
+    <string name="fan">FanLayoutManager</string>
+    <string name="carousel">CarouselLayoutManager</string>
+    <string name="chips">ChipsLayoutManager</string>
+    <string name="hive">HiveLayoutManager</string>
+    <string name="vLayout">vLayout</string>
+    <string name="flexBox">flexBox-layout</string>
+    <string name="londonEye">LondonEyeLayoutManager</string>
+    <string name="ZLayout">ZLayoutManager</string>
+    <string name="gallery">GalleryLayoutManager</string>
+    <string name="custom">CustomLayoutManager</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
