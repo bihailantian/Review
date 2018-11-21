@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/grid"
+        android:orderInCategory="100"
+        android:title="@string/grid"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/linear"
+        android:orderInCategory="200"
+        android:title="@string/linear"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/staggeredGrid"
+        android:orderInCategory="200"
+        android:title="@string/staggeredGrid"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/fan"
+        android:orderInCategory="200"
+        android:title="@string/fan"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/carousel"
+        android:orderInCategory="200"
+        android:title="@string/carousel"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/chips"
+        android:orderInCategory="200"
+        android:title="@string/chips"
+        app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/hive"
+        android:orderInCategory="200"
+        android:title="@string/hive"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/vLayout"
+        android:orderInCategory="200"
+        android:title="@string/vLayout"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/flexBox"
+        android:orderInCategory="200"
+        android:title="@string/flexBox"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/londonEye"
+        android:orderInCategory="200"
+        android:title="@string/londonEye"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/ZLayout"
+        android:orderInCategory="200"
+        android:title="@string/ZLayout"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/gallery"
+        android:orderInCategory="200"
+        android:title="@string/gallery"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/custom"
+        android:orderInCategory="200"
+        android:title="@string/custom"
+        app:showAsAction="never" />
+
+</menu>
