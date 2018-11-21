@@ -15,6 +15,7 @@
     <string name="tab_host_text2">在布局文件中使用TabHost</string>
     <string name="tab_host_text3">Tab的内容分开到单独的xml文件</string>
     <string name="placeholder_count">总计%d</string>
+    <string name="label">标签</string>
     <!--OPenGl-->
     <string name="open_gl_stl">读取stl文件，显示3D模型</string>
     <string name="open_gl_triangle">android 3D 三角形</string>
