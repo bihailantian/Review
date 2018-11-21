@@ -26,6 +26,12 @@ android {
         }
     }
 
+    //清除在AndroidManifest的关于Google Search的警告
+    lintOptions {
+        disable 'GoogleAppIndexingWarning'
+        baseline file("lint-baseline.xml")
+    }
+
 
 }
 
