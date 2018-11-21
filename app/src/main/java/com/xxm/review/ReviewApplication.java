@@ -5,6 +5,8 @@ import android.content.Context;
 import android.util.Log;
 
 import com.didi.virtualapk.PluginManager;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
 
 import java.io.File;
 
@@ -37,6 +39,14 @@ public class ReviewApplication extends Application {
             }
         }
 
+
+        //若是在项目上线之后，隐藏日志就要实现：
+        Logger.addLogAdapter(new AndroidLogAdapter() {
+            @Override
+            public boolean isLoggable(int priority, String tag) {
+                return BuildConfig.DEBUG;
+            }
+        });
     }
 
 }
