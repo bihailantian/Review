@@ -51,7 +51,8 @@
         <activity android:name=".activity.OpenGLActivity" />
         <activity android:name=".activity.AsyncTaskActivity" />
         <activity android:name=".activity.SharedElementActivity" />
-        <activity android:name=".activity.PlaceholderActivity"></activity>
+        <activity android:name=".activity.PlaceholderActivity" />
+        <activity android:name=".activity.GridViewActivity"/>
     </application>
 
 </manifest>

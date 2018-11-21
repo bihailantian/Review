@@ -19,6 +19,7 @@
     <string name="open_gl_triangle">android 3D 三角形</string>
 
     <string name="placeholder_count">总计%d</string>
+    <string name="label">标签</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

@@ -19,6 +19,7 @@ import com.xxm.review.activity.BadgeActivity;
 import com.xxm.review.activity.CalendarActivity;
 import com.xxm.review.activity.ConfigActivity;
 import com.xxm.review.activity.ConstraintLayoutActivity;
+import com.xxm.review.activity.GridViewActivity;
 import com.xxm.review.activity.ImageActivity;
 import com.xxm.review.activity.LifeActivity;
 import com.xxm.review.activity.ListActivity;
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
+        itemList.add(new Item("GridView", "GridView添加分割线", GridViewActivity.class));
         itemList.add(new Item("占位符", "占位符的使用", PlaceholderActivity.class));
         itemList.add(new Item("OpenGL", "android 3D", OpenGLActivity.class));
         itemList.add(new Item("TabHost", "使用TabHost的3中方式", TabHostActivity.class));
