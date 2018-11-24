@@ -7,4 +7,5 @@
     <color name="colorLine">#e1e1e1</color>
     <color name="white">#FFFFFF</color>
     <color name="black_fro">#000</color>
+    <color name="dim_gray">#6f6f6f</color>
 </resources>

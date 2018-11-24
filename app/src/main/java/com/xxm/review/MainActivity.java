@@ -37,6 +37,7 @@ import com.xxm.review.activity.TabHostActivity;
 import com.xxm.review.activity.TableWithBorderActivity;
 import com.xxm.review.activity.VideoActivity;
 import com.xxm.review.activity.VirtualApkActivity;
+import com.xxm.review.activity.animation.AnimationActivity;
 import com.xxm.review.domain.Item;
 
 import java.io.File;
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
+        itemList.add(new Item("动画", "动画", AnimationActivity.class));
         itemList.add(new Item("GridView", "GridView添加分割线", GridViewActivity.class));
         itemList.add(new Item("占位符", "占位符的使用", PlaceholderActivity.class));
         itemList.add(new Item("OpenGL", "android 3D", OpenGLActivity.class));

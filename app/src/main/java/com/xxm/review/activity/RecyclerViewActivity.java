@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cleveroad.fanlayoutmanager.FanLayoutManager;
+import com.cleveroad.fanlayoutmanager.FanLayoutManagerSettings;
 import com.xxm.review.R;
 import com.xxm.review.base.BaseActivity;
 
@@ -22,7 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerViewActivity extends BaseActivity {
-
 
     private static final String TAG = "RecyclerViewActivity";
     private RecyclerView mRecyclerView;
@@ -75,6 +76,7 @@ public class RecyclerViewActivity extends BaseActivity {
 
             case R.id.fan:
                 Toast.makeText(mActivity, R.string.fan, Toast.LENGTH_SHORT).show();
+                fanManager();
                 break;
 
             case R.id.carousel:
@@ -120,6 +122,18 @@ public class RecyclerViewActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private void fanManager() {
+        FanLayoutManagerSettings fanLayoutManagerSettings = FanLayoutManagerSettings
+                .newBuilder(mActivity)
+                .withFanRadius(true)
+                .withAngleItemBounce(5)
+                .withViewWidthDp(120)
+                .withViewHeightDp(160)
+                .build();
+        FanLayoutManager fanLayoutManager = new FanLayoutManager(mActivity, fanLayoutManagerSettings);
+        mRecyclerView.setLayoutManager(fanLayoutManager);
+    }
+
     private void staggeredGridManager() {
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
@@ -152,6 +166,7 @@ public class RecyclerViewActivity extends BaseActivity {
     }
 
     class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+
 
         @NonNull
         @Override
