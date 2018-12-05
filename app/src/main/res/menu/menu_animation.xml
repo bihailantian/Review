@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+    android:id="@+id/custom_progress"
+    android:orderInCategory="100"
+    android:title="@string/custom_progress"
+    app:showAsAction="never" />
+
+    <item
+        android:id="@+id/bezier_curve"
+        android:orderInCategory="100"
+        android:title="@string/bezier_curve"
+        app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/sin_cos"
+        android:orderInCategory="100"
+        android:title="@string/sin_cos"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/water"
+        android:orderInCategory="100"
+        android:title="@string/water"
+        app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/button_animation"
+        android:orderInCategory="100"
+        android:title="@string/button_animation"
+        app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/sticky_ball"
+        android:orderInCategory="100"
+        android:title="@string/sticky_ball"
+        app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/mounted"
+        android:orderInCategory="100"
+        android:title="@string/mounted"
+        app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/reveal_animation"
+        android:orderInCategory="100"
+        android:title="@string/reveal_animation"
+        app:showAsAction="never" />
+
+
+
+
+
+</menu>
