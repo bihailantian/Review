@@ -1,14 +1,58 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.xxm.review.fragment.animation.CustomProgressFragment">
 
-    <TextView
-        android:gravity="center"
-        android:textSize="22sp"
-        android:textColor="@color/colorAccent"
+    <com.xxm.review.view.CircleProgressBarView
+        android:id="@+id/circle_progress_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/custom_progress" />
-</FrameLayout>
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        app:centerProgressTextColor="@color/colorAccent"
+        app:centerProgressTextSize="20sp"
+        app:circleBgStrokeWidth="10dp"
+        app:isDrawCenterProgressText="true"
+        app:progressStrokeWidth="10dp" />
+
+    <TextView
+        android:id="@+id/progress_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20sp" />
+
+
+    <com.xxm.review.view.HorizontalProgressBar
+        android:id="@+id/horizontal_progress_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp" />
+
+    <com.xxm.review.view.ProductProgressBar
+        android:id="@+id/product_progress_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp" />
+
+    <com.xxm.review.view.LoadingLineView
+        android:id="@+id/loading_line_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp" />
+
+    <Button
+        android:id="@+id/startAnimationBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="启动动画" />
+
+    <com.xxm.review.view.LoadingView
+        android:id="@+id/loading_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center" />
+</LinearLayout>

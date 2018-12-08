@@ -12,6 +12,7 @@ import com.xxm.review.R;
 
 /**
  * 揭露动画
+ * <p>
  * A simple {@link Fragment} subclass.
  * Use the {@link RevealAnimationFragment#newInstance} factory method to
  * create an instance of this fragment.
