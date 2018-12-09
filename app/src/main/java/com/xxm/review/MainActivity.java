@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Activity mActivity;
     private List<Item> itemList = new ArrayList<>();
+    private ListView listView;
+    private ListAdapter adapter;
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
@@ -85,8 +87,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mActivity = this;
 
-        ListView listView = findViewById(R.id.listView);
-        listView.setAdapter(new ListAdapter());
+        listView = findViewById(R.id.listView);
+        if (adapter == null) {
+            adapter = new ListAdapter();
+            listView.setAdapter(adapter);
+        }else {
+            adapter.notifyDataSetChanged();
+        }
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

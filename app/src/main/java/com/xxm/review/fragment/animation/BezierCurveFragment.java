@@ -9,12 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.xxm.review.R;
+import com.xxm.review.view.WaveViewByBezier;
 
 /**
  * 波浪动画--贝塞尔曲线实现
  */
 public class BezierCurveFragment extends Fragment {
 
+
+    private WaveViewByBezier waveViewByBezier;
 
     public BezierCurveFragment() {
         // Required empty public constructor
@@ -35,8 +38,30 @@ public class BezierCurveFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bezier_curve, container, false);
+        View inflate = inflater.inflate(R.layout.fragment_bezier_curve, null);
+        waveViewByBezier = (WaveViewByBezier) inflate.findViewById(R.id.wave_bezier);
+
+        waveViewByBezier.startAnimation();
+        return inflate;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        waveViewByBezier.pauseAnimation();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        waveViewByBezier.resumeAnimation();
+    }
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        waveViewByBezier.stopAnimation();
     }
 
 }
