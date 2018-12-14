@@ -37,6 +37,17 @@
     <string name="custom">CustomLayoutManager</string>
 
 
+    <!--动画-->
+    <string name="custom_progress">自定义进度条</string>
+    <string name="bezier_curve">波浪动画&#8212;贝塞尔曲线实现</string>
+    <string name="sin_cos">波浪动画&#8212;正余弦函数实现</string>
+    <string name="water">水波（雷达）扩散效果</string>
+    <string name="button_animation">按钮自定义动画</string>
+    <string name="sticky_ball">粘性小球</string>
+    <string name="mounted">吸顶效果&#8212;一行代码实现</string>
+    <string name="reveal_animation">揭露动画</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
