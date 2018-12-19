@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
+        itemList.add(new Item("JobService和JobScheduler测试", "JobService和JobScheduler测试", ServiceActivity.class));
         itemList.add(new Item("动画", "动画", AnimationActivity.class));
         itemList.add(new Item("GridView", "GridView添加分割线", GridViewActivity.class));
         itemList.add(new Item("占位符", "占位符的使用", PlaceholderActivity.class));
