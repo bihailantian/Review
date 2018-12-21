@@ -39,6 +39,7 @@ import com.xxm.review.activity.VideoActivity;
 import com.xxm.review.activity.VirtualApkActivity;
 import com.xxm.review.activity.animation.AnimationActivity;
 import com.xxm.review.domain.Item;
+import com.xxm.review.utils.NetUtils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -124,6 +125,8 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+
+        Log.d(TAG, "IP: " + NetUtils.getIpAddress());
 
     }
 
