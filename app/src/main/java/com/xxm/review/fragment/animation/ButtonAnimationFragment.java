@@ -9,12 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.xxm.review.R;
+import com.xxm.review.view.AnimationButton;
 
 /**
  * 按钮自定义动画
  */
 public class ButtonAnimationFragment extends Fragment {
 
+    private AnimationButton animationButton;
 
     public ButtonAnimationFragment() {
         // Required empty public constructor
@@ -35,8 +37,22 @@ public class ButtonAnimationFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_button_animation, container, false);
+        View inflate = inflater.inflate(R.layout.fragment_button_animation, null);
+        animationButton = (AnimationButton) inflate.findViewById(R.id.animation_btn);
+        animationButton.setAnimationButtonListener(new AnimationButton.AnimationButtonListener() {
+            @Override
+            public void onClickListener() {
+                animationButton.start();
+            }
+
+            @Override
+            public void animationFinish() {
+                //Toast.makeText(this,"动画执行完毕",Toast.LENGTH_SHORT).show();
+//                finish();
+                animationButton.reset();
+            }
+        });
+        return inflate;
     }
 
 }
