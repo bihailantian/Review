@@ -55,7 +55,7 @@
         <activity android:name=".activity.PlaceholderActivity" />
         <activity android:name=".activity.GridViewActivity" />
         <activity android:name=".activity.animation.AnimationActivity" />
-        <activity android:name=".activity.JobServerActivity" />
+        <activity android:name=".activity.JobServiceActivity" />
     </application>
 
 </manifest>
