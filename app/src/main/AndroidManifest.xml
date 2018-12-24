@@ -26,6 +26,7 @@
         <activity android:name=".activity.ServiceActivity" />
 
         <service android:name=".service.CountService" />
+        <service android:name=".service.JobSchedulerService" />
 
         <activity android:name=".activity.ConfigActivity" />
         <activity android:name=".activity.RetrofitActivity" />
@@ -53,7 +54,8 @@
         <activity android:name=".activity.SharedElementActivity" />
         <activity android:name=".activity.PlaceholderActivity" />
         <activity android:name=".activity.GridViewActivity" />
-        <activity android:name=".activity.animation.AnimationActivity"></activity>
+        <activity android:name=".activity.animation.AnimationActivity" />
+        <activity android:name=".activity.ServerActivity" />
     </application>
 
 </manifest>

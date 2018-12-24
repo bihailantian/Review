@@ -10,6 +10,12 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.util.Enumeration;
+
 /**
  * 网络相关辅助类,获取手机网络状态，详细到移动网络类型
  */
@@ -163,5 +169,29 @@ public class NetUtils {
             intent.setAction("android.intent.action.VIEW");
         }
         activity.startActivityForResult(intent, 0);
+    }
+
+
+    /**
+     * 获取设备ip地址
+     *
+     * @return IP字符串
+     */
+    public static String getIpAddress() {
+        try {
+            for (Enumeration<NetworkInterface> enNetI = NetworkInterface.getNetworkInterfaces(); enNetI
+                    .hasMoreElements(); ) {
+                NetworkInterface netI = enNetI.nextElement();
+                for (Enumeration<InetAddress> enumIpAddress = netI.getInetAddresses(); enumIpAddress.hasMoreElements(); ) {
+                    InetAddress inetAddress = enumIpAddress.nextElement();
+                    if (inetAddress instanceof Inet4Address && !inetAddress.isLoopbackAddress()) {
+                        return inetAddress.getHostAddress();
+                    }
+                }
+            }
+        } catch (SocketException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 }
