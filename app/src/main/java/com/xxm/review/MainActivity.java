@@ -30,6 +30,7 @@ import com.xxm.review.activity.PollViewActivity;
 import com.xxm.review.activity.ProgressBarActivity;
 import com.xxm.review.activity.RecyclerViewActivity;
 import com.xxm.review.activity.RetrofitActivity;
+import com.xxm.review.activity.JobServerActivity;
 import com.xxm.review.activity.ServiceActivity;
 import com.xxm.review.activity.ShapeActivity;
 import com.xxm.review.activity.SharePreActivity;
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
-        itemList.add(new Item("JobService和JobScheduler测试", "JobService和JobScheduler测试", ServiceActivity.class));
+        itemList.add(new Item("JobService和JobScheduler测试", "JobService和JobScheduler测试", JobServerActivity.class));
         itemList.add(new Item("动画", "动画", AnimationActivity.class));
         itemList.add(new Item("GridView", "GridView添加分割线", GridViewActivity.class));
         itemList.add(new Item("占位符", "占位符的使用", PlaceholderActivity.class));

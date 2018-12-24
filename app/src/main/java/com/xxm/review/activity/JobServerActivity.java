@@ -9,7 +9,7 @@ import com.xxm.review.base.BaseActivity;
 /**
  * JobService和JobScheduler测试
  */
-public class ServerActivity extends BaseActivity {
+public class JobServerActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
