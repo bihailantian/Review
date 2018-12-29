@@ -1,6 +1,7 @@
 package com.xxm.review.utils;
 
 import android.content.Context;
+import android.text.TextUtils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,15 +16,15 @@ public class FileUtils {
     /**
      * 删除指定目录下的文件
      *
-     * @param fileDir 文件路径
+     * @param filePath 文件路径
+     * @return true:删除成功，false:删除失败
      */
-    public static boolean deleteFile(String fileDir) {
-        boolean delete = false;
-        File file = new File(fileDir);
-        if (file.exists()) {
-            delete = file.delete();
+    public static boolean deleteFile(String filePath) {
+        if (TextUtils.isEmpty(filePath)) {
+            return false;
         }
-        return delete;
+        File file = new File(filePath);
+        return file.exists() && file.delete();
     }
 
 
