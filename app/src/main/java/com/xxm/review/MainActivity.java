@@ -21,6 +21,7 @@ import com.xxm.review.activity.ConfigActivity;
 import com.xxm.review.activity.ConstraintLayoutActivity;
 import com.xxm.review.activity.GridViewActivity;
 import com.xxm.review.activity.ImageActivity;
+import com.xxm.review.activity.JobServiceActivity;
 import com.xxm.review.activity.LifeActivity;
 import com.xxm.review.activity.ListActivity;
 import com.xxm.review.activity.OkHttp3Activity;
@@ -30,7 +31,6 @@ import com.xxm.review.activity.PollViewActivity;
 import com.xxm.review.activity.ProgressBarActivity;
 import com.xxm.review.activity.RecyclerViewActivity;
 import com.xxm.review.activity.RetrofitActivity;
-import com.xxm.review.activity.JobServiceActivity;
 import com.xxm.review.activity.ServiceActivity;
 import com.xxm.review.activity.ShapeActivity;
 import com.xxm.review.activity.SharePreActivity;
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "getApplication().getPackageName()= " + getApplication().getPackageName());
         Log.d(TAG, "目录= " + Environment.getExternalStorageDirectory().getAbsolutePath());
         Log.d(TAG, "sd卡: " + Environment.getExternalStorageState());
-        Log.d(TAG, "sd卡: " + Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED));
+        Log.d(TAG, "sd卡: " + Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)); //判断sd卡是否可读
         Log.d(TAG, "文件路径: " + Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "Review");
         Log.d(TAG, "文件路径: " + Environment.getExternalStorageDirectory());
         Log.d(TAG, "Build.VERSION.SDK_INT= " + Build.VERSION.SDK_INT);
