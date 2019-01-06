@@ -3,7 +3,6 @@ package com.xxm.review.activity;
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
