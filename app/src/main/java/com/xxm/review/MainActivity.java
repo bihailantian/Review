@@ -39,6 +39,7 @@ import com.xxm.review.activity.TableWithBorderActivity;
 import com.xxm.review.activity.VideoActivity;
 import com.xxm.review.activity.VirtualApkActivity;
 import com.xxm.review.activity.animation.AnimationActivity;
+import com.xxm.review.activity.ui.CalculatorActivity;
 import com.xxm.review.domain.Item;
 import com.xxm.review.utils.NetUtils;
 
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
+        itemList.add(new Item("UI界面", "简约计算器界面", CalculatorActivity.class));
         itemList.add(new Item("JobService和JobScheduler测试", "JobService和JobScheduler测试", JobServiceActivity.class));
         itemList.add(new Item("动画", "动画", AnimationActivity.class));
         itemList.add(new Item("GridView", "GridView添加分割线", GridViewActivity.class));

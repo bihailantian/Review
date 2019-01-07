@@ -46,4 +46,41 @@
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">12sp</item>
     </style>
+
+    <!--计算器-->
+    <style name="baseButtonStyle">
+        <item name="android:layout_margin">5dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Button3Style" parent="baseButtonStyle">
+        <item name="android:background">@drawable/button2_selector</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="Button4Style" parent="baseButtonStyle">
+        <item name="android:background">@drawable/button4_selector</item>
+        <item name="android:layout_weight">3</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="Button5Style" parent="baseButtonStyle">
+        <item name="android:background">@drawable/button_selector</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="Col1Style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">0.6</item>
+    </style>
+
+    <style name="Col2Style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+    </style>
 </resources>
