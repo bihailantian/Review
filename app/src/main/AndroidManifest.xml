@@ -58,7 +58,8 @@
         <activity android:name=".activity.GridViewActivity" />
         <activity android:name=".activity.animation.AnimationActivity" />
         <activity android:name=".activity.JobServiceActivity" />
-        <activity android:name=".activity.ui.CalculatorActivity"></activity>
+        <activity android:name=".activity.ui.CalculatorActivity" />
+        <activity android:name=".activity.PopupMenuActivity"></activity>
     </application>
 
 </manifest>

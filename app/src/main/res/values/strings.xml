@@ -67,6 +67,12 @@
     <string name="DEL">DEL</string>
 
 
+    <string name="menu_next">下一首播放</string>
+    <string name="menu_add">添加到歌单</string>
+    <string name="menu_detail">歌曲详情</string>
+    <string name="menu_del">删除歌曲</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

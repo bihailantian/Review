@@ -28,6 +28,7 @@ import com.xxm.review.activity.OkHttp3Activity;
 import com.xxm.review.activity.OpenGLActivity;
 import com.xxm.review.activity.PlaceholderActivity;
 import com.xxm.review.activity.PollViewActivity;
+import com.xxm.review.activity.PopupMenuActivity;
 import com.xxm.review.activity.ProgressBarActivity;
 import com.xxm.review.activity.RecyclerViewActivity;
 import com.xxm.review.activity.RetrofitActivity;
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
+        itemList.add(new Item("PopupMenu", "PopupMenu例子", PopupMenuActivity.class));
         itemList.add(new Item("UI界面", "简约计算器界面", CalculatorActivity.class));
         itemList.add(new Item("JobService和JobScheduler测试", "JobService和JobScheduler测试", JobServiceActivity.class));
         itemList.add(new Item("动画", "动画", AnimationActivity.class));
