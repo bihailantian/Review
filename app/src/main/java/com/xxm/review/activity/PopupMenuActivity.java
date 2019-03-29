@@ -1,14 +1,12 @@
 package com.xxm.review.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.view.menu.MenuBuilder;
-import android.support.v7.view.menu.MenuPopupHelper;
 import android.support.v7.widget.PopupMenu;
-import android.view.MenuInflater;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.xxm.review.R;
@@ -20,6 +18,7 @@ import java.lang.reflect.Method;
 public class PopupMenuActivity extends BaseActivity {
 
     private ImageButton btn_help;
+    private TextView tvPopupMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +33,19 @@ public class PopupMenuActivity extends BaseActivity {
         });
 
         btn_help = findViewById(R.id.btn_help);
+        tvPopupMenu = findViewById(R.id.tv_popupMenu);
 
         btn_help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showMenu();
+            }
+        });
+
+        tvPopupMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showMenu(v);
             }
         });
     }
@@ -54,9 +61,11 @@ public class PopupMenuActivity extends BaseActivity {
      * @param view popupMenu菜单要依附的view
      */
     private void showMenu(View view) {
-        PopupMenu popupMenu = new PopupMenu(mActivity, view);
+        PopupMenu popupMenu = new PopupMenu(mActivity, view, Gravity.CENTER);
         popupMenu.getMenuInflater().inflate(R.menu.menu_popup_simple, popupMenu.getMenu());
         popupMenu.show();
+
+
 
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
