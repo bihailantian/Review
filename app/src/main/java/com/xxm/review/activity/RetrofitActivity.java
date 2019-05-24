@@ -1,6 +1,7 @@
 package com.xxm.review.activity;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 
@@ -48,15 +49,21 @@ public class RetrofitActivity extends BaseActivity implements View.OnClickListen
         Log.d(TAG, requestUrl.encodedPath());
         call.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
                 try {
-                    if (response != null) {
-                        Log.d(TAG, call.request().url().encodedPath());
-                        Log.d(TAG, response.body().string());
-                        System.out.println(response.body().string());
-                    } else {
+                    //if (response != null) {
+                    // Log.d(TAG, call.request().url().encodedPath());
+                    ResponseBody body = response.body();
+
+                    if (body == null) {
                         Log.d(TAG, "response==null");
+                    } else {
+                        Log.d(TAG, body.string());
                     }
+                    //System.out.println(response.body().string());
+                    // } else {
+
+                    // }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
