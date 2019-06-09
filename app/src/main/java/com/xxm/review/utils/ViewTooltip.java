@@ -22,8 +22,9 @@ import android.widget.TextView;
  */
 
 public class ViewTooltip {
-
+    //依附的view
     private final View view;
+    //提示信息view
     private final ViewTooltip_view tooltip_view;
 
     private ViewTooltip(View view) {
@@ -222,10 +223,12 @@ public class ViewTooltip {
             ((TextView) childView).setTextColor(Color.WHITE);
             addView(childView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
+            //气泡画画笔     Paint.ANTI_ALIAS_FLAG:设置抗锯齿
             bubblePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
             bubblePaint.setColor(color);
             bubblePaint.setStyle(Paint.Style.FILL);
 
+            //设置内间距
             int paddingHorizontal = 40 + ARROW_HEIGHT;
             int paddingVertical = 20 + ARROW_HEIGHT;
             setPadding(paddingHorizontal, paddingVertical, paddingHorizontal, paddingVertical);
@@ -499,10 +502,19 @@ public class ViewTooltip {
             }
         }
 
-
+        /**
+         * 绘制消息气泡
+         *
+         * @param rect                气泡矩形
+         * @param topLeftDiameter     左上角圆角直径
+         * @param topRightDiameter    右上角圆角直径
+         * @param bottomRightDiameter 左下角圆角直径
+         * @param bottomLeftDiameter  右下角圆角直径
+         * @return 绘制气泡的几何路径Path
+         */
         private Path drawBubble(RectF rect, float topLeftDiameter, float topRightDiameter, float bottomRightDiameter, float bottomLeftDiameter) {
             final Path path = new Path();
-
+            //非负值判断
             topLeftDiameter = topLeftDiameter < 0 ? 0 : topLeftDiameter;
             topRightDiameter = topRightDiameter < 0 ? 0 : topRightDiameter;
             bottomLeftDiameter = bottomLeftDiameter < 0 ? 0 : bottomLeftDiameter;
