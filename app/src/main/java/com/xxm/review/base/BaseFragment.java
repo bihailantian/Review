@@ -1,6 +1,7 @@
 package com.xxm.review.base;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,7 +50,7 @@ public abstract class BaseFragment extends Fragment {
     public abstract void onFragmentShowChanged(boolean gainShow);
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (mContainer == null) {
             mContainer = onInflaterContent(inflater, container, savedInstanceState);
         }
