@@ -37,6 +37,7 @@ import com.xxm.review.activity.ShapeActivity;
 import com.xxm.review.activity.SharePreActivity;
 import com.xxm.review.activity.TabHostActivity;
 import com.xxm.review.activity.TableWithBorderActivity;
+import com.xxm.review.activity.TextSwitcherActivity;
 import com.xxm.review.activity.VideoActivity;
 import com.xxm.review.activity.ViewTipsActivity;
 import com.xxm.review.activity.VirtualApkActivity;
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
+        itemList.add(new Item("TextSwitcher", "通知公告TextSwitcher自动上下滚动带点击事件", TextSwitcherActivity.class));
         itemList.add(new Item("ViewTooltip", "ViewTooltip例子", ViewTipsActivity.class));
         itemList.add(new Item("PopupMenu", "PopupMenu例子", PopupMenuActivity.class));
         itemList.add(new Item("UI界面", "简约计算器界面", CalculatorActivity.class));

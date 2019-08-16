@@ -60,7 +60,8 @@
         <activity android:name=".activity.JobServiceActivity" />
         <activity android:name=".activity.ui.CalculatorActivity" />
         <activity android:name=".activity.PopupMenuActivity" />
-        <activity android:name=".activity.ViewTipsActivity"/>
+        <activity android:name=".activity.ViewTipsActivity" />
+        <activity android:name=".activity.TextSwitcherActivity"/>
     </application>
 
 </manifest>
