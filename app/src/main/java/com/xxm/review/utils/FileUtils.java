@@ -36,19 +36,19 @@ public class FileUtils {
      * @return
      */
     public static String getFromAssets(Context context, String fileName) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         try {
             InputStreamReader inputReader = new InputStreamReader(context.getResources().getAssets().open(fileName));
             BufferedReader bufReader = new BufferedReader(inputReader);
-            String line = "";
+            String line;
 
             while ((line = bufReader.readLine()) != null) {
-                result += line;
+                result.append(line);
             }
-            return result;
+            return result.toString();
         } catch (Exception e) {
             e.printStackTrace();
-            return result;
+            return result.toString();
         }
 
     }
