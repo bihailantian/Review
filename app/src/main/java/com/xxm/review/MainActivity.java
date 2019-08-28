@@ -118,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        Log.d(TAG, "getPath()= " +  Environment.getExternalStorageDirectory().getPath() );
         Log.d(TAG, "getPackageName()= " + getPackageName());
         Log.d(TAG, "getApplicationInfo().packageName= " + getApplicationInfo().packageName);
         Log.d(TAG, "getApplicationInfo().processName= " + getApplicationInfo().processName);
