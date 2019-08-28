@@ -156,9 +156,9 @@ public class WaveViewByBezier extends View {
                     mWaveAmplitude);
         }
 
-        mWavePath.lineTo(getWidth(), getHeight());
-        mWavePath.lineTo(0, getHeight());
-        mWavePath.close();
+        mWavePath.lineTo(getWidth(), getHeight()); //屏幕的右下角
+        mWavePath.lineTo(0, getHeight()); //屏幕的左下角
+        mWavePath.close(); //闭合曲线
 
         canvas.drawPath(mWavePath, mWavePaint);
     }
@@ -188,9 +188,9 @@ public class WaveViewByBezier extends View {
                     mWaveAmplitude);
         }
 
-        mWavePath.lineTo(getWidth(), getHeight());
-        mWavePath.lineTo(0, getHeight());
-        mWavePath.close();
+        mWavePath.lineTo(getWidth(), getHeight()); //屏幕的右下角
+        mWavePath.lineTo(0, getHeight());//屏幕的左下角
+        mWavePath.close();//闭合曲线
 
         canvas.drawPath(mWavePath, mWavePaint);
     }
