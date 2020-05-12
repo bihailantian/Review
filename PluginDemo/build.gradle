@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.didi.virtualapk.plugin'
+//apply plugin: 'com.didi.virtualapk.plugin'
 
 def keystorePropertiesFile = rootProject.file("keystore.properties")
 def keystoreProperties = new Properties()
@@ -48,8 +48,8 @@ dependencies {
     implementation 'com.didi.virtualapk:core:0.9.6'
 }
 
-virtualApk {
-    packageId = 0x6f             // The package id of Resources.
-    targetHost = '../Review/app' // The path of application module in host project.
-    applyHostMapping = true      // [Optional] Default value is true.
-}
+//virtualApk {
+//    packageId = 0x6f             // The package id of Resources.
+//    targetHost = '../Review/app' // The path of application module in host project.
+//    applyHostMapping = true      // [Optional] Default value is true.
+//}
