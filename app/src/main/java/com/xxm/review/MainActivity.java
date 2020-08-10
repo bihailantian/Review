@@ -19,6 +19,7 @@ import com.xxm.review.activity.BadgeActivity;
 import com.xxm.review.activity.CalendarActivity;
 import com.xxm.review.activity.ConfigActivity;
 import com.xxm.review.activity.ConstraintLayoutActivity;
+import com.xxm.review.activity.custom.CustomViewActivity;
 import com.xxm.review.activity.GridViewActivity;
 import com.xxm.review.activity.ImageActivity;
 import com.xxm.review.activity.JobServiceActivity;
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
+        itemList.add(new Item("CustomView", "自定义View", CustomViewActivity.class));
         itemList.add(new Item("TextSwitcher", "通知公告TextSwitcher自动上下滚动带点击事件", TextSwitcherActivity.class));
         itemList.add(new Item("ViewTooltip", "ViewTooltip例子", ViewTipsActivity.class));
         itemList.add(new Item("PopupMenu", "PopupMenu例子", PopupMenuActivity.class));
