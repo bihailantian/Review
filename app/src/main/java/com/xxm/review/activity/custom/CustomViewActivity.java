@@ -23,6 +23,7 @@ public class CustomViewActivity extends AppCompatActivity {
         pageModels.add(new PageModel(R.string.title_like, R.layout.practice_like));
         pageModels.add(new PageModel(R.string.title_measure, R.layout.practice_measure));
         pageModels.add(new PageModel(R.string.title_bubble, R.layout.practice_bubble_view));
+        pageModels.add(new PageModel(R.string.title_clock, R.layout.practice_clock_view));
 
 
     }

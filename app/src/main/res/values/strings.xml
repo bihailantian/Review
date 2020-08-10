@@ -80,5 +80,6 @@
     <string name="title_measure">测量</string>
     <string name="title_like">点赞</string>
     <string name="title_bubble">汽泡</string>
+    <string name="title_clock">时钟</string>
 
 </resources>

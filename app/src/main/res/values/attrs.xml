@@ -59,4 +59,13 @@
         </attr>
 
     </declare-styleable>
+
+
+    <declare-styleable name="ClockView">
+        <attr name="clockRadius" format="dimension" />
+        <attr name="hourNeedleWidthColor" format="color" />
+        <attr name="minuteWidthColor" format="color" />
+        <attr name="secondWidthColor" format="color" />
+        <attr name="textSize" format="dimension|reference"/>
+    </declare-styleable>
 </resources>
