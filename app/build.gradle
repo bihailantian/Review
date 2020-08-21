@@ -78,5 +78,9 @@ dependencies {
     implementation 'com.orhanobut:logger:2.2.0'
     implementation 'com.cleveroad:fan-layout-manager:1.0.1'
     implementation 'com.android.support:design:27.1.1'
+    implementation "io.reactivex.rxjava3:rxjava:3.0.5"// 必要rxjava2依赖
+    implementation "io.reactivex.rxjava3:rxandroid:3.0.0"// 必要rxandrroid依赖，切线程时需要用到
+    implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.2' // 必要依赖，解析json字符所用
 
 }

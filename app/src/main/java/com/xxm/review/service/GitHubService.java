@@ -1,10 +1,12 @@
 package com.xxm.review.service;
 
 
+
 import com.xxm.review.domain.Repo;
 
 import java.util.List;
 
+import io.reactivex.rxjava3.core.Observable;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -21,5 +23,7 @@ public interface GitHubService {
 
     @GET
     Call<ResponseBody> weatherOfCity();
+    @GET
+    Observable<Repo> weatherOfCity2();
 
 }

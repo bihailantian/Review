@@ -7,16 +7,24 @@ import android.view.View;
 
 import com.xxm.review.R;
 import com.xxm.review.base.BaseActivity;
+import com.xxm.review.domain.Repo;
 import com.xxm.review.service.GitHubService;
 
 import java.io.IOException;
 
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.Observer;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import okhttp3.HttpUrl;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Retrofit 框架测试
@@ -75,5 +83,39 @@ public class RetrofitActivity extends BaseActivity implements View.OnClickListen
                 t.printStackTrace();
             }
         });
+    }
+
+
+    private void test() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://www.kuaidi100.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create()) // 支持RxJava
+                .build();
+        GitHubService service = retrofit.create(GitHubService.class);
+        Observable<Repo> weatherOfCity2 = service.weatherOfCity2();
+        weatherOfCity2.subscribeOn(Schedulers.io()) // 在子线程中进行Http访问
+                .observeOn(AndroidSchedulers.mainThread()) // UI线程处理返回接口
+                .subscribe(new Observer<Repo>() { //订阅
+                    @Override
+                    public void onSubscribe(@io.reactivex.rxjava3.annotations.NonNull Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(@io.reactivex.rxjava3.annotations.NonNull Repo repo) {
+
+                    }
+
+                    @Override
+                    public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 }
