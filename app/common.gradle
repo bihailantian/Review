@@ -27,4 +27,11 @@ gradle.allprojects {
         def strTime = new Date().format("yyyyMMddHH", TimeZone.getTimeZone("GMT+8"))
         return Integer.parseInt(strTime)
     }
+
+    //获取commit提交次数
+    ext.getGitRevision =  {
+        //return 'git rev-parse --short HEAD'.execute().text.trim()
+        def cmd = 'git rev-list HEAD --first-parent --count'
+        cmd.execute().text.trim().toInteger()
+    }
 }
