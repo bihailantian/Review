@@ -119,24 +119,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        Log.d(TAG, "getPath()= " +  Environment.getExternalStorageDirectory().getPath() );
-        Log.d(TAG, "getPackageName()= " + getPackageName());
-        Log.d(TAG, "getApplicationInfo().packageName= " + getApplicationInfo().packageName);
-        Log.d(TAG, "getApplicationInfo().processName= " + getApplicationInfo().processName);
-        Log.d(TAG, "getApplication().getPackageName()= " + getApplication().getPackageName());
-        Log.d(TAG, "目录= " + Environment.getExternalStorageDirectory().getAbsolutePath());
-        Log.d(TAG, "sd卡: " + Environment.getExternalStorageState());
-        Log.d(TAG, "sd卡: " + Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)); //判断sd卡是否可读
-        Log.d(TAG, "文件路径: " + Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "Review");
-        Log.d(TAG, "文件路径: " + Environment.getExternalStorageDirectory());
-        Log.d(TAG, "Build.VERSION.SDK_INT= " + Build.VERSION.SDK_INT);
-        try {
-            Log.d(TAG, "getApplicationInfo().packageName= " + getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-
+        PathPrint.printPath(this);
 
         Log.d(TAG, "IP: " + NetUtils.getIpAddress());
 
