@@ -4,9 +4,12 @@ package com.xxm.review.utils;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import android.widget.ImageView;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,8 +25,26 @@ public class ImageUtils {
 
 
     private ImageUtils() {
-         /* cannot be instantiated */
+        /* cannot be instantiated */
         throw new UnsupportedOperationException("cannot be instantiated");
+    }
+
+
+    /**
+     * 把彩色的图片显示为灰色
+     *
+     * @param imageView 控件
+     * @param isGray    true：显示灰色，false：显示彩色
+     */
+    public static void imageToGray(ImageView imageView, boolean isGray) {
+        if (isGray) {
+            ColorMatrix cm = new ColorMatrix();
+            cm.setSaturation(0); // 设置饱和度
+            ColorMatrixColorFilter grayColorFilter = new ColorMatrixColorFilter(cm);
+            imageView.setColorFilter(grayColorFilter); // 如果想恢复彩色显示，设置为null即可
+        } else {
+            imageView.setColorFilter(null);
+        }
     }
 
 
