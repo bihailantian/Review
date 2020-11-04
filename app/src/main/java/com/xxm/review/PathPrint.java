@@ -6,6 +6,8 @@ import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
 
+import com.xxm.review.utils.ImeiUtil;
+
 import java.io.File;
 
 public class PathPrint {
@@ -38,6 +40,15 @@ public class PathPrint {
             e.printStackTrace();
         }
 
+
+        Log.d(TAG,"############ IMEI ###############");
+        try {
+            Log.d(TAG, ImeiUtil.getMachineImei(activity));
+            //Log.d(TAG, ImeiUtil.getDeviced(activity,1));
+        } catch (Exception e) {
+           Log.e(TAG,Log.getStackTraceString(e));
+        }
+        Log.d(TAG,"############ IMEI ###############");
 
     }
 }
