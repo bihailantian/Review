@@ -4,5 +4,7 @@
     <dimen name="activity_content_margin">16dp</dimen>
     <dimen name="normal_font_size">15sp</dimen>
 
+    <dimen name="sp_txt_size_content">14sp</dimen>
+
 
 </resources>
