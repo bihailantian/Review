@@ -461,7 +461,7 @@ public class TextViewExpandableAnimation extends LinearLayout implements OnClick
 
     public void setExpandLines(int newExpandLines) {
         int start = isShrink ? this.expandLines : textLines;
-        int end = Math.min(textLines, newExpandLines);
+        int end = textLines < newExpandLines ? textLines : newExpandLines;
         doAnimation(start, end, WHAT_ANIMATION_END);
         this.expandLines = newExpandLines;
     }
