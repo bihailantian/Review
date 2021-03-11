@@ -2,10 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xxm.review">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <application
         android:name=".ReviewApplication"
         android:allowBackup="false"
@@ -14,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.custom.CustomViewActivity"/>
+        <activity android:name=".activity.RotateDrawableActivity"></activity>
+        <activity android:name=".activity.custom.CustomViewActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,13 +23,9 @@
         <activity android:name=".activity.LifeActivity" />
         <activity android:name=".activity.ServiceActivity" />
 
-        <service android:name=".service.CountService" />
-        <service
-            android:name=".service.JobSchedulerService"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
-
         <activity android:name=".activity.ConfigActivity" />
         <activity android:name=".activity.RetrofitActivity" />
+
         <activity android:name=".activity.OkHttp3Activity" />
         <activity android:name=".activity.CalendarActivity" />
         <activity android:name=".activity.ShapeActivity" />
@@ -63,6 +56,14 @@
         <activity android:name=".activity.PopupMenuActivity" />
         <activity android:name=".activity.ViewTipsActivity" />
         <activity android:name=".activity.TextSwitcherActivity" />
+        <service android:name=".service.CountService" />
+        <service
+            android:name=".service.JobSchedulerService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

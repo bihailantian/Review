@@ -2,10 +2,7 @@ package com.xxm.review;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +16,6 @@ import com.xxm.review.activity.BadgeActivity;
 import com.xxm.review.activity.CalendarActivity;
 import com.xxm.review.activity.ConfigActivity;
 import com.xxm.review.activity.ConstraintLayoutActivity;
-import com.xxm.review.activity.custom.CustomViewActivity;
 import com.xxm.review.activity.GridViewActivity;
 import com.xxm.review.activity.ImageActivity;
 import com.xxm.review.activity.JobServiceActivity;
@@ -33,6 +29,7 @@ import com.xxm.review.activity.PopupMenuActivity;
 import com.xxm.review.activity.ProgressBarActivity;
 import com.xxm.review.activity.RecyclerViewActivity;
 import com.xxm.review.activity.RetrofitActivity;
+import com.xxm.review.activity.RotateDrawableActivity;
 import com.xxm.review.activity.ServiceActivity;
 import com.xxm.review.activity.ShapeActivity;
 import com.xxm.review.activity.SharePreActivity;
@@ -43,11 +40,11 @@ import com.xxm.review.activity.VideoActivity;
 import com.xxm.review.activity.ViewTipsActivity;
 import com.xxm.review.activity.VirtualApkActivity;
 import com.xxm.review.activity.animation.AnimationActivity;
+import com.xxm.review.activity.custom.CustomViewActivity;
 import com.xxm.review.activity.ui.CalculatorActivity;
 import com.xxm.review.domain.Item;
 import com.xxm.review.utils.NetUtils;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
+        itemList.add(new Item("RotateDrawable", "用RotateDrawable实现网易云音乐唱片机效果", RotateDrawableActivity.class));
         itemList.add(new Item("CustomView", "自定义View", CustomViewActivity.class));
         itemList.add(new Item("TextSwitcher", "通知公告TextSwitcher自动上下滚动带点击事件", TextSwitcherActivity.class));
         itemList.add(new Item("ViewTooltip", "ViewTooltip例子", ViewTipsActivity.class));
@@ -104,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         if (adapter == null) {
             adapter = new ListAdapter();
             listView.setAdapter(adapter);
-        }else {
+        } else {
             adapter.notifyDataSetChanged();
         }
 

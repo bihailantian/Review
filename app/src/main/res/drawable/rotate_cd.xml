@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rotate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@mipmap/cd"
+    android:fromDegrees="0"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:toDegrees="360"
+    android:visible="true" />
+    <!--唱片-->
+    <!--
+    android:drawable：指定将要进行旋转操作的Drawable对象。
+    android:visible：视图是否可见，注意默认是false，也就是不可见。
+    android:pivotX：pivotX表示旋转轴心在x轴横坐标上的位置，用百分比表示，表示在当前drawable总宽度百分之几的位置。
+    android:pivotY：同理，pivotY表示旋转轴心在y轴横坐标上的位置，用百分比表示，表示在当前drawable总高度百分之几的位置。
+    android:fromDegrees：fromDegrees表示起始角度，值大于0，则表示顺时针旋转，值小于0，则表示逆时针旋转。
+    android:toDegrees：fromDegrees表示终点角度，同理，值大于0，则表示顺时针旋转，值小于0，则表示逆时针旋转。
+    -->
