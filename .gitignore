@@ -11,3 +11,7 @@
 /captures
 .externalNativeBuild
 /keystore.properties
+
+
+#.idea配置
+.idea
