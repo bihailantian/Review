@@ -21,6 +21,7 @@ import com.xxm.review.activity.ImageActivity;
 import com.xxm.review.activity.JobServiceActivity;
 import com.xxm.review.activity.LifeActivity;
 import com.xxm.review.activity.ListActivity;
+import com.xxm.review.activity.NormalModeActivity;
 import com.xxm.review.activity.OkHttp3Activity;
 import com.xxm.review.activity.OpenGLActivity;
 import com.xxm.review.activity.PlaceholderActivity;
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
+        itemList.add(new Item("按行数进行折叠带过渡动画的TextView", "按行数进行折叠带过渡动画的TextView", NormalModeActivity.class));
         itemList.add(new Item("根据Span修改Text外观或者尺寸", "根据Span修改Text外观或者尺寸", TextSpanActivity.class));
         itemList.add(new Item("RotateDrawable", "用RotateDrawable实现网易云音乐唱片机效果", RotateDrawableActivity.class));
         itemList.add(new Item("CustomView", "自定义View", CustomViewActivity.class));
