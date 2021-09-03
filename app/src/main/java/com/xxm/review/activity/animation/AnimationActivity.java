@@ -97,17 +97,17 @@ public class AnimationActivity extends BaseActivity {
 
         }
 
-        Toast.makeText(mActivity,msg,Toast.LENGTH_SHORT).show();
+        Toast.makeText(mActivity, msg, Toast.LENGTH_SHORT).show();
         switchFragment(fragment);
-        
+
         return super.onOptionsItemSelected(item);
     }
 
 
-    private void switchFragment(Fragment fragment){
+    private void switchFragment(Fragment fragment) {
         Logger.d(mFragmentManager.getBackStackEntryCount());
 
-        mFragmentManager.beginTransaction().replace(R.id.content,fragment).commit();
+        mFragmentManager.beginTransaction().replace(R.id.content, fragment).commit();
 
     }
 }
