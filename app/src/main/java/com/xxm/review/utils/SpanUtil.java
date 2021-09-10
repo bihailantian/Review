@@ -2,7 +2,7 @@ package com.xxm.review.utils;
 
 import android.content.Context;
 import android.graphics.MaskFilter;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.text.Layout;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
