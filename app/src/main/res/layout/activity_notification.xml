@@ -8,9 +8,18 @@
     tools:context=".activity.NotificationActivity">
 
     <Button
+        android:layout_margin="10dp"
         android:textAllCaps="false"
         android:text="show Progress Notification"
         android:onClick="showProgressNotification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:layout_margin="10dp"
+        android:textAllCaps="false"
+        android:text="show Progress Notification 2"
+        android:onClick="showProgressNotification2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
