@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import java.util.Set;
 
 /**
- * Sharedpreferences工具类
+ * SharedPreferences工具类
  */
 public class SharePrefUtil {
 
@@ -81,6 +81,20 @@ public class SharePrefUtil {
     public static Boolean getBoolean(Context context, String key, Boolean defaultValue) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(COOKINGDIY, Context.MODE_PRIVATE);
         return sharedPreferences.getBoolean(key, defaultValue);
+    }
+
+    /**
+     * 存储布尔值
+     *
+     * @param context 上下文
+     * @param key     key
+     * @param value   值
+     */
+    public static void putBoolean(Context context, String key, Boolean value) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(COOKINGDIY, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(key, value);
+        editor.commit();
     }
 
     /**
