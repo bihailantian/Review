@@ -3,7 +3,7 @@ package com.xxm.review.utils;
 /**
  * 进制转换
  */
-public class BaseConvertUtil {
+public class ConvertUtil {
 
     /**
      * 字节转十六进制
