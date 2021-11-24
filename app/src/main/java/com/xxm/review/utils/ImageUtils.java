@@ -4,8 +4,18 @@ package com.xxm.review.utils;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
+import android.graphics.LinearGradient;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.Shader;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
@@ -13,6 +23,7 @@ import android.widget.ImageView;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -164,5 +175,123 @@ public class ImageUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 卸载图片
+     * @param imageView
+     */
+    public static void claerImagerView(ImageView imageView){
+        if (!(imageView.getDrawable() instanceof BitmapDrawable)){
+            return;
+        }
+        BitmapDrawable bitmapDrawable  = (BitmapDrawable) imageView.getDrawable();
+        bitmapDrawable.getBitmap().recycle();
+        imageView.setImageDrawable(null);
+    }
+
+
+
+    /**
+     * Check the SD card
+     * @return
+     */
+    public static boolean checkSDCardAvailable(){
+        return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
+    }
+
+    /**
+     * Save image to the SD card
+     * @param photoBitmap
+     * @param path
+     * @param photoName
+     */
+    public static void savePhotoToSDCard(Bitmap photoBitmap,String path,String photoName){
+        if (checkSDCardAvailable()) {
+            File dir = new File(path);
+            if (!dir.exists()){
+                dir.mkdirs();
+            }
+
+            File photoFile = new File(path , photoName);
+            FileOutputStream fileOutputStream = null;
+            try {
+                fileOutputStream = new FileOutputStream(photoFile);
+                if (photoBitmap != null) {
+                    if (photoBitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream)) {
+                        fileOutputStream.flush();
+//                        fileOutputStream.close();
+                    }
+                }
+            } catch (FileNotFoundException e) {
+                photoFile.delete();
+                e.printStackTrace();
+            } catch (IOException e) {
+                photoFile.delete();
+                e.printStackTrace();
+            } finally{
+                try {
+                    fileOutputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+
+
+
+    /**
+     * 根据给定的id获取处理(倒影, 倒影渐变)过的bitmap
+     * @param imageID
+     * @return
+     */
+    private static Bitmap getInvertImage(Context context, int imageID) {
+        // 获得原图
+        BitmapFactory.Options opts = new BitmapFactory.Options();
+        opts.inSampleSize = 2;
+        Bitmap sourceBitmap = BitmapFactory.decodeResource(context.getResources(), imageID, opts);
+
+        // 倒影图片
+        Matrix matrix = new Matrix();
+        // 设置图片的反转为, 垂直反转
+        matrix.setScale(1.0f, -1.0f);
+        //	float[] values = {
+        //			1.0f,	0f,		0f,
+        //			0f,		-1.0f,	0f,
+        //			0f,		0f,		1.0f
+        //	};
+        // 倒影图片
+        Bitmap invertBitmap = Bitmap.createBitmap(sourceBitmap, 0, sourceBitmap.getHeight() /2,
+                sourceBitmap.getWidth(), sourceBitmap.getHeight() /2, matrix, false);
+
+        // 合成一张图片
+        Bitmap resultBitmap = Bitmap.createBitmap(sourceBitmap.getWidth(),
+                (int) (sourceBitmap.getHeight() * 1.5 + 5), Bitmap.Config.ARGB_8888);
+
+        // 把原图添加到合成图片的左上角
+        Canvas canvas = new Canvas(resultBitmap);		// 指定画板画在合成图片上
+        canvas.drawBitmap(sourceBitmap, 0, 0, null);	// 把原图绘制到合成图上
+
+        // 把倒影图片绘制到合成图片上
+        canvas.drawBitmap(invertBitmap, 0, sourceBitmap.getHeight() + 5, null);
+
+        Rect rect = new Rect(0, sourceBitmap.getHeight() + 5, resultBitmap.getWidth(), resultBitmap.getHeight());
+        Paint paint = new Paint();
+
+        /**
+         * TileMode.CLAMP 指定渲染边界以外的控件以最后的那个颜色继续往下渲染
+         */
+        LinearGradient shader = new LinearGradient(0,
+                sourceBitmap.getHeight() + 5, 0, resultBitmap.getHeight(), 0x70FFFFFF, 0x00FFFFFF, Shader.TileMode.CLAMP);
+
+        // 设置为取交集模式
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+        // 指定渲染器为线性渲染器
+        paint.setShader(shader);
+        canvas.drawRect(rect, paint);
+
+        return resultBitmap;
     }
 }
