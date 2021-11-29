@@ -40,6 +40,7 @@ import com.xxm.review.activity.TabHostActivity;
 import com.xxm.review.activity.TableWithBorderActivity;
 import com.xxm.review.activity.TextSwitcherActivity;
 import com.xxm.review.activity.VideoActivity;
+import com.xxm.review.activity.ViewDragHelperActivity;
 import com.xxm.review.activity.ViewTipsActivity;
 import com.xxm.review.activity.VirtualApkActivity;
 import com.xxm.review.activity.animation.AnimationActivity;
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
+        itemList.add(new Item("ViewDragHelper", "ViewDragHelper一般用在一个自定义ViewGroup的内部，ViewDragHelper的实例是通过静态工厂方法创建的", ViewDragHelperActivity.class));
         itemList.add(new Item("Notification", "Notification状态栏通知", NotificationActivity.class));
         itemList.add(new Item("按行数进行折叠带过渡动画的TextView", "按行数进行折叠带过渡动画的TextView", NormalModeActivity.class));
         itemList.add(new Item("根据Span修改Text外观或者尺寸", "根据Span修改Text外观或者尺寸", TextSpanActivity.class));
