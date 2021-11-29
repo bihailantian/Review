@@ -1,1 +1,2 @@
 include ':app', ':PluginDemo'
+include ':activityResultsDemo'
