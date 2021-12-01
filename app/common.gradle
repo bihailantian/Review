@@ -13,7 +13,7 @@ gradle.allprojects {
 
                     // 索引文件内容为hash值+"\n"，
                     // 示例："90312cd9157587d11779ed7be776e3220050b308\n"
-                    return "_" + refFile.getText('UTF-8').substring(0, 7)
+                    return "_" + refFile.getText('UTF-8').substring(0, 8)
                 }
 
             }
