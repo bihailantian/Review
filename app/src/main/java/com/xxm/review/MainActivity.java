@@ -19,6 +19,7 @@ import com.xxm.review.activity.ConfigActivity;
 import com.xxm.review.activity.ConstraintLayoutActivity;
 import com.xxm.review.activity.GridViewActivity;
 import com.xxm.review.activity.ImageActivity;
+import com.xxm.review.activity.ImageInfoActivity;
 import com.xxm.review.activity.JobServiceActivity;
 import com.xxm.review.activity.LifeActivity;
 import com.xxm.review.activity.ListActivity;
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
+        itemList.add(new Item("图片信息", "获取一张图片的属性信息", ImageInfoActivity.class));
         itemList.add(new Item("ViewDragHelper", "ViewDragHelper一般用在一个自定义ViewGroup的内部，ViewDragHelper的实例是通过静态工厂方法创建的", ViewDragHelperActivity.class));
         itemList.add(new Item("Notification", "Notification状态栏通知", NotificationActivity.class));
         itemList.add(new Item("按行数进行折叠带过渡动画的TextView", "按行数进行折叠带过渡动画的TextView", NormalModeActivity.class));
