@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -59,8 +58,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
     private Activity mActivity;
-    private List<Item> itemList = new ArrayList<>();
-    private ListView listView;
+    private final List<Item> itemList = new ArrayList<>();
     private ListAdapter adapter;
 
     {
@@ -110,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mActivity = this;
 
-        listView = findViewById(R.id.listView);
+        ListView listView = findViewById(R.id.listView);
         if (adapter == null) {
             adapter = new ListAdapter();
             listView.setAdapter(adapter);
@@ -118,15 +116,12 @@ public class MainActivity extends AppCompatActivity {
             adapter.notifyDataSetChanged();
         }
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Item item = itemList.get(position);
-                Intent intent = new Intent(mActivity, item.getClazz());
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            Item item = itemList.get(position);
+            Intent intent = new Intent(mActivity, item.getClazz());
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
-            }
         });
 
         PathPrint.printPath(this);
