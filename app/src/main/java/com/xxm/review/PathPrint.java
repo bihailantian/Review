@@ -15,8 +15,8 @@ public class PathPrint {
 
     private static final String TAG = "PathPrint";
 
-    public static void printPath(Activity activity){
-        Log.d(TAG, "getPath()= " +  Environment.getExternalStorageDirectory().getPath() ); //<p>  /storage/emulated/0
+    public static void printPath(Activity activity) {
+        Log.d(TAG, "getPath()= " + Environment.getExternalStorageDirectory().getPath()); //<p>  /storage/emulated/0
         Log.d(TAG, "getPackageName()= " + activity.getPackageName());
         Log.d(TAG, "getApplicationInfo().packageName= " + activity.getApplicationInfo().packageName);
         Log.d(TAG, "getApplicationInfo().processName= " + activity.getApplicationInfo().processName);
@@ -34,21 +34,24 @@ public class PathPrint {
         }
 
         try {
-            Log.d(TAG,"Environment.DIRECTORY_DOWNLOADS："+activity.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));  //<p> /storage/emulated/0/Android/data/com.xxm.review/files/Download
-            Log.d(TAG,"getDataDirectory()："+Environment.getDataDirectory());  //<p> /data
+            Log.d(TAG, "Environment.DIRECTORY_DOWNLOADS：" + activity.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));  //<p> /storage/emulated/0/Android/data/com.xxm.review/files/Download
+            Log.d(TAG, "getDataDirectory()：" + Environment.getDataDirectory());  //<p> /data
         } catch (Exception e) {
             e.printStackTrace();
         }
 
 
-        Log.d(TAG,"############ IMEI ###############");
+        Log.d(TAG, "############ IMEI ###############");
         try {
             Log.d(TAG, ImeiUtil.getMachineImei(activity));
             //Log.d(TAG, ImeiUtil.getDeviced(activity,1));
         } catch (Exception e) {
-           Log.e(TAG,Log.getStackTraceString(e));
+            Log.e(TAG, Log.getStackTraceString(e));
         }
-        Log.d(TAG,"############ IMEI ###############");
+        Log.d(TAG, "############ IMEI ###############");
 
+        File file = new File("/data/user_de/");
+
+        Log.d(TAG, "/data/user_de : exists=" + file.exists() + ",getAbsolutePath=" + file.getAbsolutePath() + ",canRead=" + file.canRead());
     }
 }

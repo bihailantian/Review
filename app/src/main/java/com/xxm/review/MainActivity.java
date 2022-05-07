@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.xxm.review.activity.AdaptationFontActivity;
 import com.xxm.review.activity.BadgeActivity;
 import com.xxm.review.activity.CalendarActivity;
 import com.xxm.review.activity.ConfigActivity;
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
+        itemList.add(new Item("字体大小适配", "字体大小适配", AdaptationFontActivity.class));
         itemList.add(new Item("图片信息", "获取一张图片的属性信息", ImageInfoActivity.class));
         itemList.add(new Item("ViewDragHelper", "ViewDragHelper一般用在一个自定义ViewGroup的内部，ViewDragHelper的实例是通过静态工厂方法创建的", ViewDragHelperActivity.class));
         itemList.add(new Item("Notification", "Notification状态栏通知", NotificationActivity.class));
