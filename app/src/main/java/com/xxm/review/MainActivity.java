@@ -23,6 +23,8 @@ import com.xxm.review.activity.ImageInfoActivity;
 import com.xxm.review.activity.JobServiceActivity;
 import com.xxm.review.activity.LifeActivity;
 import com.xxm.review.activity.ListActivity;
+import com.xxm.review.activity.MotionLayoutActivity;
+import com.xxm.review.activity.NetChangeListenerActivity;
 import com.xxm.review.activity.NormalModeActivity;
 import com.xxm.review.activity.NotificationActivity;
 import com.xxm.review.activity.OkHttp3Activity;
@@ -63,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
+        itemList.add(new Item("网络变化监测", "网络变化监测", NetChangeListenerActivity.class));
+        itemList.add(new Item("MotionLayout 动画", "MotionLayout 动画", MotionLayoutActivity.class));
         itemList.add(new Item("字体大小适配", "字体大小适配", AdaptationFontActivity.class));
         itemList.add(new Item("图片信息", "获取一张图片的属性信息", ImageInfoActivity.class));
         itemList.add(new Item("ViewDragHelper", "ViewDragHelper一般用在一个自定义ViewGroup的内部，ViewDragHelper的实例是通过静态工厂方法创建的", ViewDragHelperActivity.class));

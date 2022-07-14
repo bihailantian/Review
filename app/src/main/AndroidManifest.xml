@@ -10,6 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.NetChangeListenerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MotionLayoutActivity"
+            android:exported="false" />
         <activity
             android:name=".activity.AdaptationFontActivity"
             android:exported="false" />
@@ -68,9 +73,9 @@
             android:name=".service.JobSchedulerService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>
