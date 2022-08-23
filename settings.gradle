@@ -1,2 +1,3 @@
 include ':app', ':PluginDemo'
 include ':activityResultsDemo'
+include ':chipdemo'
