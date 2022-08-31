@@ -16,11 +16,11 @@ public class ImeiUtil {
         Class clazz = manager.getClass();
         String imei = "";
         try {
-            Method getImei=clazz.getDeclaredMethod("getImei",int.class);//(int slotId)
+            Method getImei = clazz.getDeclaredMethod("getImei", int.class);//(int slotId)
             getImei.setAccessible(true);
             imei = (String) getImei.invoke(manager);
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e(TAG, "getMachineImei: " + e.toString());
         }
         return imei;
     }
@@ -48,7 +48,7 @@ public class ImeiUtil {
                 }
             }
         } catch (Exception e) {
-            Log.d(TAG, e.toString());
+            Log.e(TAG, "getPhoneInfo: " + e.toString());
         }
         return value;
     }
@@ -68,7 +68,7 @@ public class ImeiUtil {
                 }
             }
         } catch (Exception e) {
-            Log.d(TAG, e.toString());
+            Log.e(TAG, "getMethodParamTypes: " + e.toString());
         }
         return params;
     }

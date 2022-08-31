@@ -35,15 +35,21 @@ public class PathPrint {
 
         try {
             Log.d(TAG, "Environment.DIRECTORY_DOWNLOADS：" + activity.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));  //<p> /storage/emulated/0/Android/data/com.xxm.review/files/Download
+            //Log.d(TAG, "getExternalCacheDirs 1：" + activity.getExternalCacheDirs()[1].getAbsolutePath());  //<p> /storage/emulated/0/Android/data/com.xxm.review/files/Download
+            Log.d(TAG, "cache：" + activity.getExternalFilesDir("cache").getPath()); //  /storage/emulated/0/Android/data/com.xxm.review/files/cache
+            Log.d(TAG, "getExternalFilesDir：" + activity.getExternalFilesDir(null).getPath()); //  /storage/emulated/0/Android/data/com.xxm.review/files
             Log.d(TAG, "getDataDirectory()：" + Environment.getDataDirectory());  //<p> /data
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        Log.d(TAG, "cacheDir：" + activity.getCacheDir().getPath());  ///  data/user/0/com.xxm.review/cache
 
         Log.d(TAG, "############ IMEI ###############");
         try {
-            Log.d(TAG, ImeiUtil.getMachineImei(activity));
+            Log.d(TAG, "machineImei=" + ImeiUtil.getMachineImei(activity));
+            Log.d(TAG, "Imei 0 =" + ImeiUtil.getDeviced(activity, 0));
+            Log.d(TAG, "Imei 1 =" + ImeiUtil.getDeviced(activity, 1));
             //Log.d(TAG, ImeiUtil.getDeviced(activity,1));
         } catch (Exception e) {
             Log.e(TAG, Log.getStackTraceString(e));
