@@ -6,5 +6,6 @@
 
     <dimen name="sp_txt_size_content">14sp</dimen>
 
-
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="simpletooltip_max_width">150dp</dimen>
 </resources>

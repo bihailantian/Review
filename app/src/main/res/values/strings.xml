@@ -86,4 +86,26 @@
     <string name="shrink">收缩</string>
     <string name="tips">这是一个可以伸缩展开并且带平缓过渡动画的自定义文本控件，你可以设置其展开的行数，伸缩收起的图标，伸缩收起的文本和颜色等\n</string>
 
+
+    <string name="btn_simple">Simple</string>
+    <string name="btn_animated">Animated</string>
+    <string name="btn_bottom">bottom</string>
+    <string name="btn_overlay">Overlay</string>
+    <string name="btn_outside">Click outside</string>
+    <string name="btn_inside">Click inside</string>
+    <string name="btn_inside_modal">Click inside (Modal)</string>
+    <string name="btn_modal_custom">Modal custom.</string>
+    <string name="btn_no_arrow">No arrow</string>
+    <string name="btn_custom_arrow">Arrow custom.</string>
+    <string name="btn_next">NEXT</string>
+    <string name="btn_maxwidth">Max. width</string>
+    <string name="curtom_tooltip">Custom Tooltip</string>
+    <string name="edit_text">Edit Text</string>
+    <string name="btn_in_dialog">Inside dialog</string>
+    <string name="btn_close">Close</string>
+    <string name="btn_dialog">Inside dialog</string>
+    <string name="btn_center">Screen center</string>
+    <string name="btn_overlay_rect">Overlay Rect</string>
+    <string name="btn_overlay_rect_rounded">Overlay Rect Rounded</string>
+
 </resources>

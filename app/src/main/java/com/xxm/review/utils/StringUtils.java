@@ -69,6 +69,17 @@ public class StringUtils {
         return pattern.matcher(str).matches();
     }
 
+    /**
+     * 功能描述：判断输入的字符串是否包含汉字
+     *
+     * @param str 传入的字符窜
+     * @return 包含汉字返回true, 否则返回false
+     */
+    public static boolean isContainChinese(String str) {
+        Pattern pattern = Pattern.compile("[\u0391-\uFFE5]+$");
+        return pattern.matcher(str).find();
+    }
+
 
     /**
      * 功能描述：人民币转成大写

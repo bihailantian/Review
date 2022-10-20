@@ -39,6 +39,7 @@ import com.xxm.review.activity.RotateDrawableActivity;
 import com.xxm.review.activity.ServiceActivity;
 import com.xxm.review.activity.ShapeActivity;
 import com.xxm.review.activity.SharePreActivity;
+import com.xxm.review.activity.SimpleToolsTipsActivity;
 import com.xxm.review.activity.TabHostActivity;
 import com.xxm.review.activity.TableWithBorderActivity;
 import com.xxm.review.activity.TextSwitcherActivity;
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
+        itemList.add(new Item("Simple Tools Tips", "Android  SimpleToolsTips", SimpleToolsTipsActivity.class));
         itemList.add(new Item("Kotlin 之 flow", "Android 上的 Kotlin flow 数据流", FlowActivity.class));
         itemList.add(new Item("网络变化监测", "网络变化监测", NetChangeListenerActivity.class));
         itemList.add(new Item("MotionLayout 动画", "MotionLayout 动画", MotionLayoutActivity.class));

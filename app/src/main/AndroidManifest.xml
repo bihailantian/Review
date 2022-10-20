@@ -71,6 +71,7 @@
         <activity android:name=".activity.PopupMenuActivity" />
         <activity android:name=".activity.ViewTipsActivity" />
         <activity android:name=".activity.TextSwitcherActivity" />
+        <activity android:name=".activity.SimpleToolsTipsActivity" />
 
         <service android:name=".service.CountService" />
         <service
