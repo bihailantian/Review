@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:motion="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:viewBindingIgnore="true"
-    tools:context=".activity.MotionLayoutActivity">
+    tools:context=".activity.RlyDecorationActivity">
 
-    <ConstraintSet
-        android:id="@+id/portrait_L90"
-        motion:deriveConstraintsFrom="@id/landscape_left"
-        motion:constraintRotate="left">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-    </ConstraintSet>
 </androidx.constraintlayout.widget.ConstraintLayout>

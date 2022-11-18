@@ -35,6 +35,7 @@ import com.xxm.review.activity.PopupMenuActivity;
 import com.xxm.review.activity.ProgressBarActivity;
 import com.xxm.review.activity.RecyclerViewActivity;
 import com.xxm.review.activity.RetrofitActivity;
+import com.xxm.review.activity.RlyDecorationActivity;
 import com.xxm.review.activity.RotateDrawableActivity;
 import com.xxm.review.activity.ServiceActivity;
 import com.xxm.review.activity.ShapeActivity;
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
+        itemList.add(new Item("RecyclerView吸顶悬浮", "利用RecyclerView.ItemDecoration实现的悬浮效果", RlyDecorationActivity.class));
         itemList.add(new Item("VectorDrawable To Image", "Android Vector转成png、jpg图片", VectorDrawableToImageActivity.class));
         itemList.add(new Item("Simple Tools Tips", "Android  SimpleToolsTips", SimpleToolsTipsActivity.class));
         itemList.add(new Item("Kotlin 之 flow", "Android 上的 Kotlin flow 数据流", FlowActivity.class));

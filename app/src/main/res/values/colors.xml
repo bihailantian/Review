@@ -11,4 +11,11 @@
 
     <color name="color_divider_line_gray">#e2e2e2</color>
     <color name="color_gray_light_content_text">#5d5d5d</color>
+
+
+    <color name="bg1">#42CFBE</color>
+    <color name="bg2">#57B1CC</color>
+    <color name="bg3">#B888E5</color>
+    <color name="bg4">#F695A8</color>
+    <color name="bg5">#F9D461</color>
 </resources>
