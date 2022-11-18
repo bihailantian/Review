@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.xxm.review.R
@@ -32,7 +33,10 @@ class RlyDecorationActivity : AppCompatActivity() {
 
         val cityList = CityUtil.getCityList()
         binding.recyclerView.adapter = DecorationAdapter(this, cityList)
-
+        //分割线
+        val dividerItemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
+        binding.recyclerView.addItemDecoration(dividerItemDecoration)
+        //粘性布局
         binding.recyclerView.addItemDecoration(StickyDecoration(this, object : StickyDecoration.DecorationCallback {
             override fun getData(position: Int): String? {
                 return cityList[position].province

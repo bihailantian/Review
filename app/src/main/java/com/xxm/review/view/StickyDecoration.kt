@@ -3,7 +3,6 @@ package com.xxm.review.view
 import android.content.Context
 import android.graphics.*
 import android.text.TextPaint
-import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
@@ -97,10 +96,7 @@ class StickyDecoration(val context: Context, private val callback: DecorationCal
             val textLine = callback.getData(position)
             preData = currentData
             currentData = textLine
-            if (TextUtils.isEmpty(currentData) || TextUtils.equals(currentData, preData)) {
-                continue
-            }
-            if (textLine.isNullOrEmpty()) {
+            if (textLine.isNullOrEmpty() || currentData.isNullOrEmpty() || currentData.equals(preData, false)) {
                 continue
             }
 
