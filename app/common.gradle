@@ -1,4 +1,5 @@
 gradle.allprojects {
+    //获取当前git提交记录的hash值
     ext.getGitHeadRefsSuffix = {
         try {
             // .git/HEAD描述当前目录所指向的分支信息，内容示例："ref: refs/heads/master\n"
@@ -21,6 +22,15 @@ gradle.allprojects {
             e.printStackTrace()
         }
         return ""
+    }
+    //获取当前git提交记录的hash值
+    ext.getGitHash = { ->
+        def stdout = new ByteArrayOutputStream()
+        exec {
+            commandLine 'git', 'rev-parse', '--short', 'HEAD'
+            standardOutput = stdout
+        }
+        return stdout.toString().trim()
     }
 
     ext.generateVersionCode = {
