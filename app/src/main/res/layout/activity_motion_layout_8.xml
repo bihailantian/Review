@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:motionDebug="SHOW_ALL"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/activity_motion_layout_8_scene">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageView8"
+        android:src="@mipmap/no_data"
+        android:layout_width="64dp"
+        android:layout_height="64dp" />
+</androidx.constraintlayout.motion.widget.MotionLayout>

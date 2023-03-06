@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 
 import java.security.MessageDigest;
 import java.util.Locale;
@@ -31,7 +32,10 @@ public class DeviceIdUtil {
         String serial = getSERIAL();
         //获得硬件uuid（根据硬件相关属性，生成uuid）（无需权限）
         String uuid = getDeviceUUID().replace("-", "");
-
+        Log.d("DeviceIdUtil", "imei=" + imei);
+        Log.d("DeviceIdUtil", "androidid=" + androidid);
+        Log.d("DeviceIdUtil", "serial=" + serial);
+        Log.d("DeviceIdUtil", "uuid=" + uuid);
         //追加imei
         if (imei != null && imei.length() > 0) {
             sbDeviceId.append(imei);
@@ -54,6 +58,7 @@ public class DeviceIdUtil {
 
         //生成SHA1，统一DeviceId长度
         if (sbDeviceId.length() > 0) {
+            Log.d("DeviceIdUtil", "sbDeviceId=" + sbDeviceId);
             try {
                 byte[] hash = getHashByString(sbDeviceId.toString());
                 String sha1 = bytesToHex(hash);

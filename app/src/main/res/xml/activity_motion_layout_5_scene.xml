@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+        <!--        <OnSwipe-->
+        <!--            motion:dragDirection="dragRight"-->
+        <!--            motion:touchAnchorId="@+id/button5"-->
+        <!--            motion:touchAnchorSide="end" />-->
+        <OnClick
+            motion:clickAction="toggle"
+            motion:targetId="@id/button5" />
+        <KeyFrameSet>
+
+            <KeyPosition
+                motion:motionTarget="@+id/button5"
+                motion:framePosition="39"
+                motion:keyPositionType="pathRelative"
+                motion:percentX="0.312"
+                motion:percentY="-0.006" />
+            <KeyPosition
+                motion:motionTarget="@+id/button5"
+                motion:framePosition="80"
+                motion:keyPositionType="pathRelative"
+                motion:percentX="0.728"
+                motion:percentY="-0.007" />
+        </KeyFrameSet>
+    </Transition>
+
+    <!--    start -->
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/button5"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintLeft_toLeftOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+    <!--    end -->
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/button5"
+            android:layout_width="64dp"
+            motion:pathMotionArc="startHorizontal"
+            android:layout_height="64dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintRight_toRightOf="parent" />
+    </ConstraintSet>
+</MotionScene>

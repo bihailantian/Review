@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    app:motionDebug="SHOW_PATH" 绘制debug线
+    app:motionDebug="SHOW_PROGRESS" 绘制当前进度
+    app:motionDebug="SHOW_ALL" 绘制debug线 并且绘制当前进度
+-->
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    app:motionDebug="SHOW_ALL"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/activity_motion_layout_2_scene">
+
+    <Button
+        android:background="@color/holo_purple"
+        android:id="@+id/button"
+        android:layout_width="64dp"
+        android:layout_height="64dp" />
+</androidx.constraintlayout.motion.widget.MotionLayout>

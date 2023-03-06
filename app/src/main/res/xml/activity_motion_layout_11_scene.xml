@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="2000">
+        <!--点击-->
+        <OnClick
+            motion:clickAction="toggle"
+            motion:targetId="@id/imageView11" />
+        <KeyFrameSet>
+            <!--            <KeyTrigger-->
+            <!--                motion:framePosition="0"-->
+            <!--                motion:motionTarget="@+id/imageView11"-->
+            <!--                motion:onCross="show" />-->
+
+            <!--            <KeyTrigger-->
+            <!--                motion:framePosition="20"-->
+            <!--                motion:motionTarget="@+id/imageView11"-->
+            <!--                motion:onCross="hide" />-->
+            <!--            <KeyTrigger-->
+            <!--                motion:framePosition="60"-->
+            <!--                motion:motionTarget="@+id/imageView11"-->
+            <!--                motion:onCross="show" />-->
+            <!--            <KeyTrigger-->
+            <!--                motion:framePosition="79"-->
+            <!--                motion:motionTarget="@+id/imageView11"-->
+            <!--                motion:onCross="hide" />-->
+            <!--            <KeyTrigger-->
+            <!--                motion:framePosition="100"-->
+            <!--                motion:motionTarget="@+id/imageView11"-->
+            <!--                motion:onCross="show" />-->
+
+            <KeyTrigger
+                motion:framePosition="0"
+                motion:motionTarget="@+id/imageView11"
+                motion:onCross="originalImage" />
+
+            <KeyTrigger
+                motion:framePosition="20"
+                motion:motionTarget="@+id/imageView11"
+                motion:onCross="changeImage1" />
+            <KeyTrigger
+                motion:framePosition="60"
+                motion:motionTarget="@+id/imageView11"
+                motion:onCross="changeImage2" />
+
+            <KeyTrigger
+                motion:framePosition="80"
+                motion:motionTarget="@+id/imageView11"
+                motion:onCross="originalImage" />
+            <KeyTimeCycle
+                motion:motionTarget="@+id/imageView11"
+                motion:framePosition="77"
+                motion:wavePeriod="1"
+                android:alpha="0.5"
+                motion:waveOffset="0.5" />
+        </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+
+        <Constraint
+            android:id="@+id/imageView11"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintLeft_toLeftOf="parent" />
+    </ConstraintSet>
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/imageView11"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            motion:layout_constraintRight_toRightOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+</MotionScene>

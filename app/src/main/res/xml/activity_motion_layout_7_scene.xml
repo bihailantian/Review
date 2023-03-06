@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/结束了"
+        motion:constraintSetStart="@id/开始了"
+        motion:duration="1000">
+        <KeyFrameSet>
+
+            <!-- KeyAttribute 改变属性状态 -->
+            <!-- 在 点22 改变状态-->
+            <KeyAttribute
+                android:alpha="0.2"
+                android:scaleX="0.2"
+                android:rotationX="90"
+                android:rotationY="90"
+                android:scaleY="0.2"
+                motion:framePosition="22"
+                motion:motionTarget="@+id/button7" />
+            <!--
+                自行探索:
+                    android:visibility
+                    android:alpha
+                    android:elevation
+                    android:rotation
+                    android:rotationX
+                    android:rotationY
+                    android:scaleX
+                    android:scaleY
+                    android:translationX
+                    android:translationY
+                    android:translationZ
+            -->
+
+            <!-- 在 点55 改变状态-->
+            <KeyAttribute
+                android:alpha="0.2"
+                android:scaleX="1.2"
+                android:scaleY="1.2"
+                motion:framePosition="55"
+                motion:motionTarget="@+id/button7" />
+        </KeyFrameSet>
+
+        <OnClick
+            motion:clickAction="toggle"
+            motion:targetId="@id/button7" />
+    </Transition>
+
+    <!--    开始 这里也可以定义中文，但是不建议使用。。 -->
+    <ConstraintSet android:id="@+id/开始了">
+        <Constraint
+            android:id="@+id/button7"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintLeft_toLeftOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+    <!--    结束 这里也可以定义中文，但是不建议使用。。-->
+    <ConstraintSet android:id="@+id/结束了">
+        <Constraint
+            android:id="@+id/button7"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintRight_toRightOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+</MotionScene>

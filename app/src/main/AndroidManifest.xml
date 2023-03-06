@@ -2,6 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xxm.review">
 
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+
     <application
         android:name=".ReviewApplication"
         android:allowBackup="false"
@@ -10,6 +18,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.AppListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.DeviceIdActivity"
+            android:exported="false" />
         <activity
             android:name=".activity.RlyDecorationActivity"
             android:exported="false" />
@@ -78,6 +92,20 @@
         <activity android:name=".activity.ViewTipsActivity" />
         <activity android:name=".activity.TextSwitcherActivity" />
         <activity android:name=".activity.SimpleToolsTipsActivity" />
+        <activity android:name=".activity.motionLayout.MotionLayout1Activity" />
+        <activity android:name=".activity.motionLayout.MotionLayout2Activity" />
+        <activity android:name=".activity.motionLayout.MotionLayout3Activity" />
+        <activity android:name=".activity.motionLayout.MotionLayout4Activity" />
+        <activity android:name=".activity.motionLayout.MotionLayout5Activity" />
+        <activity android:name=".activity.motionLayout.MotionLayout6Activity" />
+        <activity android:name=".activity.motionLayout.MotionLayout7Activity" />
+        <activity android:name=".activity.motionLayout.MotionLayout8Activity" />
+        <activity android:name=".activity.motionLayout.MotionLayout9Activity" />
+        <activity android:name=".activity.motionLayout.MotionLayout10Activity" />
+        <activity android:name=".activity.motionLayout.MotionLayout11Activity" />
+        <activity android:name=".activity.motionLayout.MotionLayout12Activity" />
+        <activity android:name=".activity.motionLayout.MotionLayout13Activity" />
+        <activity android:name=".activity.motionLayout.MotionLayoutDemoActivity" />
 
         <service android:name=".service.CountService" />
         <service
@@ -85,9 +113,5 @@
             android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>

@@ -108,4 +108,8 @@
     <string name="btn_overlay_rect">Overlay Rect</string>
     <string name="btn_overlay_rect_rounded">Overlay Rect Rounded</string>
 
+    <style name="commonTextView">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
 </resources>

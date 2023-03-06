@@ -18,4 +18,6 @@
     <color name="bg3">#B888E5</color>
     <color name="bg4">#F695A8</color>
     <color name="bg5">#F9D461</color>
+    <color name="black">#000</color>
+    <color name="holo_purple">@android:color/holo_purple</color>
 </resources>

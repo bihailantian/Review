@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+        <OnSwipe
+            motion:dragDirection="dragRight"
+            motion:touchAnchorId="@+id/button4"
+            motion:touchAnchorSide="end" />
+        <KeyFrameSet>
+
+
+            <KeyPosition
+                motion:motionTarget="@+id/button4"
+                motion:framePosition="39"
+                motion:keyPositionType="pathRelative"
+                motion:percentX="0.415"
+                motion:percentY="0.357" />
+            <KeyPosition
+                motion:motionTarget="@+id/button4"
+                motion:framePosition="79"
+                motion:keyPositionType="pathRelative"
+                motion:percentX="0.643"
+                motion:percentY="-0.337" />
+        </KeyFrameSet>
+    </Transition>
+
+    <!--    start -->
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/button4"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintLeft_toLeftOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+    <!--    end -->
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/button4"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            motion:layout_constraintRight_toRightOf="parent" />
+    </ConstraintSet>
+</MotionScene>

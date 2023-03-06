@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+        <!-- 点击事件 -->
+        <OnClick
+            motion:clickAction="toggle"
+            motion:targetId="@id/button6" />
+        <KeyFrameSet>
+            <!--  起始点1 和 起始点2设置"关联"   -->
+            <KeyPosition
+                motion:framePosition="40"
+                motion:keyPositionType="deltaRelative"
+                motion:motionTarget="@+id/button6"
+                motion:pathMotionArc="startVertical"
+                motion:percentX="0.358"
+                motion:percentY="0.17" />
+            <!--  起始点2 和结束关联 -->
+            <KeyPosition
+                motion:framePosition="79"
+                motion:keyPositionType="deltaRelative"
+                motion:motionTarget="@+id/button6"
+                motion:pathMotionArc="flip"
+                motion:percentX="0.675"
+                motion:percentY="0.568" />
+        </KeyFrameSet>
+    </Transition>
+
+    <!--    start -->
+    <ConstraintSet android:id="@+id/start">
+        <!--  开始点 和起始点1设置"关联"  -->
+        <Constraint
+            android:id="@+id/button6"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintLeft_toLeftOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:pathMotionArc="startVertical" />
+    </ConstraintSet>
+    <!--    end -->
+    <!--  结束点不设置关联。。  -->
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/button6"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintRight_toRightOf="parent" />
+    </ConstraintSet>
+</MotionScene>

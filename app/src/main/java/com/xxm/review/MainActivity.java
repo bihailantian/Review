@@ -1,7 +1,9 @@
 package com.xxm.review;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,12 +13,16 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.xxm.review.activity.AdaptationFontActivity;
+import com.xxm.review.activity.AppListActivity;
 import com.xxm.review.activity.BadgeActivity;
 import com.xxm.review.activity.CalendarActivity;
 import com.xxm.review.activity.ConfigActivity;
 import com.xxm.review.activity.ConstraintLayoutActivity;
+import com.xxm.review.activity.DeviceIdActivity;
 import com.xxm.review.activity.GridViewActivity;
 import com.xxm.review.activity.ImageActivity;
 import com.xxm.review.activity.ImageInfoActivity;
@@ -51,6 +57,7 @@ import com.xxm.review.activity.ViewTipsActivity;
 import com.xxm.review.activity.VirtualApkActivity;
 import com.xxm.review.activity.animation.AnimationActivity;
 import com.xxm.review.activity.custom.CustomViewActivity;
+import com.xxm.review.activity.motionLayout.MotionLayoutDemoActivity;
 import com.xxm.review.activity.ui.CalculatorActivity;
 import com.xxm.review.domain.Item;
 import com.xxm.review.myflow.FlowActivity;
@@ -69,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
+        itemList.add(new Item("MotionLayout布局测试", "MotionLayout布局测试", MotionLayoutDemoActivity.class));
+        itemList.add(new Item("AppListActivity", "获取设备安装的应用列表", AppListActivity.class));
+        itemList.add(new Item("DeviceIdActivity", "DeviceId测试", DeviceIdActivity.class));
         itemList.add(new Item("RecyclerView吸顶悬浮", "利用RecyclerView.ItemDecoration实现的悬浮效果", RlyDecorationActivity.class));
         itemList.add(new Item("VectorDrawable To Image", "Android Vector转成png、jpg图片", VectorDrawableToImageActivity.class));
         itemList.add(new Item("Simple Tools Tips", "Android  SimpleToolsTips", SimpleToolsTipsActivity.class));
@@ -135,6 +145,14 @@ public class MainActivity extends AppCompatActivity {
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
         });
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, 1);
+        }
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+        }
+
 
         PathPrint.printPath(this);
 

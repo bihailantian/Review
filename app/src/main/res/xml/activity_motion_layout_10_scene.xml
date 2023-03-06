@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+        <!--点击-->
+        <OnClick
+            motion:clickAction="toggle"
+            motion:targetId="@id/imageView8" />
+
+        <KeyFrameSet>
+
+            <!--            <KeyPosition-->
+            <!--                android:scaleX="1.0"-->
+            <!--                android:scaleY="1.0"-->
+            <!--                motion:framePosition="0"-->
+            <!--                motion:motionTarget="@+id/imageView8" />-->
+
+            <!--
+             motion:waveOffset 添加到属性的偏移值
+             motion:wavePeriod 要在此区域附近循环的循环数
+             motion:waveShape="cos"
+                     sin|square|triangle|sawtooth|reverseSawtooth|cos|bounce
+                     正弦| 方形  |三角形  | 锯齿    |    反向锯齿    |cos| 反弹
+             -->
+            <KeyCycle
+                android:alpha="0.5"
+                android:scaleY="1.2"
+                android:scaleX="1.2"
+                motion:framePosition="51"
+                motion:motionTarget="@+id/imageView8"
+                motion:waveOffset="2"
+                motion:wavePeriod="1"
+                motion:waveShape="bounce" />
+
+            <KeyTrigger
+                motion:motionTarget="@+id/imageView8"
+                motion:framePosition="80"
+                motion:onCross="method" />
+
+        </KeyFrameSet>
+
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+
+        <Constraint
+            android:id="@+id/imageView8"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintLeft_toLeftOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/imageView8"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            motion:layout_constraintRight_toRightOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+</MotionScene>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+        <OnSwipe
+            motion:dragDirection="dragRight"
+            motion:touchAnchorId="@+id/button3"
+            motion:touchAnchorSide="end" />
+        <KeyFrameSet>
+            <!--motion:keyPositionType="pathRelative" 相对路径 -->
+            <!--motion:keyPositionType="parentRelative" 相对于父容器 -->
+            <!--motion:keyPositionType="deltaRelative" 三角关系类型 -->
+            <KeyPosition
+                motion:framePosition="25"
+                motion:keyPositionType="deltaRelative"
+                motion:motionTarget="@+id/button3"
+                motion:percentX="0.134" />
+            <KeyPosition
+                motion:framePosition="59"
+                motion:keyPositionType="deltaRelative"
+                motion:motionTarget="@+id/button3"
+                motion:percentX="0.579" />
+        </KeyFrameSet>
+    </Transition>
+
+    <!--    start -->
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/button3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintLeft_toLeftOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+    <!--    end -->
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/button3"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="64dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:layout_height="64dp"
+            motion:layout_constraintRight_toRightOf="parent" />
+    </ConstraintSet>
+</MotionScene>
