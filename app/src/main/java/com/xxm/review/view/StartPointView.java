@@ -28,7 +28,7 @@ public class StartPointView extends View {
     private int measuredHeight;
     private float radius = 8;
     private int pointNum = 50;
-    private int maxDistance = 800;
+    private int maxDistance = 500;
     private Handler handler;
     private HandlerThread mWorkThread;
 
@@ -93,7 +93,9 @@ public class StartPointView extends View {
                 Point point2 = points.get(y);
 
                 //计算两点之间的距离
-                double d = Math.sqrt(Math.abs(point.x * point.x - point2.x * point2.x) + Math.abs(point.y * point.y - point2.y * point2.y));
+                //float dx = Math.abs(point.x - point2.x) ;
+                //float dy = Math.abs(point.y - point2.y) ;
+                double d = Math.sqrt(Math.abs(point.x - point2.x) * Math.abs(point.x - point2.x) + Math.abs(point.y - point2.y) * Math.abs(point.y - point2.y));
                 Log.d(TAG, "d=" + d);
                 if (d < maxDistance) {
                     int alpha = (int) (255 * (1 - d / maxDistance));
