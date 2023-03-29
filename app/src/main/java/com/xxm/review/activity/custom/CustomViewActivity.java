@@ -1,14 +1,15 @@
 package com.xxm.review.activity.custom;
 
 import android.os.Bundle;
+
 import androidx.annotation.LayoutRes;
 import androidx.annotation.StringRes;
-import com.google.android.material.tabs.TabLayout;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.tabs.TabLayout;
 import com.xxm.review.R;
 
 import java.util.ArrayList;
@@ -20,6 +21,8 @@ public class CustomViewActivity extends AppCompatActivity {
     List<PageModel> pageModels = new ArrayList<>();
 
     {
+        pageModels.add(new PageModel(R.string.title_start_point, R.layout.practice_start_point));
+        pageModels.add(new PageModel(R.string.title_scale, R.layout.practice_scale));
         pageModels.add(new PageModel(R.string.title_like, R.layout.practice_like));
         pageModels.add(new PageModel(R.string.title_measure, R.layout.practice_measure));
         pageModels.add(new PageModel(R.string.title_bubble, R.layout.practice_bubble_view));
@@ -34,7 +37,7 @@ public class CustomViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_custom_view);
 
 
-        pager = (ViewPager) findViewById(R.id.pager);
+        pager = findViewById(R.id.pager);
         pager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
 
             @Override
@@ -55,6 +58,7 @@ public class CustomViewActivity extends AppCompatActivity {
         });
 
         tabLayout = findViewById(R.id.tabLayout);
+        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         tabLayout.setupWithViewPager(pager);
 
     }
