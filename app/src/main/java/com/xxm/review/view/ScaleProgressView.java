@@ -14,6 +14,10 @@ import com.xxm.review.R;
 import java.text.DecimalFormat;
 import java.util.Calendar;
 
+
+/**
+ * @link https://gitee.com/YangsBryant/ScaleProgressView
+ */
 public class ScaleProgressView extends View {
 
     private Context context;

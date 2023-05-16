@@ -185,3 +185,22 @@ android {
 ```
 
 
+
+## ScaleProgressView属性大全
+方法名 | 属性
+--------- | -------------
+setScalePart(int[] scalePart) | 设置刻度值
+setScaleColor(int[] scaleColor) | 设置每段刻度条颜色
+setUnit(String unit) | 设置刻度单位
+setTextColor(int textColor) | 设置刻度文本颜色
+setendsPadding(int endsPadding) | 设置两端文字的缩进边距
+setScaleHeight(int scaleHeight) | 设置刻度尺高度
+isSpace(boolean bl) | 是否显示间隔
+setScaleInsideSize(int size) | 设置卡子所在分段里面的段数
+setScaleDeviationPos(int size) | 设置卡子所在分段里的偏移位置
+setClipPos(int clipPos) | 卡子在分段的位置
+setClipText(String clipText) | 设置卡子的文本
+setClipColor(int clipColor) | 设置卡子的颜色
+isClip(boolean bl) | 是否显示卡子
+setTimeMode(int timeMode) | 是否开启日期模式 0：天数 1：月份 -1:不开启
+setClipPaddingTop(int clipPaddingTop) | 顶部的距离
