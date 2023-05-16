@@ -20,4 +20,8 @@
     <color name="bg5">#F9D461</color>
     <color name="black">#000</color>
     <color name="holo_purple">@android:color/holo_purple</color>
+
+    <!--分段多刻度进度条-->
+    <color name="color06CAAC">#06CAAC</color>
+    <color name="colorFF8F26">#FF8F26</color>
 </resources>

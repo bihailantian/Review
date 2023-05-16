@@ -43,12 +43,14 @@ import com.xxm.review.activity.RecyclerViewActivity;
 import com.xxm.review.activity.RetrofitActivity;
 import com.xxm.review.activity.RlyDecorationActivity;
 import com.xxm.review.activity.RotateDrawableActivity;
+import com.xxm.review.activity.ScaleProgressViewActivity;
 import com.xxm.review.activity.ServiceActivity;
 import com.xxm.review.activity.ShapeActivity;
 import com.xxm.review.activity.SharePreActivity;
 import com.xxm.review.activity.SimpleToolsTipsActivity;
 import com.xxm.review.activity.TabHostActivity;
 import com.xxm.review.activity.TableWithBorderActivity;
+import com.xxm.review.activity.TextSpanActivity;
 import com.xxm.review.activity.TextSwitcherActivity;
 import com.xxm.review.activity.VectorDrawableToImageActivity;
 import com.xxm.review.activity.VideoActivity;
@@ -76,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
+        itemList.add(new Item("分段多刻度进度条", "分段多刻度进度条", ScaleProgressViewActivity.class));
         itemList.add(new Item("MotionLayout布局测试", "MotionLayout布局测试", MotionLayoutDemoActivity.class));
         itemList.add(new Item("AppListActivity", "获取设备安装的应用列表", AppListActivity.class));
         itemList.add(new Item("DeviceIdActivity", "DeviceId测试", DeviceIdActivity.class));

@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activity.ScaleProgressViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.AppListActivity"
             android:exported="false" />
         <activity
@@ -46,7 +49,7 @@
         <activity android:name=".activity.ViewDragHelperActivity" />
         <activity android:name=".activity.NotificationActivity" />
         <activity android:name=".activity.NormalModeActivity" />
-        <activity android:name=".TextSpanActivity" />
+        <activity android:name=".activity.TextSpanActivity" />
         <activity android:name=".activity.RotateDrawableActivity" />
         <activity android:name=".activity.custom.CustomViewActivity" />
         <activity android:name=".MainActivity">

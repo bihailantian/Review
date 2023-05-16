@@ -1,7 +1,6 @@
-package com.xxm.review
+package com.xxm.review.activity
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
@@ -9,6 +8,8 @@ import android.text.style.ForegroundColorSpan
 import android.text.style.SuperscriptSpan
 import android.text.style.UnderlineSpan
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.xxm.review.R
 
 class TextSpanActivity : AppCompatActivity() {
 
