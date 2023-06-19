@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
@@ -21,6 +22,19 @@ public class PathPrint {
     private static final String TAG = "PathPrint";
 
     public static void printPath(Activity activity) {
+
+        try {
+            Log.d(TAG, "==============host====================");
+            String url = "http://null/api/client/getgis.php?number=-1&acc=0";
+            Uri uri = Uri.parse(url);
+            String host = uri.getHost();
+            Log.d(TAG, "host=" + host);
+            Log.d(TAG, "==============host====================");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
         Log.d(TAG, "getPath()= " + Environment.getExternalStorageDirectory().getPath()); //<p>  /storage/emulated/0
         Log.d(TAG, "getPackageName()= " + activity.getPackageName());
         Log.d(TAG, "getApplicationInfo().packageName= " + activity.getApplicationInfo().packageName);

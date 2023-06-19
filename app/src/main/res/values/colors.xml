@@ -24,4 +24,6 @@
     <!--分段多刻度进度条-->
     <color name="color06CAAC">#06CAAC</color>
     <color name="colorFF8F26">#FF8F26</color>
+
+    <color name="color_translucence">#90000000</color>
 </resources>
