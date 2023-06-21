@@ -70,6 +70,22 @@ def getGitHeadRefsSuffix() {
     return ""
 }
 
+//实现把当前git的提交ID写到文件，然后构建APK是把文件打包到APK里面
+task generateVersionFile {
+    println("generateVersionFile start")
+    // 获取当前Git的提交ID
+    def commitId = 'git rev-parse --short HEAD'.execute().text.trim()
+
+    // 生成包含提交ID的版本文件内容
+    def versionContent = "Commit ID: $commitId"
+
+    // 将版本文件写入指定位置
+    def outputFile = file('src/main/assets/GitHeadRefsSuffixVersion.txt')
+    outputFile.parentFile.mkdirs()
+    outputFile.write(versionContent)
+    println("generateVersionFile end")
+}
+
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
