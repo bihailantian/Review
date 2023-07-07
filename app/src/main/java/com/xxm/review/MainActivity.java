@@ -65,6 +65,7 @@ import com.xxm.review.activity.ui.CalculatorActivity;
 import com.xxm.review.domain.Item;
 import com.xxm.review.myflow.FlowActivity;
 import com.xxm.review.utils.NetUtils;
+import com.xxm.review.utils.SystemUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -162,6 +163,8 @@ public class MainActivity extends AppCompatActivity {
         PathPrint.printPath(this);
 
         Log.d(TAG, "IP: " + NetUtils.getIpAddress());
+        Log.d(TAG, "cpuInfo: " + SystemUtils.getCpuInfo());
+        Log.d(TAG, "macAdr: " + SystemUtils.getEthMAC());
 
     }
 
