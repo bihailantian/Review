@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.kotlin_coroutines.databinding.ActivityDemoBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -49,6 +50,17 @@ class DemoActivity : AppCompatActivity() {
     private fun logE(msg: String) {
         mBinding.devInfoView.addErrorInfo(msg)
         Log.e(TAG, msg)
+    }
+
+    /**
+     * LifecycleScope 和 ViewModelScope
+     * 在 LifecycleOwner 的子类（AppCompatActivity 和 Fragment 都是它的子类）中使用，
+     * 这样写出来的协程会在 Lifecycle 派发 destroy 事件的时候 cancel 掉
+     */
+    fun test() {
+        lifecycleScope.launch {
+
+        }
     }
 }
 
