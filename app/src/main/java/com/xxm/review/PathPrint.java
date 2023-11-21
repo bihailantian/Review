@@ -21,8 +21,19 @@ public class PathPrint {
 
     private static final String TAG = "PathPrint";
 
-    public static void printPath(Activity activity) {
+    public static void replaceHost() {
+        String url = "http://20.20.1.216:80/upload/msg/video/8143/20231025/16982162804140.mp4";
+        Uri uri = Uri.parse(url);
+        String ip = "20.20.1.218";
+        String port = "8090";
+        String host = "http://" + ip + ":" + port;
+        Log.d(TAG, "host=" + uri.getHost());
+        Log.d(TAG, "path=" + uri.getPath());
+        Log.d(TAG, "query=" + uri.getQuery());
+    }
 
+    public static void printPath(Activity activity) {
+        replaceHost();
         try {
             Log.d(TAG, "==============host====================");
             String url = "http://null/api/client/getgis.php?number=-1&acc=0";

@@ -2,6 +2,7 @@ package com.xxm.review.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+
 import androidx.annotation.Nullable;
 
 import java.util.Set;
@@ -11,9 +12,18 @@ import java.util.Set;
  */
 public class SharePrefUtil {
 
-    private static final String COOKINGDIY = "cookingdiy";  //sharedPreferences保存数据的文件名
+    private static final String SP_CONFIG_FILE_NAME_ = "sp_config";  //sharedPreferences保存数据的文件名
     private static final String USERINFOS = "userinfos";  //保存记住多组用户账户和密码数据的文件名
 
+
+    /**
+     * @param context 上下文
+     * @return
+     */
+    public static SharedPreferences getSharedPreferences(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(SP_CONFIG_FILE_NAME_, Context.MODE_PRIVATE);
+        return sharedPreferences;
+    }
 
     /**
      * @param context 上下文
@@ -21,7 +31,7 @@ public class SharePrefUtil {
      * @param value   存储的数值
      */
     public static void putLong(Context context, String key, long value) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(COOKINGDIY, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = context.getSharedPreferences(SP_CONFIG_FILE_NAME_, Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = sharedPreferences.edit();
         edit.putLong(key, value);
         edit.commit();
@@ -37,7 +47,7 @@ public class SharePrefUtil {
      * @return 一个int型的数
      */
     public static long getLong(Context context, String key, int defValue) {
-        SharedPreferences sharePre = context.getSharedPreferences(COOKINGDIY, Context.MODE_PRIVATE);
+        SharedPreferences sharePre = context.getSharedPreferences(SP_CONFIG_FILE_NAME_, Context.MODE_PRIVATE);
         return sharePre.getLong(key, defValue);
     }
 
@@ -51,7 +61,7 @@ public class SharePrefUtil {
      */
     public static String getString(Context context, String key, @Nullable String defValue) {
 
-        SharedPreferences sharedPreferences = context.getSharedPreferences(COOKINGDIY, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = context.getSharedPreferences(SP_CONFIG_FILE_NAME_, Context.MODE_PRIVATE);
         return sharedPreferences.getString(key, defValue);
     }
 
@@ -63,8 +73,8 @@ public class SharePrefUtil {
      * @param key     The name of the preference to retrieve.
      * @param value   值
      */
-    public static void setString(Context context, String key, String value) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(COOKINGDIY, Context.MODE_PRIVATE);
+    public static void putString(Context context, String key, String value) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(SP_CONFIG_FILE_NAME_, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(key, value);
         editor.commit();
@@ -79,7 +89,7 @@ public class SharePrefUtil {
      * @return 布尔值
      */
     public static Boolean getBoolean(Context context, String key, Boolean defaultValue) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(COOKINGDIY, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = context.getSharedPreferences(SP_CONFIG_FILE_NAME_, Context.MODE_PRIVATE);
         return sharedPreferences.getBoolean(key, defaultValue);
     }
 
@@ -91,7 +101,7 @@ public class SharePrefUtil {
      * @param value   值
      */
     public static void putBoolean(Context context, String key, Boolean value) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(COOKINGDIY, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = context.getSharedPreferences(SP_CONFIG_FILE_NAME_, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(key, value);
         editor.commit();
@@ -105,7 +115,7 @@ public class SharePrefUtil {
      * @param value   值
      */
     public static void setBoolean(Context context, String key, Boolean value) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(COOKINGDIY, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = context.getSharedPreferences(SP_CONFIG_FILE_NAME_, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(key, value);
         editor.commit();

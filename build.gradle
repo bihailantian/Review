@@ -6,8 +6,10 @@ buildscript {
         kotlin_version = '1.5.20'
     }
     repositories {
-        google()
+        mavenLocal()
+        maven { url 'https://maven.aliyun.com/repository/public' }
         mavenCentral()
+        google()
         jcenter()
     }
     dependencies {
@@ -21,8 +23,10 @@ buildscript {
 
 allprojects {
     repositories {
-        google()
+        mavenLocal()
+        maven { url 'https://maven.aliyun.com/repository/public' }
         mavenCentral()
+        google()
         jcenter()
     }
 }

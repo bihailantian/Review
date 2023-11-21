@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context="com.xxm.review.activity.SharePreActivity">
 
 
@@ -14,18 +14,33 @@
         android:layout_height="wrap_content" />
 
 
-    <Button
-        android:layout_marginTop="20dp"
-        android:id="@+id/btn_sharePre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <TextView
+        android:id="@+id/tv_sharePre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
-        android:id="@+id/tv_sharePre"
+        tools:text="tv_sharePre" />
+
+    <Button
+        android:id="@+id/btn_sharePre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_marginEnd="16dp"
+        android:text="保存SharedPreferences"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_read_sharePre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:text="读取SharedPreferences"
+        android:textAllCaps="false" />
 
 </LinearLayout>
