@@ -1,14 +1,17 @@
 package com.xxm.review.activity
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.xxm.review.R
 import com.xxm.review.databinding.ActivityLoadingBinding
 import com.xxm.review.utils.LoadingUtils
 
 class LoadingActivity : AppCompatActivity() {
+    private val TAG = "LoadingActivity-"
     private lateinit var mBinding: ActivityLoadingBinding
     private val dialogUtils by lazy {
         LoadingUtils(this)
@@ -19,6 +22,7 @@ class LoadingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mBinding = ActivityLoadingBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
+        Log.d(TAG, "onCreate")
 
         mBinding.showLoading.setOnClickListener {
             showLoading()
@@ -26,11 +30,40 @@ class LoadingActivity : AppCompatActivity() {
                 dismissLoading()
             }, 5000)
         }
-    
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop")
+    }
+
+
+    private fun showDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("AlertDialog")
+        builder.setMessage("Message")
+        builder.create().show()
     }
 
     override fun onDestroy() {
         super.onDestroy()
+        Log.d(TAG, "onDestroy")
         dismissLoading()
     }
 

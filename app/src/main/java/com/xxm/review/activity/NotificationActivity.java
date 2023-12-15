@@ -1,20 +1,27 @@
 package com.xxm.review.activity;
 
+import android.app.Notification;
 import android.app.Notification.Builder;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import com.xxm.review.R;
 
@@ -34,10 +41,13 @@ public class NotificationActivity extends AppCompatActivity {
         }
     };
 
+    NotificationManager mNotifManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
+        mNotifManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
     }
 
     public void showProgressNotification(View view) {
@@ -49,7 +59,7 @@ public class NotificationActivity extends AppCompatActivity {
             builder = new Builder(this);
         }
 
-        builder.setSmallIcon(R.mipmap.ic_launcher);
+        builder.setSmallIcon(R.mipmap.ic_launcher1);
         builder.setContentTitle("下载");
         builder.setContentText("正在下载");
         manager.notify(NO_3, builder.build());
@@ -156,5 +166,162 @@ public class NotificationActivity extends AppCompatActivity {
         return channelId;
     }
 
+    public static final String EXTRAS_CHAT_ID = "extras_chat_id";
+    private static final int NOTIF_AVCALL_ID = 19833892;
+    private static final int NOTIF_SMS_ID = 19833893;
+    private static final int NOTIF_CONTSHARE_ID = 19833895;
+    private static final int NOTIF_CHAT_ID = 19833896;
+    private static final int NOTIF_ONLY_LED = 20170718;
+
+    public void showProgressNotification3(View view) {
+        showSMSNotify("showSMSNotify", "NotifyMsg", 2, ChatMessageCategory.ALERT, false);
+        //showSMSNotify("showSMSNotify","NotifyMsg",3,ChatMessageCategory.NOTIFICATION_GETUP,false);
+        //showSMSNotify("showSMSNotify","NotifyMsg",3,ChatMessageCategory.NOTIFICATION_REPORT,false);
+
+    }
+
+    public void showSMSNotify(String title, String msg, long remoteNumber, int type, boolean isOfflineMsg) {
+        /*if (!mStarted) {
+            return;
+        }*/
+        Log.i(TAG, "showSMSNotify: " + title);
+        //mNotifManager.cancel(NOTIF_SMS_ID);
+
+        Intent intent = new Intent();
+        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra(EXTRAS_CHAT_ID, remoteNumber);
+        Notification notification;
+
+        String channelId = "union_broad_msg";
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(channelId, "msg", NotificationManager.IMPORTANCE_DEFAULT);
+            mNotifManager.createNotificationChannel(channel);
+        }
+        int smallIconId;
+        boolean smallResolution = isSmallResolution(NotificationActivity.this);
+        Log.i(TAG, "smallResolution: " + smallResolution);
+        if (smallResolution) {
+            smallIconId = R.mipmap.ic_launcher2;
+        } else {
+            smallIconId = R.mipmap.ic_launcher1;
+        }
+        smallIconId = R.drawable.ic_launcher7;
+        if (type == ChatMessageCategory.ALERT) {
+            intent.setClass(NotificationActivity.this, NotificationActivity.class);
+            PendingIntent contentIntent = PendingIntent.getActivity(NotificationActivity.this, NOTIF_SMS_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(NotificationActivity.this, channelId)
+                    //.setPriority(Notification.PRIORITY_HIGH)
+                    //.setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                    //.setSmallIcon(IconCompat.createWithAdaptiveBitmap(BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher1)))
+                    .setSmallIcon(smallIconId)
+                    .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher1))
+                    .setContentIntent(contentIntent).setAutoCancel(true)
+                    .setLights(Color.RED, 100, 100)
+                    .setVibrate(new long[]{500L, 200L, 300L, 200L})
+                    .setContentTitle(title)
+                    .setContentText(msg)
+                    //.setLocusId()
+
+
+                    //.setColor(Color.O)
+                    //.setColor(Color.parseColor("#FF630B"))
+
+                    //.setColorized(true)
+                    //.setSmallIcon(IconCompat.createWithResource(NotificationActivity.this,R.mipmap.ic_notification))
+                    ;
+            if (!isOfflineMsg) {
+                /*String uriStr = "android.resource://"
+                        + NgnApplication.getContext().getPackageName() + "/"
+                        + R.raw.alarm;
+                Uri uri = Uri.parse(uriStr);
+                builder.setSound(uri);*/
+            }
+            notification = builder.build();
+            mNotifManager.notify(NOTIF_SMS_ID, notification);
+        } else if (type == ChatMessageCategory.NOTIFICATION_GETUP) {
+            intent.setClass(NotificationActivity.this, NotificationActivity.class);
+            PendingIntent contentIntent = PendingIntent.getActivity(NotificationActivity.this, NOTIF_SMS_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+            //cancelMsgNotify();
+            notification = new NotificationCompat.Builder(NotificationActivity.this, channelId)
+                    .setPriority(Notification.PRIORITY_HIGH)
+                    .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                    .setSmallIcon(R.drawable.sms_25)
+                    .setContentIntent(contentIntent).setAutoCancel(true)
+                    .setLights(Color.GREEN, 500, 500)
+                    .setContentTitle(title).setContentText(msg).build();
+
+            //mVibrator = (Vibrator) NgnApplication.getContext().getSystemService(Context.VIBRATOR_SERVICE);
+            //mVibrator.vibrate(new long[]{100L, 300L, 100L, 300L}, 0);
+            //startNofityVibratorTask(60000);
+            //startNotifyGetUptask(120000, 1000000);
+            mNotifManager.notify(NOTIF_SMS_ID, notification);
+        } else {
+            if (type == ChatMessageCategory.NOTIFICATION_REPORT) {
+                intent.setClass(NotificationActivity.this, NotificationActivity.class);
+            } else {
+                intent.setClass(NotificationActivity.this, NotificationActivity.class);
+            }
+            PendingIntent contentIntent = PendingIntent.getActivity(NotificationActivity.this, NOTIF_SMS_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+            boolean isIMSilence = false;/*Engine
+                    .getInstance()
+                    .getConfigurationService()
+                    .getBoolean(
+                            NgnConfigurationEntry.IM_SETTING_INCOMING_IM_SILENCE,
+                            NgnConfigurationEntry.DEFAULT_IM_SETTING_INCOMING_SILENCE);*/
+            if (!isIMSilence) {
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                    String CHANNEL_ID = "union_broad_im";
+                    NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "im", NotificationManager.IMPORTANCE_HIGH);
+                    channel.enableLights(true);//显示桌面红点
+                    channel.setLightColor(Color.RED);
+                    channel.setShowBadge(true);
+                    mNotifManager.createNotificationChannel(channel);
+
+                    notification = new Notification.Builder(NotificationActivity.this, CHANNEL_ID)
+                            //.setPriority(Notification.PRIORITY_DEFAULT)
+                            .setVisibility(Notification.VISIBILITY_PRIVATE)
+                            .setSmallIcon(R.drawable.sms_25)
+                            .setVibrate(new long[]{500L, 200L, 300L, 200L})
+                            .setContentIntent(contentIntent)
+                            .setAutoCancel(true)
+                            .setShowWhen(true)
+                            //.setLights(Color.GREEN, 500, 500)
+                            //.setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_SOUND)
+                            .setContentTitle(title)
+                            .setContentText(msg)
+                            .build();
+
+                } else {
+                    notification = new NotificationCompat.Builder(
+                            NotificationActivity.this, channelId)
+                            .setPriority(Notification.PRIORITY_HIGH)
+                            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                            .setSmallIcon(R.drawable.sms_25)
+                            .setContentIntent(contentIntent)
+                            .setAutoCancel(true)
+                            .setLights(Color.GREEN, 500, 500)
+                            .setVibrate(new long[]{500L, 200L, 300L, 200L})
+                            .setDefaults(Notification.DEFAULT_SOUND)
+                            .setContentTitle(title)
+                            .setContentText(msg)
+                            .build();
+                }
+                mNotifManager.notify((type == ChatMessageCategory.NOTIFICATION_REPORT)
+                        ? -100 : NOTIF_SMS_ID, notification);
+            }
+        }
+
+        Log.d(TAG, "showSMSNotify number=" + remoteNumber);
+
+    }
+
+    public boolean isSmallResolution(Context context) {
+        DisplayMetrics dm = new DisplayMetrics();
+        WindowManager windowManager = (WindowManager) context.getApplicationContext().getSystemService(Context.WINDOW_SERVICE);
+        windowManager.getDefaultDisplay().getMetrics(dm);
+        float width = dm.widthPixels * dm.density;
+        float height = dm.heightPixels * dm.density;
+        return width <= 320 || height <= 480;
+    }
 
 }
