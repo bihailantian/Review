@@ -205,7 +205,7 @@ public class NotificationActivity extends AppCompatActivity {
         } else {
             smallIconId = R.mipmap.ic_launcher1;
         }
-        smallIconId = R.drawable.ic_launcher7;
+        smallIconId = R.drawable.ic_small_icon_24;
         if (type == ChatMessageCategory.ALERT) {
             intent.setClass(NotificationActivity.this, NotificationActivity.class);
             PendingIntent contentIntent = PendingIntent.getActivity(NotificationActivity.this, NOTIF_SMS_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
@@ -220,15 +220,8 @@ public class NotificationActivity extends AppCompatActivity {
                     .setVibrate(new long[]{500L, 200L, 300L, 200L})
                     .setContentTitle(title)
                     .setContentText(msg)
-                    //.setLocusId()
-
-
-                    //.setColor(Color.O)
-                    //.setColor(Color.parseColor("#FF630B"))
-
-                    //.setColorized(true)
-                    //.setSmallIcon(IconCompat.createWithResource(NotificationActivity.this,R.mipmap.ic_notification))
-                    ;
+                    .setColor(getResources().getColor(R.color.colorNotification))
+                    .setColorized(true);
             if (!isOfflineMsg) {
                 /*String uriStr = "android.resource://"
                         + NgnApplication.getContext().getPackageName() + "/"
