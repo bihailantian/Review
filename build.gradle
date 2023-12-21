@@ -4,6 +4,7 @@ buildscript {
 
     ext {
         kotlin_version = '1.5.20'
+        modulePaths = ['c', 'a', 'd', ':chipdemo:chipDemoD', ':app:build']
     }
     repositories {
         mavenLocal()
@@ -33,4 +34,48 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+
+task a {
+    doLast {
+        println 'a'
+    }
+}
+
+task c {
+    doLast {
+        println 'c'
+    }
+}
+
+task d {
+    doLast {
+        println 'd'
+    }
+}
+
+task b {
+    //dependsOn('a','c')
+    dependsOn(['c', 'a'])
+    doFirst {
+        println 'b'
+    }
+}
+
+task aTask(dependsOn: modulePaths) {
+    // 在这里添加自定义任务的代码
+    doFirst {
+        println 'aTask'
+    }
+    doLast {
+        println 'aTask doLast'
+    }
+}
+task aTask2() {
+    dependsOn(modulePaths)
+    // 在这里添加自定义任务的代码
+    doFirst {
+        println 'aTask2'
+    }
 }
