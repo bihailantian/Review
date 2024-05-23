@@ -156,7 +156,7 @@ public class ImageUtils {
         //"/sdcard/DCIM/Camera/"
 
         File fileDir = new File(path);
-        Log.d(TAG, path + " 是否已存在 " + fileDir.exists());
+
         if (!fileDir.exists()) {
             fileDir.mkdirs();
         }
@@ -165,6 +165,7 @@ public class ImageUtils {
         if (file.exists()) {
             file.delete();
         }
+        Log.d(TAG, file.getPath() + " 是否已存在 " + file.exists());
         FileOutputStream out;
         try {
             out = new FileOutputStream(file);
@@ -293,5 +294,45 @@ public class ImageUtils {
         canvas.drawRect(rect, paint);
 
         return resultBitmap;
+    }
+
+    /**
+     * 缩略图
+     *
+     * @param path
+     * @param maxWidth
+     * @param maxHeight
+     * @return
+     */
+    public static Bitmap thumbnail(String path, int maxWidth, int maxHeight) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        Bitmap bitmap = BitmapFactory.decodeFile(path, options);
+        options.inJustDecodeBounds = false;
+        int sampleSize = calculateInSampleSize(options, maxWidth, maxHeight);
+        options.inSampleSize = sampleSize;
+        options.inPreferredConfig = Bitmap.Config.RGB_565;
+        options.inPurgeable = true;
+        options.inInputShareable = true;
+        if (bitmap != null && !bitmap.isRecycled()) {
+            bitmap.recycle();
+        }
+        bitmap = BitmapFactory.decodeFile(path, options);
+        return bitmap;
+    }
+
+    public static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
+        final int height = options.outHeight;
+        final int width = options.outWidth;
+        int inSampleSize = 1;
+
+        if (height > reqHeight || width > reqWidth) {
+            if (width > height) {
+                inSampleSize = Math.round((float) height / (float) reqHeight);
+            } else {
+                inSampleSize = Math.round((float) width / (float) reqWidth);
+            }
+        }
+        return inSampleSize;
     }
 }

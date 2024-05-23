@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.os.SystemClock;
 import android.util.Log;
 
 import com.xxm.review.utils.DeviceIdUtil;
@@ -33,6 +34,11 @@ public class PathPrint {
     }
 
     public static void printPath(Activity activity) {
+        long uptimeInMillis = SystemClock.elapsedRealtime();
+        long uptimeInSeconds = uptimeInMillis / 1000;
+        boolean ret = uptimeInSeconds < 60 * 20;
+        Log.d(TAG, "开机时间小于20分钟：" + ret + ",uptimeInSeconds=" + uptimeInSeconds);
+
         replaceHost();
         try {
             Log.d(TAG, "==============host====================");
