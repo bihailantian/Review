@@ -28,9 +28,11 @@ public class ViewUtil {
      * int height = textView.getMeasuredHeight();
      * }</pre>
      *
+     * @param view            被测量的View
+     * @param isNoWithPadding {@code trie} 不包含View的padding {@code false} 包含View的padding
      * @return
      */
-    public int[] measureNotRenderedView(View view) {
+    public static int[] measureNotRenderedView(View view, boolean isNoWithPadding) {
         // 测量TextView的大小
         int widthMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
         int heightMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
@@ -39,6 +41,10 @@ public class ViewUtil {
         // 获取测量后的宽高
         int width = view.getMeasuredWidth();
         int height = view.getMeasuredHeight();
+        if (!isNoWithPadding) {
+            width = width + view.getPaddingLeft() + view.getPaddingRight();
+            height = height + view.getPaddingTop() + view.getPaddingBottom();
+        }
         int[] viewInfo = new int[2];
         viewInfo[0] = width;
         viewInfo[1] = height;
