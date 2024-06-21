@@ -5,6 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.Window
 import android.view.animation.Animation
+import android.view.animation.LinearInterpolator
 import android.view.animation.RotateAnimation
 import com.xxm.review.R
 import com.xxm.review.databinding.DialogLoadingBinding
@@ -34,9 +35,10 @@ class CenterLoadingView(context: Context, theme: Int) : Dialog(context, R.style.
                 Animation.RELATIVE_TO_SELF,
                 0.5f
         )
-        animation?.duration = 2000
-        animation?.repeatCount = 40
+        animation?.duration = 1200
+        animation?.repeatCount = Animation.INFINITE
         animation?.fillAfter = true
+        animation?.interpolator = LinearInterpolator()
     }
 
     override fun show() {

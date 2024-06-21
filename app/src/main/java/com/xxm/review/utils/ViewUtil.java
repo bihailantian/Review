@@ -29,7 +29,7 @@ public class ViewUtil {
      * }</pre>
      *
      * @param view            被测量的View
-     * @param isNoWithPadding {@code trie} 不包含View的padding {@code false} 包含View的padding
+     * @param isNoWithPadding {@code true} 不包含View的padding {@code false} 包含View的padding
      * @return
      */
     public static int[] measureNotRenderedView(View view, boolean isNoWithPadding) {
