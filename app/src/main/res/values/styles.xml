@@ -10,6 +10,16 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
+    <style name="FlowActivityTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorSurface">@color/white</item>
+        <!-- 放在页面跳转时出现短暂的黑屏-->
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
 
     <style name="item_tab_text_style">
         <item name="android:textSize">10.0dip</item>
