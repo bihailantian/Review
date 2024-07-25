@@ -10,6 +10,7 @@ import android.os.Environment;
 import android.os.SystemClock;
 import android.util.Log;
 
+import com.blankj.utilcode.util.DeviceUtils;
 import com.xxm.review.utils.DeviceIdUtil;
 import com.xxm.review.utils.ImeiUtil;
 
@@ -82,6 +83,8 @@ public class PathPrint {
         Log.d(TAG, "cacheDir：" + activity.getCacheDir().getPath());  ///  data/user/0/com.xxm.review/cache
 
         Log.d(TAG, "############ IMEI ###############");
+
+        Log.d(TAG, "getUniqueDeviceId=" + DeviceUtils.getUniqueDeviceId());
         try {
             String deviceId = DeviceIdUtil.getDeviceId(activity);
             Log.d(TAG, "deviceId=" + deviceId + ", length=" + deviceId.length());
