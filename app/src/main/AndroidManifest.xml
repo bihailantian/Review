@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activity.LivaDataTestActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.OnePixelTestActivity"
             android:exported="false" />
         <activity

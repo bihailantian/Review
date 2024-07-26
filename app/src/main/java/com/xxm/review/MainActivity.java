@@ -29,6 +29,7 @@ import com.xxm.review.activity.ImageInfoActivity;
 import com.xxm.review.activity.JobServiceActivity;
 import com.xxm.review.activity.LifeActivity;
 import com.xxm.review.activity.ListActivity;
+import com.xxm.review.activity.LivaDataTestActivity;
 import com.xxm.review.activity.LoadingActivity;
 import com.xxm.review.activity.MotionLayoutActivity;
 import com.xxm.review.activity.NetChangeListenerActivity;
@@ -81,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
+        itemList.add(new Item("LivaData", "LivaData", LivaDataTestActivity.class));
         itemList.add(new Item("1像素页面保活", "1像素页面保活", OnePixelTestActivity.class));
         itemList.add(new Item("测试loading", "测试loading", LoadingActivity.class));
         itemList.add(new Item("分段多刻度进度条", "分段多刻度进度条", ScaleProgressViewActivity.class));
