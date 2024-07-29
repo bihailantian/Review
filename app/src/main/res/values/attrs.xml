@@ -80,4 +80,14 @@
         <attr name="tvea_textShrink" format="string" />
         <attr name="tvea_textExpand" format="string" />
     </declare-styleable>
+
+    <declare-styleable name="SegmentedProgressView">
+        <attr name="segmentedTotal" format="integer" />
+        <attr name="segmentedProcess" format="integer" />
+        <attr name="segmentedBgColor" format="reference|color" />
+        <attr name="segmentedProgressColor" format="reference|color" />
+        <attr name="segmentedProgressSpace" format="integer" />
+        <attr name="segmentedRectWidth" format="float" />
+        <attr name="segmentedRectHeight" format="float" />
+    </declare-styleable>
 </resources>

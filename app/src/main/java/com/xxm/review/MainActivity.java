@@ -47,6 +47,7 @@ import com.xxm.review.activity.RetrofitActivity;
 import com.xxm.review.activity.RlyDecorationActivity;
 import com.xxm.review.activity.RotateDrawableActivity;
 import com.xxm.review.activity.ScaleProgressViewActivity;
+import com.xxm.review.activity.SegmentedProgressActivity;
 import com.xxm.review.activity.ServiceActivity;
 import com.xxm.review.activity.ShapeActivity;
 import com.xxm.review.activity.SharePreActivity;
@@ -82,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
+        itemList.add(new Item("分段进度条", "分段进度条", SegmentedProgressActivity.class));
         itemList.add(new Item("LivaData", "LivaData", LivaDataTestActivity.class));
         itemList.add(new Item("1像素页面保活", "1像素页面保活", OnePixelTestActivity.class));
         itemList.add(new Item("测试loading", "测试loading", LoadingActivity.class));
