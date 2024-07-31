@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.DashPathEffect;
 import android.graphics.Paint;
+import android.graphics.PathEffect;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -15,9 +17,9 @@ import com.xxm.review.R;
 /**
  * 分段进度条
  */
-public class SegmentedProgressView extends View {
+public class SegmentedProgressViewV2 extends View {
 
-    private static final String TAG = SegmentedProgressView.class.getSimpleName();
+    private static final String TAG = SegmentedProgressViewV2.class.getSimpleName();
 
     private static final int DEFAULT_TOTAL = 30;
     private static final int DEFAULT_SELECT_COLOR = Color.parseColor("#008000");
@@ -28,13 +30,13 @@ public class SegmentedProgressView extends View {
     //选中颜色
     private int mSelectColor = DEFAULT_SELECT_COLOR;
     //矩形宽度
-    private int mRectWidth = 20;
+    private float mRectWidth = 10;
     //矩形高度
     private int mRectHeight = 30;
     //间隔
     private int space = 5;
     //进度值
-    private int mPrecess = 0;
+    private float mPrecess = 0;
     //矩形顶部
     private int mTop = 10;
     //矩形底部
@@ -45,18 +47,22 @@ public class SegmentedProgressView extends View {
     private Paint mPaint;
     //未选中矩形片段的边框宽度
     private float noSelectRectStrokeWidth = 2;
+    //虚线，
+    private PathEffect effects;
+    //进度条总长度
+    private float mPrecessTotalLength;
 
-    public SegmentedProgressView(Context context) {
+    public SegmentedProgressViewV2(Context context) {
         super(context);
         init(null);
     }
 
-    public SegmentedProgressView(Context context, AttributeSet attrs) {
+    public SegmentedProgressViewV2(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs);
     }
 
-    public SegmentedProgressView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SegmentedProgressViewV2(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(attrs);
     }
@@ -76,8 +82,12 @@ public class SegmentedProgressView extends View {
         mSelectColor = typedArray.getColor(R.styleable.SegmentedProgressView_segmentedProgressColor, DEFAULT_SELECT_COLOR);
         space = typedArray.getDimensionPixelSize(R.styleable.SegmentedProgressView_segmentedProgressSpace, 5);
         mPrecess = typedArray.getInt(R.styleable.SegmentedProgressView_segmentedProcess, 0);
+        mRectWidth = typedArray.getFloat(R.styleable.SegmentedProgressView_segmentedRectWidth, 10);
 
         typedArray.recycle();
+
+        //设置虚线的间隔和点的长度
+        effects = new DashPathEffect(new float[]{mRectWidth, space/*, mRectWidth, space*/}, 0);
     }
 
 
@@ -86,14 +96,13 @@ public class SegmentedProgressView extends View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         int measuredHeight = getMeasuredHeight();
         int measuredWidth = getMeasuredWidth();
-        mRectWidth = (measuredWidth - mPaddingX) / mTotal - space;
-        if (mRectWidth <= 0) {
-            mRectWidth = 5;
-        }
+        //Log.d(TAG, "measuredHeight=" + measuredHeight + "  ,measuredWidth=" + measuredWidth);
+
+        //mRectWidth = (measuredWidth - mPaddingX) / mTotal - space;
         mRectHeight = measuredHeight - mTop * 2;
         mBottom = measuredHeight - mTop;
+        mPrecessTotalLength = measuredWidth - mPaddingX - getPaddingLeft() - getPaddingRight();
 
-        Log.d(TAG, "measuredWidth:" + measuredWidth);
     }
 
     @Override
@@ -103,13 +112,42 @@ public class SegmentedProgressView extends View {
     }
 
 
+    private float stopX = mPaddingX;
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        for (int i = 1; i <= mTotal; i++) {
-            drawRect(i, canvas);
+        mPaint.reset();
+        stopX = mPaddingX;
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeWidth(noSelectRectStrokeWidth);
+        //mPaint.setColor(Color.RED);
+        mPaint.setColor(mBgColor);
+        while (mPrecessTotalLength - stopX > mRectWidth) {
+            int startX = (int) stopX;
+            canvas.drawRect(startX, mTop, startX + mRectWidth, mBottom, mPaint);
+            stopX = stopX + mRectWidth + space;
         }
-        Log.d(TAG, "======================================================================");
+
+
+        mPaint.reset();
+        mPaint.setPathEffect(effects);
+        mPaint.setStyle(Paint.Style.FILL);
+        mPaint.setColor(mSelectColor);
+        mPaint.setStrokeWidth(mBottom - mTop);
+        float y = getMeasuredHeight() / 2.0f;
+
+        float mPrecessLength = mPrecessTotalLength * (mPrecess / mTotal);
+        if (mPrecessLength < mPrecessTotalLength) {
+            mPrecessLength = mPaddingX + mPrecessLength;
+        } else {
+            mPrecessLength = stopX;
+        }
+        canvas.drawLine(mPaddingX, y, mPrecessLength, y, mPaint);
+        Log.d(TAG, "mTop=" + mTop + ",mBottom=" + mBottom + ", y=" + y + ", mPrecessTotalLength=" + mPrecessTotalLength +
+                ", mPrecessLength=" + mPrecessLength + ", mTotal=" + mTotal + ", mPrecess=" + mPrecess);
+
+
     }
 
     /**
@@ -128,11 +166,11 @@ public class SegmentedProgressView extends View {
         }
         int startX = getLeft(i);
         canvas.drawRect(startX, mTop, startX + mRectWidth, mBottom, mPaint);
-        Log.d(TAG, "i=" + i + ", left:" + startX + ", right:" + (startX + mRectWidth) + ", mRectWidth=" + mRectWidth);
+        //Log.d(TAG, "i=" + i + ", left:" + startX + ", right:" + (startX + mRectWidth) + ", mRectWidth=" + mRectWidth);
     }
 
     private int getLeft(int i) {
-        return (i - 1) * (mRectWidth + space) + mPaddingX;
+        return (int) ((i - 1) * (mRectWidth + space) + mPaddingX);
     }
 
     /**

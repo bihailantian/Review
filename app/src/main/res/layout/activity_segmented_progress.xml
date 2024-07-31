@@ -9,6 +9,7 @@
     tools:context=".activity.SegmentedProgressActivity">
 
     <com.xxm.review.view.SegmentedProgressView
+
         android:layout_margin="10dp"
         android:id="@+id/progressBar"
         android:layout_width="0dp"
@@ -24,5 +25,21 @@
         segmentedProgressView:segmentedBgColor="@android:color/darker_gray"
         segmentedProgressView:segmentedProgressColor="@android:color/holo_green_dark"
         segmentedProgressView:segmentedTotal="30" />
+
+
+    <com.xxm.review.view.SegmentedProgressViewV2
+        android:layout_margin="10dp"
+        android:id="@+id/progressBar2"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progressBar"
+        app:layout_constraintWidth_percent="0.5"
+        segmentedProgressView:segmentedProcess="35"
+        segmentedProgressView:segmentedBgColor="@android:color/darker_gray"
+        segmentedProgressView:segmentedProgressColor="@android:color/holo_green_dark"
+        segmentedProgressView:segmentedTotal="100" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
