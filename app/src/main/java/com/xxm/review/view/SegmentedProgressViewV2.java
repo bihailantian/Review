@@ -119,6 +119,7 @@ public class SegmentedProgressViewV2 extends View {
         super.onDraw(canvas);
         mPaint.reset();
         stopX = mPaddingX;
+        mPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeWidth(noSelectRectStrokeWidth);
         //mPaint.setColor(Color.RED);
@@ -132,6 +133,7 @@ public class SegmentedProgressViewV2 extends View {
 
         mPaint.reset();
         mPaint.setPathEffect(effects);
+        mPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setColor(mSelectColor);
         mPaint.setStrokeWidth(mBottom - mTop);
