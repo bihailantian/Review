@@ -2,7 +2,10 @@ package com.xxm.review;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -172,6 +175,37 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "cpuInfo: " + SystemUtils.getCpuInfo());
         Log.d(TAG, "macAdr: " + SystemUtils.getEthMAC());
 
+
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(Intent.ACTION_SCREEN_ON);
+        intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
+        powerScreenReceiver = new PowerScreenReceiver();
+        registerReceiver(powerScreenReceiver, intentFilter);
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (powerScreenReceiver != null) {
+            unregisterReceiver(powerScreenReceiver);
+            powerScreenReceiver = null;
+        }
+    }
+
+
+    private PowerScreenReceiver powerScreenReceiver;
+
+    class PowerScreenReceiver extends BroadcastReceiver {
+        private static final String TAG = "PowerScreenReceiver";
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.d(TAG, "action=" + intent.getAction());
+            if (Intent.ACTION_SCREEN_ON.equals(intent.getAction())) {
+
+            }
+        }
     }
 
 
