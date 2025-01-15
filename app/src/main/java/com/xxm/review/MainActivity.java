@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.os.BatteryManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -179,6 +180,7 @@ public class MainActivity extends AppCompatActivity {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_SCREEN_ON);
         intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
+        intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
         powerScreenReceiver = new PowerScreenReceiver();
         registerReceiver(powerScreenReceiver, intentFilter);
 
@@ -204,6 +206,12 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "action=" + intent.getAction());
             if (Intent.ACTION_SCREEN_ON.equals(intent.getAction())) {
 
+            } else if (Intent.ACTION_BATTERY_CHANGED.equals(intent.getAction())) {
+                int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+                int scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
+                float batteryPct = level * 1.0f / scale;
+                // 打印电量百分比
+                Log.d(TAG, "Battery level: " + (batteryPct * 100) + "%");
             }
         }
     }

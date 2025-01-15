@@ -16,6 +16,9 @@ class LoadingActivity : AppCompatActivity() {
     private val dialogUtils by lazy {
         LoadingUtils(this)
     }
+    private val dialogUtils2 by lazy {
+        LoadingUtils(this)
+    }
     private var text: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,14 +26,18 @@ class LoadingActivity : AppCompatActivity() {
         mBinding = ActivityLoadingBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
         Log.d(TAG, "onCreate")
-
         mBinding.showLoading.setOnClickListener {
             showLoading()
             it.handler.postDelayed({
                 dismissLoading()
             }, 5000)
         }
-
+        mBinding.showLoading2.setOnClickListener {
+            dialogUtils2.showLoading()
+            it.handler.postDelayed({
+                dialogUtils2.dismissLoading()
+            }, 5000)
+        }
     }
 
     override fun onStart() {

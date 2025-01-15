@@ -15,7 +15,7 @@ class LoadingUtils(private val mContext: Context, private val isCancelable: Bool
     /**
      * 统一耗时操作Dialog
      */
-    fun showLoading(txt: String?) {
+    fun showLoading(txt: String? = "") {
         if (loadView == null) {
 
             loadView = CenterLoadingView(mContext, R.style.dialog)
