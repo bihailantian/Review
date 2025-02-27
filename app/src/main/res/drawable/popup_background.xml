@@ -1,0 +1,26 @@
+<!-- res/drawable/popup_background.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 阴影 -->
+    <item
+        android:left="4dp"
+        android:top="4dp"
+        android:right="4dp"
+        android:bottom="4dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#99000000" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+
+    <!-- 背景 -->
+    <item
+        android:left="0dp"
+        android:top="0dp"
+        android:right="0dp"
+        android:bottom="0dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+</layer-list>

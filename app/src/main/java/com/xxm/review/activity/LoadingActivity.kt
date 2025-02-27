@@ -1,7 +1,17 @@
 package com.xxm.review.activity
 
+
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.ShapeDrawable
+import android.graphics.drawable.shapes.RoundRectShape
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.view.View
+import android.widget.LinearLayout
+import android.widget.PopupWindow
 import android.widget.TextView
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
@@ -9,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.xxm.review.R
 import com.xxm.review.databinding.ActivityLoadingBinding
 import com.xxm.review.utils.LoadingUtils
+
 
 class LoadingActivity : AppCompatActivity() {
     private val TAG = "LoadingActivity-"
@@ -38,6 +49,62 @@ class LoadingActivity : AppCompatActivity() {
                 dialogUtils2.dismissLoading()
             }, 5000)
         }
+
+        mBinding.showPopupWindow.setOnClickListener {
+            showPopupWindow()
+        }
+    }
+
+    private fun showPopupWindow() {
+        // 创建PopupWindow布局
+        val contentView: View =
+            LayoutInflater.from(this).inflate(R.layout.popup_window_layout, null)
+
+
+        // 创建PopupWindow
+        val popupWindow = PopupWindow(
+            contentView,
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT, true
+        )
+        // 设置背景
+        popupWindow.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        // 设置阴影效果
+        popupWindow.elevation = 200f
+
+        // 设置外部点击关闭
+        popupWindow.isOutsideTouchable = true
+        /*// 设置背景阴影效果
+        setPopupWindowShadow(popupWindow)*/
+
+
+        // 设置PopupWindow的位置
+        popupWindow.showAtLocation(
+            mBinding.showPopupWindow,
+            Gravity.CENTER,
+            0,
+            0
+        )
+    }
+
+    private fun setPopupWindowShadow(popupWindow: PopupWindow) {
+        // 创建一个圆角矩形背景，模拟阴影效果
+        val radii = floatArrayOf(20f, 20f, 20f, 20f, 20f, 20f, 20f, 20f) // 设置圆角
+        val drawable = ShapeDrawable(RoundRectShape(radii, null, null))
+
+
+        // 设置阴影颜色和透明度
+        drawable.paint.color = resources.getColor(android.R.color.white) // 背景色
+        drawable.paint.setShadowLayer(
+            10f,
+            0f,
+            5f,
+            Color.GRAY
+        ) // 阴影效果
+
+
+        // 设置PopupWindow的背景
+        popupWindow.setBackgroundDrawable(drawable)
     }
 
     override fun onStart() {
