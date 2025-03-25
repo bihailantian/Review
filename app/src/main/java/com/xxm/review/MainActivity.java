@@ -66,6 +66,7 @@ import com.xxm.review.activity.ViewDragHelperActivity;
 import com.xxm.review.activity.ViewTipsActivity;
 import com.xxm.review.activity.VirtualApkActivity;
 import com.xxm.review.activity.animation.AnimationActivity;
+import com.xxm.review.activity.animation.TransitionAnimationActivity;
 import com.xxm.review.activity.custom.CustomViewActivity;
 import com.xxm.review.activity.motionLayout.MotionLayoutDemoActivity;
 import com.xxm.review.activity.ui.CalculatorActivity;
@@ -87,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
+        itemList.add(new Item("Activity转场动画", "揭露动画", TransitionAnimationActivity.class));
         itemList.add(new Item("分段进度条", "分段进度条", SegmentedProgressActivity.class));
         itemList.add(new Item("LivaData", "LivaData", LivaDataTestActivity.class));
         itemList.add(new Item("1像素页面保活", "1像素页面保活", OnePixelTestActivity.class));
