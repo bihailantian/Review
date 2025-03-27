@@ -37,6 +37,6 @@ class TikTopAdapter(
     }
 
     override fun getItemCount(): Int {
-        return data?.size
+        return data.size
     }
 }
