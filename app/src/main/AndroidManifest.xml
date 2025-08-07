@@ -133,6 +133,13 @@
         <activity android:name=".activity.motionLayout.MotionLayout12Activity" />
         <activity android:name=".activity.motionLayout.MotionLayout13Activity" />
         <activity android:name=".activity.motionLayout.MotionLayoutDemoActivity" />
+        <activity
+            android:name=".activity.DialogActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity
+            android:name=".activity.TestDialogActivity"
+            android:exported="false" />
 
         <service android:name=".service.CountService" />
         <service

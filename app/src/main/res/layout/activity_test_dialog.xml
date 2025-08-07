@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:elevation="5dp">
+
+
+    <Button
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="open dialog activity"
+        android:id="@+id/btn_open_dialog_activity"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="open dialog"
+        android:id="@+id/btn_open_dialog"
+        android:layout_marginTop="16dp" />
+</LinearLayout>

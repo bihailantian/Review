@@ -28,7 +28,7 @@ public class StartPointView extends View {
     private int measuredHeight;
     private float radius = 8;
     private int pointNum = 50;
-    private int maxDistance = 500;
+    private int maxDistance = 300;
     private Handler handler;
     private HandlerThread mWorkThread;
 
@@ -55,6 +55,14 @@ public class StartPointView extends View {
                 invalidate();
             }
         };
+
+        points.clear();
+        for (int i = 0; i < pointNum; i++) {
+            Point point = new Point(radius, 0, 0);
+            points.add(point);
+
+
+        }
     }
 
 
@@ -67,7 +75,12 @@ public class StartPointView extends View {
     }
 
 
-    private ArrayList<Point> points = new ArrayList<>();
+    private final ArrayList<Point> points = new ArrayList<>();
+    private long mLastUpdateTime = -1;
+    private long mCurrentTime = -1;
+    private long moveSpeed = 50;
+    private float timeInterval = 0f;
+    
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -79,13 +92,38 @@ public class StartPointView extends View {
         //canvas.drawCircle(300, 200, radius, mPaint);
 
         //canvas.drawLine(100, 100, 300, 200, mPaint);
-        points.clear();
+        //points.clear();
+        //mCurrentTime = System.currentTimeMillis();
+        timeInterval = (mLastUpdateTime - System.currentTimeMillis()) / 1000f;
         for (int i = 0; i < pointNum; i++) {
-            Point point = new Point(radius, getRandom(measuredWidth - radius), getRandom(measuredHeight - radius));
-            points.add(point);
+            Point point = points.get(i);//new Point(radius, getRandom(measuredWidth - radius), getRandom(measuredHeight - radius));
+            point.radius = radius;
+            point.x = getRandom(measuredWidth - radius);
+            point.y = getRandom(measuredHeight - radius);
+            if (mLastUpdateTime != -1) {
+                point.x = point.x + moveSpeed * timeInterval;
+                point.y = point.y + moveSpeed * timeInterval;
+            }
+                
+            /*if (mLastUpdateTime == -1) {
+                point.x = getRandom(measuredWidth - radius);
+                point.y = getRandom(measuredHeight - radius);
+            } else {
+                point.x = point.x + moveSpeed * timeInterval;
+                point.y = point.y + moveSpeed * timeInterval;
+                if (point.x > (measuredWidth - radius)){
+                    point.x = getRandom(measuredWidth - radius);
+                }
+                if (point.y > (measuredHeight - radius)){
+                    point.y = getRandom(measuredHeight - radius);
+                }
+            }*/
+
+            //points.add(point);
             canvas.drawCircle(point.x, point.y, point.radius, mPaint);
 
         }
+        mLastUpdateTime = System.currentTimeMillis();
 
         for (int i = 0; i < points.size(); i++) {
             Point point = points.get(i);
@@ -107,7 +145,7 @@ public class StartPointView extends View {
         }
 
         if (handler != null) {
-            handler.sendEmptyMessageDelayed(1, 800);
+            handler.sendEmptyMessageDelayed(1, 100);
         }
 
 

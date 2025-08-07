@@ -2,13 +2,19 @@ package com.xxm.review;
 
 import static android.os.Environment.getExternalStorageDirectory;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.os.Bundle;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.didi.virtualapk.PluginManager;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
+import com.xxm.review.global.RuntimeInfo;
 import com.xxm.review.utils.ALog;
 
 import java.io.File;
@@ -54,9 +60,50 @@ public class ReviewApplication extends Application {
         });
 
         context = this;
+        registerActivityLifecycleCallbacks(lifecycleCallbacks); 
     }
 
     public static Context getContext() {
         return context;
     }
+
+    final ActivityLifecycleCallbacks lifecycleCallbacks = new ActivityLifecycleCallbacks() {
+
+        @Override
+        public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
+
+        }
+
+        @Override
+        public void onActivityStarted(@NonNull Activity activity) {
+
+        }
+
+        @Override
+        public void onActivityResumed(@NonNull Activity activity) {
+            Log.i(TAG, "onActivityResumed:" + activity.getClass().getName());
+            RuntimeInfo.INSTANCE.setTopActivity(activity);
+        }
+
+        @Override
+        public void onActivityPaused(@NonNull Activity activity) {
+            Log.i(TAG, "onActivityPaused:" + activity.getClass().getName());
+            RuntimeInfo.INSTANCE.setTopActivity(null);
+        }
+
+        @Override
+        public void onActivityStopped(@NonNull Activity activity) {
+
+        }
+
+        @Override
+        public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle outState) {
+
+        }
+
+        @Override
+        public void onActivityDestroyed(@NonNull Activity activity) {
+
+        }
+    };
 }

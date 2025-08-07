@@ -1,10 +1,15 @@
 package com.xxm.review.service;
 
 import android.app.Service;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
+
+import java.util.Locale;
 
 public class CountService extends Service {
 
@@ -12,6 +17,7 @@ public class CountService extends Service {
 
     private MyBinder mBinder = new MyBinder();
     private int count = 1;
+    private LanguageChangeReceiver languageChangeReceiver;
 
     public CountService() {
     }
@@ -21,6 +27,10 @@ public class CountService extends Service {
     public void onCreate() {
         super.onCreate();
         Log.d(TAG, "onCreate");
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.intent.action.CONFIGURATION_CHANGED");
+        languageChangeReceiver = new LanguageChangeReceiver();
+        registerReceiver(languageChangeReceiver, intentFilter);
     }
 
 
@@ -49,6 +59,10 @@ public class CountService extends Service {
     public void onDestroy() {
         super.onDestroy();
         Log.d(TAG, "onDestroy");
+        if (languageChangeReceiver != null) {
+            unregisterReceiver(languageChangeReceiver);
+            languageChangeReceiver = null;
+        }
     }
 
 
@@ -63,5 +77,17 @@ public class CountService extends Service {
             return CountService.this;
         }
 
+    }
+
+    // 接收器实现
+    public class LanguageChangeReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals(Intent.ACTION_CONFIGURATION_CHANGED)) {
+                Locale currentLocale = context.getResources().getConfiguration().locale;
+                // 处理语言变化
+                Log.d(TAG, "LanguageChangeReceiver=" + currentLocale.getLanguage());
+            }
+        }
     }
 }

@@ -58,6 +58,7 @@ import com.xxm.review.activity.SharePreActivity;
 import com.xxm.review.activity.SimpleToolsTipsActivity;
 import com.xxm.review.activity.TabHostActivity;
 import com.xxm.review.activity.TableWithBorderActivity;
+import com.xxm.review.activity.TestDialogActivity;
 import com.xxm.review.activity.TextSpanActivity;
 import com.xxm.review.activity.TextSwitcherActivity;
 import com.xxm.review.activity.VectorDrawableToImageActivity;
@@ -80,7 +81,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = MainActivity.class.getSimpleName();
+    private static final String TAG = "MainActivity-";
 
     private Activity mActivity;
     private final List<Item> itemList = new ArrayList<>();
@@ -88,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         //itemList.add(new Item("AsyncTaskActivity", "AsyncTaskActivity", AsyncTaskActivity.class));
+        itemList.add(new Item("DialogActivity", "测试DialogActivity", TestDialogActivity.class));
         itemList.add(new Item("Activity转场动画", "揭露动画", TransitionAnimationActivity.class));
         itemList.add(new Item("分段进度条", "分段进度条", SegmentedProgressActivity.class));
         itemList.add(new Item("LivaData", "LivaData", LivaDataTestActivity.class));
@@ -177,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "IP: " + NetUtils.getIpAddress());
         Log.d(TAG, "cpuInfo: " + SystemUtils.getCpuInfo());
         Log.d(TAG, "macAdr: " + SystemUtils.getEthMAC());
+        Log.d(TAG, "test: " + "这是中文");
 
 
         IntentFilter intentFilter = new IntentFilter();
